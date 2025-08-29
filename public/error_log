@@ -1,0 +1,10 @@
+[09-Aug-2025 15:25:10 UTC] PHP Warning:  require(/home/skylinep/gurudigital.co.ke/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/skylinep/gurudigital.co.ke/public/index.php on line 14
+[09-Aug-2025 15:25:10 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/skylinep/gurudigital.co.ke/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/skylinep/gurudigital.co.ke/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/skylinep/gurudigital.co.ke/public/index.php on line 14
+[09-Aug-2025 15:25:10 UTC] PHP Warning:  require(/home/skylinep/gurudigital.co.ke/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/skylinep/gurudigital.co.ke/public/index.php on line 14
+[09-Aug-2025 15:25:10 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/skylinep/gurudigital.co.ke/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/skylinep/gurudigital.co.ke/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/skylinep/gurudigital.co.ke/public/index.php on line 14

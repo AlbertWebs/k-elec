@@ -1,0 +1,19 @@
+[09-Aug-2025 15:14:12 UTC] PHP Warning:  Module "redis" is already loaded in Unknown on line 0
+[09-Aug-2025 15:18:18 UTC] PHP Warning:  Module "redis" is already loaded in Unknown on line 0
+[09-Aug-2025 15:18:18 UTC] PHP Warning:  require(/home/skylinep/gurudigital.co.ke/vendor/autoload.php): Failed to open stream: No such file or directory in /home/skylinep/gurudigital.co.ke/artisan on line 10
+[09-Aug-2025 15:18:18 UTC] PHP Warning:  require(/home/skylinep/gurudigital.co.ke/vendor/autoload.php): Failed to open stream: No such file or directory in /home/skylinep/gurudigital.co.ke/artisan on line 10
+[09-Aug-2025 15:18:18 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/skylinep/gurudigital.co.ke/vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home/skylinep/gurudigital.co.ke/artisan:10
+Stack trace:
+#0 {main}
+  thrown in /home/skylinep/gurudigital.co.ke/artisan on line 10
+[09-Aug-2025 15:20:24 UTC] PHP Warning:  Module "redis" is already loaded in Unknown on line 0
+[09-Aug-2025 15:23:39 UTC] PHP Warning:  Module "redis" is already loaded in Unknown on line 0
+[09-Aug-2025 15:24:16 UTC] PHP Warning:  Module "redis" is already loaded in Unknown on line 0
+[09-Aug-2025 15:24:16 UTC] PHP Warning:  Module "redis" is already loaded in Unknown on line 0
+[09-Aug-2025 15:25:28 UTC] PHP Warning:  Module "redis" is already loaded in Unknown on line 0
+[09-Aug-2025 15:25:28 UTC] PHP Warning:  Module "redis" is already loaded in Unknown on line 0
+[09-Aug-2025 15:26:13 UTC] PHP Warning:  Module "redis" is already loaded in Unknown on line 0
+[09-Aug-2025 15:26:16 UTC] PHP Warning:  Module "redis" is already loaded in Unknown on line 0
+[09-Aug-2025 15:26:40 UTC] PHP Warning:  Module "redis" is already loaded in Unknown on line 0
+[09-Aug-2025 15:28:25 UTC] PHP Warning:  Module "redis" is already loaded in Unknown on line 0
+[09-Aug-2025 15:28:42 UTC] PHP Warning:  Module "redis" is already loaded in Unknown on line 0

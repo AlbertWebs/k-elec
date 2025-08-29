@@ -48,10 +48,10 @@ use App\Helpers\SocialMediaHelper;
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <!-- Company Info -->
             <div>
-                <h3 class="text-2xl font-bold text-red-600 mb-4">Guru Digital</h3>
+                <h3 class="text-2xl font-bold text-red-600 mb-4">K-Elec</h3>
                 <p class="text-gray-400 mb-4">{{ Setting::get('contact_address', 'Westlands, Nairobi') }}, {{ Setting::get('contact_city', 'Kenya') }}</p>
                 <p class="text-gray-400 mb-2">{{ Setting::get('contact_phone', '+254 700 123 456') }}</p>
-                <p class="text-gray-400 mb-6">{{ Setting::get('contact_email', 'hello@gurudigital.co.ke') }}</p>
+                <p class="text-gray-400 mb-6">{{ Setting::get('contact_email', 'hello@k-klec.co.ke') }}</p>
                 
                 <!-- Social Media -->
                 <div class="flex space-x-4">
@@ -123,7 +123,7 @@ use App\Helpers\SocialMediaHelper;
     <!-- Copyright -->
     <div class="bg-gray-800 py-4">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <p class="text-center text-gray-400 text-sm">© 2025 Guru Digital. Design & Develop By <a href="https://designekta.com" target="_blank" class="text-white hover:text-red-400 transition-colors">Designekta Studios</a>.</p>
+            <p class="text-center text-gray-400 text-sm">© {{date('Y')}} K-Elec. Design & Develop By <a href="https://drenla.com" target="_blank" class="text-white hover:text-red-400 transition-colors">Drenla Hub</a>.</p>
         </div>
     </div>
 </footer> 

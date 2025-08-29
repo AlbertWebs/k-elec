@@ -3,7 +3,7 @@ use App\Models\Setting;
 @endphp
 
 <!-- Top Header Bar -->
-<div class="bg-gray-100 py-2 hidden md:block">
+{{-- <div class="bg-gray-100 color-white py-2 hidden md:block">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center text-sm">
             <div class="text-gray-600">
@@ -14,23 +14,27 @@ use App\Models\Setting;
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 <!-- Main Header -->
-<header class="bg-white shadow-sm">
+<header class="bg-red-600 text-white shadow-sm">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between py-4">
             <!-- Logo -->
             <div class="flex-shrink-0">
                 <a href="{{ route('home') }}">
-                    <img src="{{ asset('images/logo.svg') }}" alt="Guru Digital" class="h-16">
+                    <img style="width:100px; height:auto;" src="{{ asset('images/logo-white.png') }}" alt="Guru Digital" class="h-16 brand-logo">
                 </a>
             </div>
+
+            <a href="{{ route('home') }}" class="text-2xl font-bold text-white">
+                <i class="fas fa-home"></i> 
+            </a>
             
             <!-- Center Search -->
-            <div class="flex-1 max-w-2xl mx-8 hidden md:block">
+            <div class="flex-1 max-w-4xl mx-8 hidden md:block">
                 <form action="{{ route('products.index') }}" method="GET" class="flex">
-                    <div class="relative flex-1">
+                    {{-- <div class="relative flex-1">
                         <select name="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-l-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                             <option value="">All Categories</option>
                             @foreach(\App\Models\Category::active()->get() as $category)
@@ -39,11 +43,25 @@ use App\Models\Setting;
                                 </option>
                             @endforeach
                         </select>
-                    </div>
-                    <div class="relative flex-1">
-                        <input type="text" name="search" value="{{ request('search') }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Search for electronics...">
-                        <button type="submit" class="absolute right-2.5 top-2.5">
-                            <i class="fas fa-search text-gray-400"></i>
+                    </div> --}}
+                    {{-- <div class="relative flex-1">
+                        <input type="text" name="search" value="{{ request('search') }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 rounded" placeholder="Search for electronics...">
+                        <button type="submit" class="absolute right-2.5 top-2.5 bg-gray-200" style="color:#000000; min-width:100px;">
+                            <i class="fas fa-search text-black-400"></i>  Search
+                        </button> 
+                    </div> --}}
+                    <div class="flex flex-1">
+                        <!-- Search Input -->
+                       <input type="text" 
+                            name="search" 
+                            value="{{ request('search') }}" 
+                            placeholder="Search product"
+                            class="w-full p-3 rounded-l-md text-sm text-gray-900 border border-gray-300 focus:ring-0 bg-gray-100 placeholder-gray-400">
+                        
+                        <!-- Search Button -->
+                        <button type="submit" 
+                            class="flex items-center px-4 text-gray-800 font-medium rounded-r-md hover:bg-gray-200 border border-l-0 border-gray-300 bg-gray-100">
+                            <i class="fas fa-search mr-2"></i> Search
                         </button>
                     </div>
                 </form>
@@ -53,8 +71,13 @@ use App\Models\Setting;
             <div class="flex items-center space-x-6">
                 <!-- Desktop Elements -->
                 <div class="hidden md:flex items-center space-x-2">
-                    <i class="fas fa-phone text-gray-600"></i>
-                    <span class="text-sm text-gray-600">{{ Setting::get('contact_phone', '+254 700 123 456') }}</span>
+                  
+                   
+                    <span class="text-md text-white-800" style="font-weight:600">
+                    <span class="text-md text-gray-800 text-center" style="color:gray; font-weight:500">
+                        &nbsp; Customer Care
+                    </span><br>
+                    {{ Setting::get('contact_phone', '+254 700 123 456') }}</span>
                 </div>
                 <a href="{{ route('wishlist.index') }}" class="hidden md:block text-gray-600 hover:text-red-600 relative">
                     <i class="fas fa-heart text-xl"></i>
@@ -107,18 +130,37 @@ use App\Models\Setting;
         </div>
     </div>
     
-    <!-- Navigation Menu -->
-    <nav class="bg-blue-900 hidden md:block">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center space-x-8 py-3">
-                <a href="{{ route('home') }}" class="text-white hover:text-gray-300 text-sm font-medium {{ request()->routeIs('home') ? 'text-gray-300' : '' }}">Home</a>
-                <a href="{{ route('products.index') }}" class="text-white hover:text-gray-300 text-sm font-medium {{ request()->routeIs('products.*') ? 'text-gray-300' : '' }}">Products</a>
-                <a href="{{ route('pages.about') }}" class="text-white hover:text-gray-300 text-sm font-medium {{ request()->routeIs('pages.about') ? 'text-gray-300' : '' }}">About</a>
-                <a href="{{ route('pages.contact') }}" class="text-white hover:text-gray-300 text-sm font-medium {{ request()->routeIs('pages.contact') ? 'text-gray-300' : '' }}">Contact</a>
-                <a href="{{ route('pages.faq') }}" class="text-white hover:text-gray-300 text-sm font-medium {{ request()->routeIs('pages.faq') ? 'text-gray-300' : '' }}">FAQ</a>
+   <!-- Navigation Menu -->
+    <nav class="bg-white hidden md:block mx-auto">
+        <div class="px-4 sm:px-6 lg:px-8">
+            <div class="flex bg-gray-100 items-center w-[70%] mx-auto" style="max-width:1470px;">
+                
+                <!-- All Categories -->
+                <a style="min-width:300px; text-align:center" href="{{ route('products.index') }}" 
+                    class="bg-black text-white px-6 py-3 flex items-center space-x-9 font-semibold hover:bg-gray-800 ">
+                    <span class="mx-auto">All Categories</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" 
+                        class="h-4 w-4 text-white" fill="none" 
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                            d="M9 5l7 7-7 7" />
+                    </svg>
+                </a>
+
+                @foreach($categories->take(6) as $category)
+                <!-- Other Links -->
+                <a href="{{ route('products.index', ['category' => $category->slug]) }}" 
+                    class="font-semibold px-4 py-3 hover:text-gray-700 text-black !text-black" style="color:#000000">
+                    {{ $category->name }}
+                </a>
+                @endforeach
+
+               
             </div>
         </div>
+
     </nav>
+
 </header>
 
 <!-- Mobile Search Form -->
@@ -234,7 +276,7 @@ use App\Models\Setting;
                         </div>
                         <div class="flex items-center space-x-3 p-3 text-gray-700">
                             <i class="fas fa-envelope text-lg"></i>
-                            <span>{{ Setting::get('contact_email', 'hello@gurudigital.co.ke') }}</span>
+                            <span>{{ Setting::get('contact_email', 'hello@k-klec.co.ke') }}</span>
                         </div>
                         <div class="flex items-center space-x-3 p-3 text-gray-700">
                             <i class="fas fa-map-marker-alt text-lg"></i>

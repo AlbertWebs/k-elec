@@ -11,6 +11,7 @@ class CarouselSlide extends Model
 
     protected $fillable = [
         'title',
+        'heading',
         'description',
         'image',
         'button_text',
@@ -54,7 +55,8 @@ class CarouselSlide extends Model
             'yellow' => 'from-yellow-100 to-yellow-200',
             'pink' => 'from-pink-100 to-pink-200',
             'indigo' => 'from-indigo-100 to-indigo-200',
-            'gray' => 'from-gray-100 to-gray-200'
+            'gray' => 'from-gray-100 to-gray-200',
+            'black' => 'from-black-100 to-black-200'
         ];
 
         return $colors[$this->background_color] ?? 'from-blue-100 to-blue-200';
@@ -73,7 +75,8 @@ class CarouselSlide extends Model
             'yellow' => 'text-yellow-600',
             'pink' => 'text-pink-600',
             'indigo' => 'text-indigo-600',
-            'gray' => 'text-gray-600'
+            'gray' => 'text-gray-600',
+            'black' => 'text-black-600'
         ];
 
         return $colors[$this->background_color] ?? 'text-blue-600';

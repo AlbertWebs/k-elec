@@ -26,6 +26,15 @@
                         @enderror
                     </div>
 
+                     <div>
+                        <label for="heading" class="block text-sm font-medium text-gray-700 mb-2">Slide Heading *</label>
+                        <input type="text" id="heading" name="heading" value="{{ old('heading') }}" required 
+                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        @error('heading')
+                            <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+
                     <!-- Description -->
                     <div>
                         <label for="description" class="block text-sm font-medium text-gray-700 mb-2">Description *</label>
@@ -62,7 +71,8 @@
                 <!-- Right Column -->
                 <div class="space-y-6">
                     <!-- Image Upload -->
-                    <div>
+                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center relative">
+
                         <label for="image" class="block text-sm font-medium text-gray-700 mb-2">Slide Image *</label>
                         <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
                             <div id="image-preview" class="hidden mb-4">
@@ -95,6 +105,7 @@
                             <option value="pink" {{ old('background_color') == 'pink' ? 'selected' : '' }}>Pink</option>
                             <option value="indigo" {{ old('background_color') == 'indigo' ? 'selected' : '' }}>Indigo</option>
                             <option value="gray" {{ old('background_color') == 'gray' ? 'selected' : '' }}>Gray</option>
+                            <option value="black" {{ old('background_color') == 'black' ? 'selected' : '' }}>Black</option>
                         </select>
                         @error('background_color')
                             <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
@@ -187,7 +198,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 'yellow': 'from-yellow-100 to-yellow-200',
                 'pink': 'from-pink-100 to-pink-200',
                 'indigo': 'from-indigo-100 to-indigo-200',
-                'gray': 'from-gray-100 to-gray-200'
+                'gray': 'from-gray-100 to-gray-200',
+                'black': 'from-gray-800 to-black' 
             };
 
             const bgClass = colorClasses[backgroundColor] || 'from-blue-100 to-blue-200';

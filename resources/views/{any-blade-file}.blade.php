@@ -62,7 +62,7 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
                 <!-- Categories Sidebar -->
-                {{-- <div class="hidden lg:block lg:col-span-1">
+                <div class="hidden lg:block lg:col-span-1">
                     <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
                         <h3 class="text-lg font-semibold mb-4">Top Categories</h3>
                         <div class="space-y-3">
@@ -75,58 +75,45 @@
                         </div>
                     </div>
                 </div>
-                 --}}
-                 {{--  --}}
-                <div class="hidden lg:block lg:col-span-1">
-                    <!-- Top Image -->
-                    <div class="mb-4">
-                        <img src="{{ asset('images/banner-1.png') }}" alt="Top Banner" class="w-full rounded-lg object-cover">
-                    </div>
-
-                   <!-- Bottom Image -->
-                    <div class="mb-0">
-                        <img src="{{ asset('images/banner-2.png') }}" alt="Middle Banner" class="w-full rounded-lg object-cover">
-                    </div>
-
-               
-                </div>
-
-                 {{--  --}}
+                
                 <!-- Main Banner Carousel -->
-                <div class="lg:col-span-3 relative bg-blacks rounded hidden lg:block">
+                <div class="lg:col-span-3 relative">
                     @if($carouselSlides->count() > 0)
-                        <div class="carousel-container relative overflow-hidden rounded-none lg:rounded-lg -mx-4 lg:mx-0" style="min-height:560px;">
+                        <div class="carousel-container relative overflow-hidden rounded-none lg:rounded-lg -mx-4 lg:mx-0">
                             @foreach($carouselSlides as $index => $slide)
-                                <div class="carousel-slide {{ $index === 0 ? 'active' : '' }} bg-gradient-to-r {{ $slide->background_classes }} p-4 lg:p-8 bg-cover bg-center bg-no-repeat"
-                                     style="background-image: url('{{ Storage::url($slide->image) }}'); 
-                                                        background-size: cover; 
-                                                        background-position: center;"
-                                    >
+                                <div class="carousel-slide {{ $index === 0 ? 'active' : '' }} bg-gradient-to-r {{ $slide->background_classes }} p-4 lg:p-8">
                                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 items-center">
-                                        <div><br><br>
+                                        <div>
                                             <span class="{{ $slide->text_color_class }} font-semibold text-sm lg:text-base">{{ $slide->title }}</span>
-                                            <h2 class="text-2xl lg:text-3xl xl:text-4xl font-bold text-white mt-2 mb-4">{{ $slide->heading }}</h2>
-                                            <p class="text-gray-600 mb-6 text-md lg:text-base">{{ $slide->description }}</p>
-                                            <h4 style="font-size:25px" class="text-lg font-semibold text-white">Kes. 83,000</h4>
-
-                                            <br><br>
+                                            <h2 class="text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 mt-2 mb-4">{{ $slide->title }}</h2>
+                                            <p class="text-gray-600 mb-6 text-sm lg:text-base">{{ $slide->description }}</p>
                                             @if($slide->button_text)
                                                 <a href="{{ $slide->button_link ?? route('products.index') }}" class="inline-block bg-black text-white px-4 py-2 lg:px-6 lg:py-3 rounded-lg font-semibold hover:bg-gray-800 text-sm lg:text-base">
                                                     {{ $slide->button_text }} →
                                                 </a>
                                             @endif
                                         </div>
-                                        
+                                        @if($slide->image)
+                                            <div class="hidden lg:flex justify-center lg:justify-end">
+                                                <img src="{{ Storage::url($slide->image) }}" alt="{{ $slide->title }}" class="max-w-xs lg:max-w-sm object-cover rounded-lg shadow-lg">
+                                            </div>
+                                        @else
+                                            <div class="hidden lg:flex justify-center lg:justify-end">
+                                                <div class="w-48 h-32 bg-gray-200 rounded-lg flex items-center justify-center">
+                                                    <i class="fas fa-image text-gray-400 text-2xl"></i>
+                                                </div>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                             @endforeach
 
                             <!-- Carousel Navigation -->
-                            {{-- <button class="carousel-btn carousel-prev absolute left-2 lg:left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 text-gray-800 p-2 rounded-full shadow-lg transition-all duration-200">
+                            <button class="carousel-btn carousel-prev absolute left-2 lg:left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 text-gray-800 p-2 rounded-full shadow-lg transition-all duration-200">
                                 <svg class="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                                 </svg>
-                            </button> --}}
+                            </button>
                             <button class="carousel-btn carousel-next absolute right-2 lg:right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 text-gray-800 p-2 rounded-full shadow-lg transition-all duration-200">
                                 <svg class="w-5 h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -188,17 +175,7 @@
             <div class="flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-12">
                 <div class="text-center">
                     <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mb-2">
-                        <span class="text-xs sm:text-sm font-semibold text-gray-600">K-Elec</span>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mb-2">
                         <span class="text-xs sm:text-sm font-semibold text-gray-600">Samsung</span>
-                    </div>
-                </div>
-                 <div class="text-center">
-                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mb-2">
-                        <span class="text-xs sm:text-sm font-semibold text-gray-600">Hisense</span>
                     </div>
                 </div>
                 <div class="text-center">

@@ -4,12 +4,12 @@
 }
 
 .image-drop-zone:hover {
-    border-color: #3b82f6;
+    border-color: #D71920;
     background-color: #f8fafc;
 }
 
 .image-drop-zone.dragover {
-    border-color: #3b82f6;
+    border-color: #D71920;
     background-color: #eff6ff;
     transform: scale(1.02);
 }

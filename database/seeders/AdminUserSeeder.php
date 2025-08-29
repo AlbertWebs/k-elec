@@ -21,11 +21,11 @@ class AdminUserSeeder extends Seeder
             // Create a new admin user if no users exist
             User::create([
                 'name' => 'Admin User',
-                'email' => 'gilbert@gurudigital.co.ke',
+                'email' => 'admin@k-elec.co.ke',
                 'password' => bcrypt('Password@123'),
                 'is_admin' => true,
             ]);
-            $this->command->info('Admin user created: gilbert@gurudigital.co.ke / Password@123');
+            $this->command->info('Admin user created: admin@k-elec.co.ke / Password@123');
         }
     }
 } 

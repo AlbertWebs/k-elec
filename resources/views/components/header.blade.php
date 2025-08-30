@@ -147,6 +147,7 @@ use App\Models\Setting;
                     </svg>
                 </a>
 
+                <?php $categories = \App\Models\Category::active()->ordered()->get(); ?>
                 @foreach($categories->take(6) as $category)
                 <!-- Other Links -->
                 <a href="{{ route('products.index', ['category' => $category->slug]) }}" 

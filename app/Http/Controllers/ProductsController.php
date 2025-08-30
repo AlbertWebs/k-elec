@@ -8,15 +8,22 @@ use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
-    public function index(Request $request)
+   public function index(Request $request)
     {
         $query = Product::with('category')->active()->inStock();
         
         // Category filter
         if ($request->filled('category')) {
-            $query->whereHas('category', function($q) use ($request) {
-                $q->where('slug', $request->category);
+            $categorySlug = $request->category;
+            $query->whereHas('category', function($q) use ($categorySlug) {
+                $q->where('slug', $categorySlug);
             });
+
+            // Get category name for page title
+            $category = Category::where('slug', $categorySlug)->first();
+            $pageTitle = $category ? $category->name : 'Products'; // Default title if category not found
+        } else {
+            $pageTitle = 'All Products'; // Default title for all products
         }
         
         // Search filter
@@ -24,10 +31,10 @@ class ProductsController extends Controller
             $search = $request->search;
             $query->where(function($q) use ($search) {
                 $q->where('name', 'like', "%{$search}%")
-                  ->orWhere('description', 'like', "%{$search}%")
-                  ->orWhereHas('category', function($catQuery) use ($search) {
-                      $catQuery->where('name', 'like', "%{$search}%");
-                  });
+                ->orWhere('description', 'like', "%{$search}%")
+                ->orWhereHas('category', function($catQuery) use ($search) {
+                    $catQuery->where('name', 'like', "%{$search}%");
+                });
             });
         }
         
@@ -92,9 +99,11 @@ class ProductsController extends Controller
             'featuredProducts',
             'totalProducts',
             'minPrice',
-            'maxPrice'
+            'maxPrice',
+            'pageTitle' // Pass the page title to the view
         ));
     }
+
     
     public function show($slug)
     {
@@ -111,7 +120,11 @@ class ProductsController extends Controller
             ->where('id', '!=', $product->id)
             ->limit(4)
             ->get();
-            
+        
+        // Pass category name as page title
+        // $pageTitle = $product->category->name; // Assuming 'name' is the column holding the category name
+
         return view('products.show', compact('product', 'relatedProducts'));
     }
+
 } 

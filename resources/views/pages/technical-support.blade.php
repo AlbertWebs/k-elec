@@ -139,7 +139,7 @@ use App\Models\Setting;
                                 </div>
                                 <div>
                                     <h4 class="font-medium text-gray-900 text-sm">Email Support</h4>
-                                    <p class="text-gray-600 text-sm">support@gurudigital.co.ke</p>
+                                    <p class="text-gray-600 text-sm">support@k-elec.co.ke</p>
                                     <p class="text-xs text-gray-500">Response within 24 hours</p>
                                 </div>
                             </div>

@@ -50,7 +50,7 @@ use App\Models\Setting;
                             </div>
                             <div>
                                 <h3 class="text-base font-medium text-gray-900">Email</h3>
-                                <p class="text-gray-600 text-sm">{{ Setting::get('contact_email', 'hello@gurudigital.co.ke') }}</p>
+                                <p class="text-gray-600 text-sm">{{ Setting::get('contact_email', 'hello@k-elec.co.ke') }}</p>
                                 <p class="text-xs text-gray-500">We'll respond within 24 hours</p>
                             </div>
                         </div>

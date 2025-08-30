@@ -21,7 +21,7 @@ use App\Models\Setting;
             <div class="p-8">
                 <h2 class="text-2xl font-bold text-gray-900 mb-4">Introduction</h2>
                 <p class="text-gray-600 mb-4">
-                    At Guru Digital, we are committed to protecting your privacy and ensuring the security of your personal information. 
+                    At K-Elec, we are committed to protecting your privacy and ensuring the security of your personal information. 
                     This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, 
                     use our services, or interact with us in any way.
                 </p>
@@ -242,7 +242,7 @@ use App\Models\Setting;
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div class="text-center">
                         <h3 class="text-lg font-semibold mb-2">Privacy Questions</h3>
-                        <p class="text-blue-200">privacy@gurudigital.co.ke</p>
+                        <p class="text-blue-200">privacy@k-elec.co.ke</p>
                         <p class="text-sm text-blue-300">For privacy-related inquiries</p>
                     </div>
                     <div class="text-center">

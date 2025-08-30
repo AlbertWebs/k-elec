@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Electronics & Technology Products - Guru Digital Kenya')
-@section('description', 'Shop the latest electronics and technology products in Kenya. Find smartphones, laptops, cameras, tablets, and more at Guru Digital. Fast delivery and excellent customer service.')
-@section('keywords', 'electronics Kenya, smartphones Nairobi, laptops Kenya, cameras Kenya, tablets Kenya, technology store, Guru Digital, online electronics shop')
-@section('og_title', 'Electronics & Technology Products - Guru Digital Kenya')
-@section('og_description', 'Shop the latest electronics and technology products in Kenya. Find smartphones, laptops, cameras, and more at Guru Digital.')
+@section('title', isset($pageTitle) ? $pageTitle . ' in kenya - K-elec' : 'Products - K-elec')
+@section('description', isset($pageTitle) ? 'Shop the latest ' . $pageTitle . ' products in Kenya. Find smartphones, laptops, cameras, tablets, and more at K-elec. Fast delivery and excellent customer service.' : 'Shop a wide range of electronics and technology products in Kenya at K-elec. Fast delivery and excellent customer service.')
+@section('keywords', isset($pageTitle) ? 'electronics Kenya, ' . strtolower($pageTitle) . ', smartphones Nairobi, laptops Kenya, cameras Kenya, tablets Kenya, technology store, K-elec, online electronics shop' : 'electronics Kenya, smartphones Nairobi, laptops Kenya, cameras Kenya, tablets Kenya, technology store, K-elec, online electronics shop')
+@section('og_title', isset($pageTitle) ? $pageTitle . ' - K-elec' : 'Products - K-elec')
+@section('og_description', isset($pageTitle) ? 'Shop the latest ' . $pageTitle . ' products in Kenya. Find smartphones, laptops, cameras, and more at K-elec.' : 'Shop a wide range of electronics and technology products in Kenya at K-elec.')
 @section('og_type', 'website')
 @section('og_image', asset('images/logo.svg'))
 
@@ -22,7 +22,7 @@
                 "image": "' . $product->main_image_url . '",
                 "description": "' . addslashes($product->description) . '",
                 "category": "' . addslashes($product->category->name ?? 'Electronics') . '",
-                "brand": "' . addslashes($product->brand ?? 'Guru Digital') . '",
+                "brand": "' . addslashes($product->brand ?? 'K-elec') . '",
                 "offers": {
                     "@type": "Offer",
                     "price": "' . $product->price . '",
@@ -38,8 +38,8 @@
 {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "Electronics Products",
-    "description": "Latest electronics and technology products in Kenya",
+    "name": "' . (isset($pageTitle) ? $pageTitle : 'Electronics & Technology') . ' Products",
+    "description": "' . (isset($pageTitle) ? 'Explore a wide range of ' . $pageTitle . ' products in Kenya. Shop smartphones, laptops, tablets, cameras, and more from K-elec.' : 'Explore a wide range of electronics and technology products in Kenya from K-elec.') . '",
     "url": "' . request()->url() . '",
     "numberOfItems": ' . $products->count() . ',
     "itemListElement": [
@@ -49,14 +49,18 @@
 </script>' !!}
 @endsection
 
+
+
 @section('content')
     <!-- Page Header -->
     <section class="bg-gray-50 py-8">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between">
                 <div>
-                    <h1 class="text-3xl font-bold text-gray-900">All Products</h1>
-                    <p class="text-gray-600 mt-2">Discover our amazing collection of electronics</p>
+                    <h1 class="text-3xl font-bold text-gray-900">
+                        {{ $pageTitle ?? 'All Products' }}
+                    </h1>
+                    <p class="text-gray-600 mt-2">Discover our amazing collection of  {{ $pageTitle ?? 'All Products' }}</p>
                 </div>
                 <div class="mt-4 md:mt-0">
                     <p class="text-sm text-gray-500">Showing {{ $products->firstItem() ?? 0 }} - {{ $products->lastItem() ?? 0 }} of {{ $totalProducts }} products</p>

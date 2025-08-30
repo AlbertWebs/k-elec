@@ -255,7 +255,7 @@ use App\Models\Setting;
                         <i class="fas fa-envelope text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-2">Email Us</h3>
-                    <p class="text-blue-200">support@gurudigital.co.ke</p>
+                    <p class="text-blue-200">support@k-elec.co.ke</p>
                     <p class="text-sm text-blue-300">24-hour response</p>
                 </div>
                 <div>

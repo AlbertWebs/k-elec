@@ -5,7 +5,7 @@
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Page Header -->
         <div class="text-center mb-12">
-            <h1 class="text-4xl font-bold text-gray-900 mb-4">About Guru Digital</h1>
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">About K-Elec</h1>
             <p class="text-lg text-gray-600 max-w-3xl mx-auto">
                 We are Kenya's premier destination for cutting-edge electronics and digital solutions, 
                 committed to bringing the latest technology to our customers.
@@ -18,7 +18,7 @@
                 <div>
                     <h2 class="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
                     <p class="text-gray-600 mb-4">
-                        Founded in 2020, Guru Digital started with a simple mission: to make cutting-edge technology 
+                        Founded in 2020, K-Elec started with a simple mission: to make cutting-edge technology 
                         accessible to everyone in Kenya. What began as a small electronics shop has grown into one of 
                         the country's most trusted names in digital retail.
                     </p>
@@ -115,7 +115,7 @@
 
         <!-- Why Choose Us -->
         <div>
-            <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">Why Choose Guru Digital?</h2>
+            <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">Why Choose K-Elec?</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="text-center">
                     <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">

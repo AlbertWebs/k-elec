@@ -74,7 +74,7 @@ use App\Models\Setting;
                   
                    
                     <span class="text-md text-white-800" style="font-weight:600">
-                    <span class="text-md text-gray-800 text-center" style="color:gray; font-weight:500">
+                    <span class="text-md text-gray-800 text-center">
                         &nbsp; Customer Care
                     </span><br>
                     {{ Setting::get('contact_phone', '+254 700 123 456') }}</span>

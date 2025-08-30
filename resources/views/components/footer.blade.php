@@ -92,13 +92,12 @@ use App\Helpers\SocialMediaHelper;
             
             <!-- Shop Links -->
             <div>
-                <h4 class="text-lg font-semibold mb-4">ELECTRONICS</h4>
+                <h4 class="text-lg font-semibold mb-4">PRODUCTS</h4>
                 <ul class="space-y-2">
-                    <li><a href="{{ route('products.index', ['category' => 'smartphones']) }}" class="text-gray-400 hover:text-white">Smartphones</a></li>
-                    <li><a href="{{ route('products.index', ['category' => 'laptops-computers']) }}" class="text-gray-400 hover:text-white">Laptops & Computers</a></li>
-                    <li><a href="{{ route('products.index', ['category' => 'tvs-entertainment']) }}" class="text-gray-400 hover:text-white">TVs & Entertainment</a></li>
-                    <li><a href="{{ route('products.index', ['category' => 'audio-headphones']) }}" class="text-gray-400 hover:text-white">Audio & Headphones</a></li>
-                    <li><a href="{{ route('products.index', ['category' => 'gaming']) }}" class="text-gray-400 hover:text-white">Gaming</a></li>
+                     <?php $categories = \App\Models\Category::active()->ordered()->get(); ?>
+                    @foreach($categories->take(6) as $category)
+                    <li><a href="{{ route('products.index', ['category' => $category->slug]) }}" class="text-gray-400 hover:text-white">{{ $category->name }}</a></li>
+                    @endforeach
                 </ul>
             </div>
             
@@ -114,8 +113,29 @@ use App\Helpers\SocialMediaHelper;
                         <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
-                
-               
+
+                <div class="flex space-x-3">
+                        <a href="{{ Setting::get('social_facebook', '#') }}" class="w-9 h-9 bg-blue-600 rounded-lg flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
+                            <i class="fab fa-facebook-f text-sm"></i>
+                        </a>
+                        <a href="{{ Setting::get('social_twitter', '#') }}" class="w-9 h-9 bg-blue-400 rounded-lg flex items-center justify-center text-white hover:bg-blue-500 transition-colors">
+                            <i class="fab fa-twitter text-sm"></i>
+                        </a>
+                        <a href="{{ Setting::get('social_instagram', '#') }}" class="w-9 h-9 bg-pink-600 rounded-lg flex items-center justify-center text-white hover:bg-pink-700 transition-colors">
+                            <i class="fab fa-instagram text-sm"></i>
+                        </a>
+                        <a href="{{ Setting::get('social_linkedin', '#') }}" class="w-9 h-9 bg-blue-800 rounded-lg flex items-center justify-center text-white hover:bg-blue-900 transition-colors">
+                            <i class="fab fa-linkedin-in text-sm"></i>
+                        </a>
+                         <a href="{{ Setting::get('social_youtube', '#') }}" class="w-9 h-9 bg-red-600 rounded-lg flex items-center justify-center text-white hover:bg-red-700 transition-colors">
+                            <i class="fab fa-youtube text-sm"></i>
+                        </a>
+                         <a href="{{ Setting::get('social_whatsapp', '#') }}" class="w-9 h-9 bg-green-600 rounded-lg flex items-center justify-center text-white hover:bg-green-700 transition-colors">
+                            <i class="fab fa-whatsapp text-sm"></i>
+                        </a>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>

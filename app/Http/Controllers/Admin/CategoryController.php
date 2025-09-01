@@ -37,10 +37,7 @@ class CategoryController extends Controller
             $validated['image'] = $imagePath;
         }
 
-        if ($request->hasFile('featured')) {
-            $featuredPath = $request->file('featured')->store('category-banners', 'public');
-            $validated['featured'] = $featuredPath;
-        }
+      
 
         $validated['slug'] = Str::slug($validated['name']);
 
@@ -76,10 +73,7 @@ class CategoryController extends Controller
             $validated['image'] = $imagePath;
         }
 
-        if ($request->hasFile('featured')) {
-            $featuredPath = $request->file('featured')->store('category-banners', 'public');
-            $validated['featured'] = $featuredPath;
-        }
+      
 
         $validated['slug'] = Str::slug($validated['name']);
 

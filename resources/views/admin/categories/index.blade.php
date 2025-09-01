@@ -23,6 +23,7 @@
                     <tr>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Image</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Featured</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Products</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Sort Order</th>
@@ -48,6 +49,11 @@
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
                                     <img src="{{url('/')}}/storage/{{ $category->image }}" alt="{{ $category->name }}" class="w-10 h-10 object-cover rounded">
+                                </div>
+                            </td>
+                             <td class="px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center">
+                                    <img src="{{url('/')}}/storage/{{ $category->featured }}" alt="{{ $category->name }}" class="w-10 h-10 object-cover rounded">
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">

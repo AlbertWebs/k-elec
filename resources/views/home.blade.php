@@ -214,13 +214,13 @@
 
 
     <!-- Big Sale Banner -->
-    <x-banner 
+    {{-- <x-banner 
         title="Big Sale Up To 70% Off"
         subtitle="Exclusive Offers For Limited Time"
         buttonText="Explore Your Order"
         buttonLink="{{ route('products.index') }}"
         backgroundColor="bg-gray-900"
-    />
+    /> --}}
 
     <!-- Trending Categories -->
     <section class="py-16">

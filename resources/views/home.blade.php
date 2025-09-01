@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'K-Elec - Quality Electronics & Technology Store in Kenya')
+@section('title', 'K-Elec - Quality Korean Electronics & Technology Store in Kenya')
 @section('description', 'Shop the latest electronics and technology products in Kenya. Find smartphones, laptops, cameras, and more at K-Elec. Fast delivery and excellent customer service.')
 @section('keywords', 'electronics Kenya, smartphones Nairobi, laptops Kenya, cameras Kenya, technology store, K-Elec, online electronics shop')
-@section('og_title', 'K-Elec - Quality Electronics & Technology Store in Kenya')
+@section('og_title', 'K-Elec - quality Korean electronics & Technology Store in Kenya')
 @section('og_description', 'Shop the latest electronics and technology products in Kenya. Find smartphones, laptops, cameras, and more at K-Elec.')
 @section('og_type', 'website')
-@section('og_image', asset('images/logo.svg'))
+@section('og_image', asset('images/logo.png'))
 
 @section('structured_data')
 @php
@@ -24,8 +24,8 @@
     "@type": "Organization",
     "name": "K-Elec",
     "url": "' . url('/') . '",
-    "logo": "' . asset('images/logo.svg') . '",
-    "description": "Your trusted source for quality electronics and technology in Kenya",
+    "logo": "' . asset('images/logo.png') . '",
+    "description": "Your trusted source for quality Korean electronics and technology in Kenya",
     "address": {
         "@type": "PostalAddress",
         "addressCountry": "KE",
@@ -103,11 +103,11 @@
                                                         background-position: center;"
                                     >
                                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 items-center">
-                                        <div><br><br>
+                                        <div style="padding-top:160px">
                                             <span class="{{ $slide->text_color_class }} font-semibold text-sm lg:text-base">{{ $slide->title }}</span>
-                                            <h2 class="text-2xl lg:text-3xl xl:text-4xl font-bold text-white mt-2 mb-4">{{ $slide->heading }}</h2>
-                                            <p class="text-gray-600 mb-6 text-md lg:text-base">{{ $slide->description }}</p>
-                                            <h4 style="font-size:25px" class="text-lg font-semibold text-white">Kes. 83,000</h4>
+                                            <h2 class="text-3xl lg:text-5xl xl:text-4xl font-bold text-white mt-2 mb-4" style="font-size:55px;">{{ $slide->heading }}</h2>
+                                            <p class="text-white mb-6 lg:text-3xl text-md lg:text-base" style="font-size:25px; font-weight:600">{{ $slide->description }}</p>
+                                            <h4 style="font-size:25px" class="text-lg font-bold text-white">Kes. 83,000</h4>
 
                                             <br><br>
                                             @if($slide->button_text)
@@ -147,7 +147,7 @@
                                 <div>
                                     <span class="text-blue-600 font-semibold text-sm lg:text-base">Welcome</span>
                                     <h2 class="text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 mt-2 mb-4">K-Elec</h2>
-                                    <p class="text-gray-600 mb-6 text-sm lg:text-base">Your trusted source for quality electronics and technology</p>
+                                    <p class="text-gray-600 mb-6 text-sm lg:text-base">Your trusted source for quality Korean electronics and technology</p>
                                     <a href="{{ route('products.index') }}" class="inline-block bg-black text-white px-4 py-2 lg:px-6 lg:py-3 rounded-lg font-semibold hover:bg-gray-800 text-sm lg:text-base">
                                         Shop Now →
                                     </a>
@@ -166,7 +166,7 @@
     <!-- Trending Products -->
     <section class="py-16">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12">Our Trending Products</h2>
+            <h2 class="text-3xl font-bold text-left mb-12">Our Trending Products</h2>
             
             <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
                 @foreach($trendingProducts as $product)
@@ -237,7 +237,7 @@
     <!-- Trending Categories -->
     <section class="py-16">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12">Trending Categories</h2>
+            <h2 class="text-3xl font-bold text-left mb-12">Trending Categories</h2>
             
             <div class="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
                 @foreach($categories as $category)

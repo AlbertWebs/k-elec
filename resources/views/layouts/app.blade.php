@@ -6,26 +6,26 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
     <!-- SEO Meta Tags -->
-    <title>@yield('title', config('app.name', 'Guru Digital') . ' - Quality Electronics & Technology in Kenya')</title>
-    <meta name="description" content="@yield('description', 'Guru Digital - Your trusted source for quality electronics and technology in Kenya. Shop smartphones, laptops, cameras, and more with excellent customer service.')">
-    <meta name="keywords" content="@yield('keywords', 'electronics, technology, smartphones, laptops, cameras, Kenya, Guru Digital, online shopping')">
-    <meta name="author" content="Guru Digital">
+    <title>@yield('title', config('app.name', 'K-Elec') . ' - Quality Korean electronics & Technology in Kenya')</title>
+    <meta name="description" content="@yield('description', 'K-Elec - Your trusted source for quality Korean electronics and technology in Kenya. Shop smartphones, laptops, cameras, and more with excellent customer service.')">
+    <meta name="keywords" content="@yield('keywords', 'electronics, technology, smartphones, laptops, cameras, Kenya, K-Elec, online shopping')">
+    <meta name="author" content="K-Elec">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="@yield('og_title', config('app.name', 'Guru Digital'))">
-    <meta property="og:description" content="@yield('og_description', 'Your trusted source for quality electronics and technology in Kenya')">
+    <meta property="og:title" content="@yield('og_title', config('app.name', 'K-Elec'))">
+    <meta property="og:description" content="@yield('og_description', 'Your trusted source for quality Korean electronics and technology in Kenya')">
     <meta property="og:type" content="@yield('og_type', 'website')">
     <meta property="og:url" content="{{ request()->url() }}">
-    <meta property="og:image" content="@yield('og_image', asset('images/logo.svg'))">
-    <meta property="og:site_name" content="Guru Digital">
+    <meta property="og:image" content="@yield('og_image', asset('images/logo.png'))">
+    <meta property="og:site_name" content="K-Elec">
     <meta property="og:locale" content="{{ str_replace('_', '-', app()->getLocale()) }}">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="@yield('twitter_title', config('app.name', 'Guru Digital'))">
-    <meta name="twitter:description" content="@yield('twitter_description', 'Your trusted source for quality electronics and technology in Kenya')">
-    <meta name="twitter:image" content="@yield('twitter_image', asset('images/logo.svg'))">
+    <meta name="twitter:title" content="@yield('twitter_title', config('app.name', 'K-Elec'))">
+    <meta name="twitter:description" content="@yield('twitter_description', 'Your trusted source for quality Korean electronics and technology in Kenya')">
+    <meta name="twitter:image" content="@yield('twitter_image', asset('images/logo.png'))">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="{{ request()->url() }}">

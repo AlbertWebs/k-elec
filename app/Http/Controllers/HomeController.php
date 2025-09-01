@@ -20,7 +20,7 @@ class HomeController extends Controller
             ->inStock()
             ->orderBy('rating', 'desc')
             ->orderBy('reviews_count', 'desc')
-            ->limit(8)
+            ->limit(12)
             ->get();
             
         $featuredProducts = Product::with('category')

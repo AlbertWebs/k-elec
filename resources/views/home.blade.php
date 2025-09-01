@@ -227,15 +227,34 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-left mb-12">All Categories</h2>
             
-            <div class="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-6">
                 @foreach($categories as $category)
-                    <a href="{{ route('products.index', ['category' => $category->slug]) }}" class="text-center block">
-                        <div class="w-16 h-16 md:w-20 md:h-20 border-2 border-gray-200 rounded-full flex items-center justify-center mx-auto mb-3 hover:border-gray-400 transition-colors">
-                            <i class="{{ $category->icon }} text-xl md:text-2xl text-gray-600"></i>
+                    <a href="{{ route('products.index', ['category' => $category->slug]) }}"
+                    class="relative block rounded-2xl shadow-lg overflow-hidden h-64 p-4 rounded" style="min-height:420px">
+
+                        <!-- Forced gradient background (works even if Tailwind gradient classes aren't available) -->
+                        <span aria-hidden="true"
+                            class="absolute inset-0 pointer-events-none"
+                            style="background: linear-gradient(to bottom, #DC2626, #991B1B);">
+                        </span>
+
+                        <!-- Category Title (top center) -->
+                        <div class="relative z-10 absolute top-4 left-1/2 -translate-x-1/2 
+                                    text-white font-extrabold text-lg text-center font-bold text-4xl" style="font-size: 30px; top:30px;">
+                            {{ $category->name }}
                         </div>
-                        <p class="text-sm font-medium text-gray-700 hidden md:block">{{ $category->name }}</p>
+
+                        <!-- Category Image (bottom 50% touching bottom) -->
+                       <!-- Image at the bottom -->
+                        <div class="absolute bottom-0 left-0 right-0" style="position:absolute; bottom:0; width:85%; margin:0 auto; height:300px; object-fit: cover">
+                            <img src="{{ asset('storage/' . $category->featured) }}"
+                                alt="{{ $category->name }}"
+                                class="w-full" style="height:100%;width:100%; object-fit: cover !important" />
+                        </div>
+
                     </a>
                 @endforeach
+
             </div>
         </div>
     </section>

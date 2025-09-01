@@ -155,6 +155,16 @@
                 @enderror
             </div>
 
+            <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+    
+
+            <script>
+                CKEDITOR.replace('description', {
+                    filebrowserUploadUrl: "https://africanpharmaceuticalreview.com/product/img?_token=mbshGdbPIBHaYR8lxZTHV2zwwjJQJrwrDsk5jevS",
+                    filebrowserUploadMethod: 'form'
+                });
+            </script>
+
             <!-- Specifications -->
             <div class="space-y-4">
                 <div class="flex items-center justify-between">

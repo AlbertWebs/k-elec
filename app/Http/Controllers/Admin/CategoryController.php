@@ -25,10 +25,17 @@ class CategoryController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
+            'image' => 'nullable|image|max:2048',
             'icon' => 'nullable|string|max:255',
             'is_active' => 'boolean',
             'sort_order' => 'nullable|integer|min:0',
         ]);
+
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('category-banners', 'public');
+            $validated['image'] = $imagePath;
+        }
 
         $validated['slug'] = Str::slug($validated['name']);
 
@@ -54,9 +61,15 @@ class CategoryController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
             'icon' => 'nullable|string|max:255',
+            'image' => 'nullable|image|max:2048',
             'is_active' => 'boolean',
             'sort_order' => 'nullable|integer|min:0',
         ]);
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('category-banners', 'public');
+            $validated['image'] = $imagePath;
+        }
 
         $validated['slug'] = Str::slug($validated['name']);
 

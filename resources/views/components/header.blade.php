@@ -118,7 +118,7 @@ use App\Models\Setting;
                 </div>
                 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="md:hidden flex items-center space-x-2 text-gray-600 hover:text-gray-800">
+                <button id="mobile-menu-button" class="md:hidden flex items-center space-x-2 text-white hover:text-gray-800">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
                 

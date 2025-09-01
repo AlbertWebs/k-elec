@@ -8,6 +8,8 @@
 @section('og_type', 'website')
 @section('og_image', asset('images/logo.png'))
 
+
+
 @section('structured_data')
 @php
     $socialUrls = \App\Helpers\SocialMediaHelper::getSameAsArray();
@@ -57,6 +59,33 @@
 @endsection
 
 @section('content')
+    
+    <style>
+        .carousel-slide {
+        opacity: 0;
+        transform: translateX(100%);
+        transition: all 1s ease-in-out;
+        position: absolute;
+        inset: 0; /* replaces top/left/width/height */
+        }
+
+        .carousel-slide.active {
+        opacity: 1;
+        transform: translateX(0);
+        z-index: 10;
+        }
+
+        .carousel-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        }
+    </style>
+   
+
+   
+    
+    
     <!-- Hero Section -->
     <section class="bg-white py-0 lg:py-12">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -96,30 +125,31 @@
                 <div class="lg:col-span-3 relative bg-blacks rounded hidden lg:block">
                     @if($carouselSlides->count() > 0)
                         <div class="carousel-container relative overflow-hidden rounded-none lg:rounded-lg -mx-4 lg:mx-0" style="min-height:560px;">
-                            @foreach($carouselSlides as $index => $slide)
-                                <div class="carousel-slide {{ $index === 0 ? 'active' : '' }} bg-gradient-to-r {{ $slide->background_classes }} p-4 lg:p-8 bg-cover bg-center bg-no-repeat"
-                                     style="background-image: url('{{ Storage::url($slide->image) }}'); 
-                                                        background-size: cover; 
-                                                        background-position: center;"
-                                    >
-                                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 items-center">
-                                        <div style="padding-top:160px">
-                                            <span class="{{ $slide->text_color_class }} font-semibold text-sm lg:text-base">{{ $slide->title }}</span>
-                                            <h2 class="text-3xl lg:text-5xl xl:text-4xl font-bold text-white mt-2 mb-4" style="font-size:55px;">{{ $slide->heading }}</h2>
-                                            <p class="text-white mb-6 lg:text-3xl text-md lg:text-base" style="font-size:25px; font-weight:600">{{ $slide->description }}</p>
-                                            <h4 style="font-size:25px" class="text-lg font-bold text-white">Kes. 83,000</h4>
+                           <div class="carousel-container relative overflow-hidden rounded-none lg:rounded-lg -mx-4 lg:mx-0" style="min-height:560px;">
+                                @foreach($carouselSlides as $index => $slide)
+                                    <div class="carousel-slide {{ $index === 0 ? 'active' : '' }} bg-gradient-to-r {{ $slide->background_classes }} p-4 lg:p-8 bg-cover bg-center bg-no-repeat"
+                                        style="background-image: url('{{ Storage::url($slide->image) }}'); 
+                                                background-size: cover; 
+                                                background-position: center;">
+                                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 items-center">
+                                            <div style="padding-top:160px">
+                                                <span class="{{ $slide->text_color_class }} font-semibold text-sm lg:text-base">{{ $slide->title }}</span>
+                                                <h2 class="text-3xl lg:text-5xl xl:text-4xl font-bold text-white mt-2 mb-4" style="font-size:55px;">{{ $slide->heading }}</h2>
+                                                <p class="text-white mb-6 lg:text-3xl text-md lg:text-base" style="font-size:25px; font-weight:600">{{ $slide->description }}</p>
+                                                <h4 style="font-size:25px" class="text-lg font-bold text-white">Kes. 83,000</h4>
 
-                                            <br><br>
-                                            @if($slide->button_text)
-                                                <a href="{{ $slide->button_link ?? route('products.index') }}" class="inline-block bg-black text-white px-4 py-2 lg:px-6 lg:py-3 rounded-lg font-semibold hover:bg-gray-800 text-sm lg:text-base">
-                                                    {{ $slide->button_text }} →
-                                                </a>
-                                            @endif
+                                                <br><br>
+                                                @if($slide->button_text)
+                                                    <a href="{{ $slide->button_link ?? route('products.index') }}" class="inline-block bg-black text-white px-4 py-2 lg:px-6 lg:py-3 rounded-lg font-semibold hover:bg-gray-800 text-sm lg:text-base">
+                                                        {{ $slide->button_text }} →
+                                                    </a>
+                                                @endif
+                                            </div>
                                         </div>
-                                        
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
+                            </div>
+
 
                             <!-- Carousel Navigation -->
                             {{-- <button class="carousel-btn carousel-prev absolute left-2 lg:left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 text-gray-800 p-2 rounded-full shadow-lg transition-all duration-200">
@@ -182,48 +212,6 @@
         </div>
     </section>
 
-    <!-- Brand Logos -->
-    <section class="bg-gray-100 py-8">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-12">
-                <div class="text-center">
-                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mb-2">
-                        <span class="text-xs sm:text-sm font-semibold text-gray-600">K-Elec</span>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mb-2">
-                        <span class="text-xs sm:text-sm font-semibold text-gray-600">Samsung</span>
-                    </div>
-                </div>
-                 <div class="text-center">
-                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mb-2">
-                        <span class="text-xs sm:text-sm font-semibold text-gray-600">Hisense</span>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mb-2">
-                        <span class="text-xs font-semibold text-gray-600">APPLE</span>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mb-2">
-                        <span class="text-xs sm:text-sm font-semibold text-gray-600">Sony</span>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mb-2">
-                        <span class="text-xs sm:text-sm font-semibold text-gray-600">Canon</span>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center mb-2">
-                        <span class="text-xs sm:text-sm font-semibold text-gray-600">Dell</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Big Sale Banner -->
     <x-banner 
@@ -237,7 +225,7 @@
     <!-- Trending Categories -->
     <section class="py-16">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-left mb-12">Trending Categories</h2>
+            <h2 class="text-3xl font-bold text-left mb-12">All Categories</h2>
             
             <div class="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
                 @foreach($categories as $category)
@@ -288,4 +276,7 @@
             </div>
         </div>
     </section>
+
+   
+
 @endsection

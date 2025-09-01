@@ -17,6 +17,16 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     {{-- <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/classic/ckeditor.js"></script> --}}
 
+    {{--  --}}
+    <!-- Include Trix styles and script -->
+    <!-- Trix Editor CSS -->
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/trix@2.0.0/dist/trix.css">
+
+    <!-- Trix Editor JS -->
+    <script src="https://cdn.jsdelivr.net/npm/trix@2.0.0/dist/trix.umd.min.js"></script> --}}
+
+    {{--  --}}
+    
     
     <style>
         [x-cloak] { display: none !important; }

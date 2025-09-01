@@ -168,7 +168,7 @@
                 <!-- Description -->
                 <div>
                     <h3 class="text-lg font-medium text-gray-900 mb-2">Description</h3>
-                    <p class="text-gray-600 leading-relaxed">{{ $product->description }}</p>
+                    <p class="text-gray-600 leading-relaxed">{!! $product->description !!}</p>
                 </div>
 
                 <!-- Stock Status -->

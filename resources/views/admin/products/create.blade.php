@@ -151,6 +151,20 @@
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                 @enderror
             </div>
+           
+            {{-- <textarea  required id="article-ckeditor" name="ckeditor" class="materialilze-textarea" placeholder="content" style="min-height:500px !important"></textarea> --}}
+            {{-- CKEditor 5 CDN --}}
+            {{-- <script src="https://cdn.ckeditor.com/4.25.1-lts/standard/ckeditor.js"></script> --}}
+            <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+    
+
+            <script>
+                CKEDITOR.replace('description', {
+                    filebrowserUploadUrl: "https://africanpharmaceuticalreview.com/product/img?_token=mbshGdbPIBHaYR8lxZTHV2zwwjJQJrwrDsk5jevS",
+                    filebrowserUploadMethod: 'form'
+                });
+            </script>
+
 
             <!-- Specifications -->
             <div class="space-y-4">

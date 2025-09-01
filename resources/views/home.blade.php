@@ -240,14 +240,14 @@
 
                         <!-- Category Title (top center) -->
                         <div class="relative z-10 absolute top-4 left-1/2 -translate-x-1/2 
-                                    text-white font-extrabold text-lg text-center font-bold text-4xl" style="font-size: 30px; top:30px;">
+                                    text-white font-bold text-lg text-center text-4xl" style="font-size: 30px; top:30px; font-weight:800">
                             {{ $category->name }}
                         </div>
 
                         <!-- Category Image (bottom 50% touching bottom) -->
                        <!-- Image at the bottom -->
                         <div class="absolute bottom-0 left-0 right-0" style="position:absolute; bottom:0; width:85%; margin:0 auto; height:300px; object-fit: cover">
-                            <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}"  class="w-full" style="height:100%;width:100%; object-fit: cover !important; bottom:-10px !important;" />
+                            <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}"  class="w-full" style="height:100%; width:100%; object-fit: cover !important; bottom:-10px !important;" />
                         </div>
 
                     </a>
@@ -257,42 +257,6 @@
         </div>
     </section>
 
-    <!-- Product Grids -->
-    <section class="py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                <!-- Top Seller -->
-                <div>
-                    <h3 class="text-xl font-semibold mb-6">Top Seller</h3>
-                    <div class="grid grid-cols-2 gap-3 md:gap-4 lg:space-y-4 lg:grid-cols-1">
-                        @foreach($topSellers as $product)
-                            <x-product-card :product="$product" />
-                        @endforeach
-                    </div>
-                </div>
-                
-                <!-- Featured Products -->
-                <div>
-                    <h3 class="text-xl font-semibold mb-6">Featured Products</h3>
-                    <div class="grid grid-cols-2 gap-3 md:gap-4 lg:space-y-4 lg:grid-cols-1">
-                        @foreach($featuredProducts as $product)
-                            <x-product-card :product="$product" />
-                        @endforeach
-                    </div>
-                </div>
-                
-                <!-- Recent Products -->
-                <div class="md:col-span-2 lg:col-span-1">
-                    <h3 class="text-xl font-semibold mb-6">Recent Products</h3>
-                    <div class="grid grid-cols-2 gap-3 md:gap-4 lg:space-y-4 lg:grid-cols-1">
-                        @foreach($recentProducts as $product)
-                            <x-product-card :product="$product" />
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
    
 

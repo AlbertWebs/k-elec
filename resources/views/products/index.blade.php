@@ -55,23 +55,23 @@
     <!-- Page Header -->
  <section class="w-full bg-gray-50 py-8 bg-cover bg-center min-h-[500px]" style="background-image: url('{{ asset('storage/' . $category->featured) }}'); background-position:contain; background-repeat:no-repeat; height:680px !important; ">
      {{--  --}}
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 h-full">
-        <div class="grid grid-cols-1 md:grid-cols-2 items-center h-full gap-6">
-            
-            <!-- Left column: Image category -->
-            <div class="flex justify-center">
-                <img src="{{ asset('storage/' . $category->image) }}" alt="Banner Image" class="" style="width:100% !important; height:100%; object-fit:cover; position:relative; bottom:0px z-index: ">
-            </div>
-            
-            <!-- Right column: Title -->
-            <div class="text-right">
-                <h1 class="text-4xl text-white leading-tight " style="font-size:90px; font-weight:900 !important; max-width:400px; float:right;">
-                    {{ $pageTitle ?? 'All Products' }}
-                </h1>
-            </div>
-            
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 h-full">
+    <div class="grid grid-cols-1 md:grid-cols-2 items-center h-full gap-6">
+        
+        <!-- Left column: Image category -->
+        <div class="flex justify-center">
+            <img src="{{ asset('storage/' . $category->image) }}" alt="Banner Image" class="" style="width:100% !important; height:100%; object-fit:cover; position:relative; bottom:0px z-index: ">
         </div>
+        
+        <!-- Right column: Title -->
+        <div class="text-right">
+            <h1 class="text-4xl text-white leading-tight " style="font-size:90px; font-weight:900 !important; max-width:400px; float:right;">
+                {{ $pageTitle ?? 'All Products' }}
+            </h1>
+        </div>
+        
     </div>
+</div>
 
      {{--  --}}
 </section>

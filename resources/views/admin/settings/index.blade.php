@@ -33,6 +33,7 @@ use App\Models\Setting;
                     <label class="text-sm font-medium text-gray-600">Address</label>
                     <p class="text-gray-900">{{ Setting::get('contact_address', 'Not set') }}, {{ Setting::get('contact_city', 'Not set') }}</p>
                 </div>
+                
             </div>
         </div>
 

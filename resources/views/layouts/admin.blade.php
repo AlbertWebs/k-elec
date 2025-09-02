@@ -98,6 +98,13 @@
                 <i class="fas fa-images w-5"></i>
                 <span class="ml-3">Carousel Slides</span>
             </a>
+            {{-- Banners --}}
+            <a href="{{ route('admin.banners.index') }}"
+               class="flex items-center px-4 py-3 text-white rounded-lg hover:bg-white/10 transition-colors {{ request()->routeIs('admin.banners.*') ? 'bg-white/20' : '' }}">
+                <i class="fas fa-images w-5"></i>
+                <span class="ml-3">Banners</span>
+            </a>
+
                     
                     <div class="border-t border-white/20 my-4"></div>
                     

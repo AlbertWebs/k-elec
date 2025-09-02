@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Models\Setting;
 
 class ProductsController extends Controller
 {
@@ -23,6 +24,7 @@ class ProductsController extends Controller
             $category = Category::where('slug', $categorySlug)->first();
             $pageTitle = $category ? $category->name : 'Products'; // Default title if category not found
         } else {
+            $category = Category::where('slug', "washing-machines")->first();
             $pageTitle = 'All Products'; // Default title for all products
         }
         
@@ -45,7 +47,10 @@ class ProductsController extends Controller
         if ($request->filled('max_price')) {
             $query->where('price', '<=', $request->max_price);
         }
+
+        $show_product_filters = Setting::get('show_product_filters');
         
+
         // Rating filter
         if ($request->filled('rating')) {
             $query->where('rating', '>=', $request->rating);
@@ -95,10 +100,12 @@ class ProductsController extends Controller
         
         return view('products.index', compact(
             'products',
+            'show_product_filters',
             'categories',
             'featuredProducts',
             'totalProducts',
             'minPrice',
+            'category',
             'maxPrice',
             'pageTitle' // Pass the page title to the view
         ));

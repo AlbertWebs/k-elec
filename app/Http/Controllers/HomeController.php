@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\CarouselSlide;
 use Illuminate\Http\Request;
+use App\Models\Banner;
 
 class HomeController extends Controller
 {
@@ -20,14 +21,18 @@ class HomeController extends Controller
             ->inStock()
             ->orderBy('rating', 'desc')
             ->orderBy('reviews_count', 'desc')
-            ->limit(12)
+            ->limit(4)
             ->get();
-            
+
+        //get banner position 1
+        $bannerPosition1 = Banner::where('position', 1)->first();
+        $bannerPosition2 = Banner::where('position', 2)->first();
+
         $featuredProducts = Product::with('category')
             ->active()
             ->featured()
             ->inStock()
-            ->limit(3)
+            ->limit(4)
             ->get();
             
         $topSellers = Product::with('category')
@@ -50,7 +55,9 @@ class HomeController extends Controller
             'trendingProducts',
             'featuredProducts',
             'topSellers',
-            'recentProducts'
+            'recentProducts',
+            'bannerPosition1',
+            'bannerPosition2'
         ));
     }
 }

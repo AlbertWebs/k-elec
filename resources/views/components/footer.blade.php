@@ -4,7 +4,7 @@ use App\Helpers\SocialMediaHelper;
 @endphp
 
 <!-- Footer Top Bar -->
-<div class="bg-gray-800 py-8">
+<div class="bg-gray-900 py-8">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                             <div class="flex items-center space-x-3">
@@ -43,7 +43,7 @@ use App\Helpers\SocialMediaHelper;
 </div>
 
 <!-- Main Footer -->
-<footer class="bg-gray-900 text-white">
+<footer class="bg-black text-white">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <!-- Company Info -->

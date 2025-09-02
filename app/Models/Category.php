@@ -14,6 +14,7 @@ class Category extends Model
         'slug',
         'icon',
         'image',
+        'featured',
         'description',
         'is_active',
         'sort_order'

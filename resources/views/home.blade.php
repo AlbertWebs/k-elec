@@ -109,12 +109,12 @@
                 <div class="hidden lg:block lg:col-span-1">
                     <!-- Top Image -->
                     <div class="mb-4">
-                        <img src="{{ asset('images/banner-1.png') }}" alt="Top Banner" class="w-full rounded-lg object-cover">
+                        <img src="{{ url('/') }}/storage/{{ $bannerPosition1->image }}" alt="Top Banner" class="w-full rounded-lg object-cover">
                     </div>
 
                    <!-- Bottom Image -->
                     <div class="mb-0">
-                        <img src="{{ asset('images/banner-2.png') }}" alt="Middle Banner" class="w-full rounded-lg object-cover">
+                        <img src="{{ url('/') }}/storage/{{ $bannerPosition2->image }}" alt="Middle Banner" class="w-full rounded-lg object-cover">
                     </div>
 
                
@@ -194,12 +194,31 @@
     </section>
 
     <!-- Trending Products -->
-    <section class="py-16">
+    <section class="py-16 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-left mb-12">Our Trending Products</h2>
+            <h2 class="text-3xl font-bold text-left mb-12">Recommended for you</h2>
             
             <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
                 @foreach($trendingProducts as $product)
+                    <x-product-card :product="$product" />
+                @endforeach
+            </div>
+            
+            {{-- <div class="text-center mt-8">
+                <a href="{{ route('products.index') }}" class="inline-block border-2 border-gray-900 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors">
+                    Explore More →
+                </a>
+            </div> --}}
+        </div>
+    </section>
+
+     <!-- Trending Products -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-left mb-12">Latest Offers</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
+                @foreach($featuredProducts as $product)
                     <x-product-card :product="$product" />
                 @endforeach
             </div>
@@ -223,7 +242,7 @@
     /> --}}
 
     <!-- Trending Categories -->
-    <section class="py-16">
+    <section class="py-16 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-left mb-12">All Categories</h2>
             

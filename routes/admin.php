@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\ContactMessageController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\CarouselSlideController;
+use App\Http\Controllers\Admin\BannerController;
+
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     
@@ -49,10 +51,17 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('carousel-slides', CarouselSlideController::class);
     Route::patch('carousel-slides/{carouselSlide}/toggle-status', [CarouselSlideController::class, 'toggleStatus'])->name('carousel-slides.toggle-status');
     Route::post('carousel-slides/reorder', [CarouselSlideController::class, 'updateOrder'])->name('carousel-slides.reorder');
-    
+
+    // Banners
+    Route::resource('banners', BannerController::class);
+    Route::patch('banners/{banner}/toggle-status', [BannerController::class, 'toggleStatus'])->name('banners.toggle-status');
+    Route::post('banners/reorder', [BannerController::class, 'updateOrder'])->name('banners.reorder');
+
     // Settings
     Route::get('settings', [SettingController::class, 'index'])->name('settings');
     Route::post('settings', [SettingController::class, 'update'])->name('settings.update');
     Route::get('settings/contact', [SettingController::class, 'contact'])->name('settings.contact');
     Route::get('settings/social', [SettingController::class, 'social'])->name('settings.social');
 }); 
+
+

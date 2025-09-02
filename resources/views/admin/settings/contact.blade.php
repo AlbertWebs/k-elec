@@ -82,6 +82,28 @@ use App\Models\Setting;
                                placeholder="Sunday: Closed"
                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                     </div>
+
+                     <!-- Show Products Filters Toggle -->
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm font-medium text-gray-600">Show Products Filters</span>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <!-- Hidden input ensures false is sent if checkbox is unchecked -->
+                            <input type="hidden" name="settings[show_product_filters]" value="0">
+                            
+                            <input type="checkbox" 
+                                name="settings[show_product_filters]" 
+                                value="1" 
+                                class="sr-only peer"
+                                @checked(Setting::get('show_product_filters', false))>
+
+                            <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-checked:bg-indigo-600 
+                                        after:content-[''] after:absolute after:top-[2px] after:left-[2px] 
+                                        after:bg-white after:border-gray-300 after:border after:rounded-full 
+                                        after:h-5 after:w-5 after:transition-all 
+                                        peer-checked:after:translate-x-full peer-checked:after:border-white">
+                            </div>
+                        </label>
+                    </div>
                 </div>
             </div>
 

@@ -63,7 +63,7 @@
             <div class="flex bg-gray-100 items-center w-[70%] mx-auto" style="max-width:1470px;">
                 
                 <!-- All Categories -->
-                <a style="min-width:300px; text-align:center" href="{{ route('products.index') }}" 
+                <a target="_blank" style="min-width:300px; text-align:center" href="{{ route('products.index') }}" 
                     class="bg-black text-white px-6 py-3 flex items-center space-x-9 font-semibold hover:bg-gray-800 ">
                     <span class="mx-auto">All Categories</span>
                     <svg xmlns="http://www.w3.org/2000/svg" 
@@ -77,7 +77,7 @@
                 <?php $categories = \App\Models\Category::active()->ordered()->get(); ?>
                 @foreach($categories->take(6) as $category)
                 <!-- Other Links -->
-                <a href="{{ route('products.index', ['category' => $category->slug]) }}" 
+                <a  target="_blank" href="{{ route('products.index', ['category' => $category->slug]) }}" 
                     class="font-semibold px-4 py-3 hover:text-gray-700 text-black !text-black" style="color:#000000">
                     {{ $category->name }}
                 </a>

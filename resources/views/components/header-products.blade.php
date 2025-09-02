@@ -14,10 +14,10 @@ use App\Models\Setting;
                     <img style="width:100px; height:auto;" src="{{ asset('images/logo-white.png') }}" alt="Guru Digital" class="h-16 brand-logo">
                 </a>
             </div>
-
+{{-- 
             <a href="{{ route('home') }}" class="text-2xl font-bold text-white">
                 <i class="fas fa-home"></i> 
-            </a>
+            </a> --}}
             
             <!-- Center Search -->
             <div class="flex-1 max-w-4xl mx-8 hidden md:block">
@@ -43,23 +43,23 @@ use App\Models\Setting;
             <!-- Right Side -->
             <div class="flex items-center space-x-6">
                 <!-- Desktop Elements -->
-                <div class="hidden md:flex items-center space-x-2">
+                <div class="hidden md:flex items-center space-x-2 text-center">
                   
                    
                     <span class="text-md text-white-800" style="font-weight:600">
                     <span class="text-md text-gray-800 text-center">
-                        &nbsp; Customer Care
+                         Customer Care
                     </span><br>
                     {{ Setting::get('contact_phone', '+254 700 123 456') }}</span>
                 </div>
-                <a href="{{ route('wishlist.index') }}" class="hidden md:block text-gray-600 hover:text-red-600 relative">
+                <a href="{{ route('wishlist.index') }}" class="hidden md:block text-gray-600 hover:text-blue-600 relative">
                     <i class="fas fa-heart text-xl"></i>
-                    <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center wishlist-count">0</span>
+                    <span class="absolute -top-2 -right-2 bg-blue-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center wishlist-count">0</span>
                 </a>
                 
                 <!-- Basket with Dropdown -->
                 <div class="relative group hidden md:block">
-                    <a href="{{ route('cart.index') }}" class="flex items-center space-x-3 relative">
+                    {{-- <a href="{{ route('cart.index') }}" class="flex items-center space-x-3 relative">
                         <div class="relative">
                             <i class="fas fa-shopping-basket text-xl text-gray-600"></i>
                             <span class="absolute -top-2 -right-2 bg-blue-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center cart-count">0</span>
@@ -68,7 +68,7 @@ use App\Models\Setting;
                             <span class="text-xs text-gray-500">Total</span>
                             <span class="text-sm font-medium text-gray-900 cart-total">KES 0</span>
                         </div>
-                    </a>
+                    </a> --}}
                     
                     <!-- Basket Dropdown -->
                     <div class="absolute right-0 top-full mt-2 w-96 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
@@ -205,7 +205,7 @@ use App\Models\Setting;
                         <a href="{{ route('wishlist.index') }}" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 text-gray-700">
                             <i class="fas fa-heart text-lg"></i>
                             <span>Wishlist</span>
-                            <span class="ml-auto bg-red-500 text-white text-xs rounded-full px-2 py-1 wishlist-count">0</span>
+                            <span class="ml-auto bg-blue-500 text-white text-xs rounded-full px-2 py-1 wishlist-count">0</span>
                         </a>
                     </div>
                 </div>

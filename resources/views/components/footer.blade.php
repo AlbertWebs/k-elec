@@ -11,7 +11,7 @@ use App\Helpers\SocialMediaHelper;
                     <i class="fas fa-truck text-white text-xl"></i>
                     <div>
                         <h4 class="text-white font-semibold">SHIPPING</h4>
-                        <p class="text-gray-300 text-sm">Free on orders over KES 50,000</p>
+                        <p class="text-gray-300 text-sm">Free on orders over KES 500,000</p>
                     </div>
                 </div>
             
@@ -54,7 +54,7 @@ use App\Helpers\SocialMediaHelper;
                 <p class="text-gray-400 mb-6">{{ Setting::get('contact_email', 'hello@k-klec.co.ke') }}</p>
                 
                 <!-- Social Media -->
-                <div class="flex space-x-4">
+                {{-- <div class="flex space-x-4">
                     @php
                         $socialUrls = SocialMediaHelper::getSocialMediaUrls();
                     @endphp
@@ -64,7 +64,7 @@ use App\Helpers\SocialMediaHelper;
                     @endif
                     
                     @if(isset($socialUrls['twitter']))
-                        <a href="{{ $socialUrls['twitter'] }}" target="_blank" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="{{ $socialUrls['twitter'] }}" target="_blank" class="text-gray-400 hover:text-white"><i class="fab fa-x-twitter"></i></a>
                     @endif
                     
                     @if(isset($socialUrls['instagram']))
@@ -74,18 +74,19 @@ use App\Helpers\SocialMediaHelper;
                     @if(isset($socialUrls['linkedin']))
                         <a href="{{ $socialUrls['linkedin'] }}" target="_blank" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
                     @endif
-                </div>
+                </div> --}}
             </div>
             
             <!-- Support Links -->
             <div>
                 <h4 class="text-lg font-semibold mb-4">SUPPORTS</h4>
                 <ul class="space-y-2">
+                    <li><a href="{{ route('home') }}" class="text-gray-400 hover:text-white">Home </a></li>
+                    <li><a href="{{ route('pages.about') }}" class="text-gray-400 hover:text-white">About Us</a></li>
                     <li><a href="{{ route('pages.contact') }}" class="text-gray-400 hover:text-white">Contact Us</a></li>
-                    <li><a href="{{ route('pages.about') }}" class="text-gray-400 hover:text-white">About Page</a></li>
-                    <li><a href="{{ route('pages.technical-support') }}" class="text-gray-400 hover:text-white">Technical Support</a></li>
+                    {{-- <li><a href="{{ route('pages.technical-support') }}" class="text-gray-400 hover:text-white">Technical Support</a></li>
                     <li><a href="{{ route('pages.shipping-returns') }}" class="text-gray-400 hover:text-white">Shipping & Returns</a></li>
-                    <li><a href="{{ route('pages.faq') }}" class="text-gray-400 hover:text-white">FAQ's Page</a></li>
+                    <li><a href="{{ route('pages.faq') }}" class="text-gray-400 hover:text-white">FAQ's Page</a></li> --}}
                     <li><a href="{{ route('pages.privacy') }}" class="text-gray-400 hover:text-white">Privacy</a></li>
                 </ul>
             </div>
@@ -113,13 +114,14 @@ use App\Helpers\SocialMediaHelper;
                         <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
+                <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 
                 <div class="flex space-x-3">
                         <a href="{{ Setting::get('social_facebook', '#') }}" class="w-9 h-9 bg-blue-600 rounded-lg flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
                             <i class="fab fa-facebook-f text-sm"></i>
                         </a>
                         <a href="{{ Setting::get('social_twitter', '#') }}" class="w-9 h-9 bg-blue-400 rounded-lg flex items-center justify-center text-white hover:bg-blue-500 transition-colors">
-                            <i class="fab fa-twitter text-sm"></i>
+                            <i class="fab fa-x-twitter text-sm"></i>
                         </a>
                         <a href="{{ Setting::get('social_instagram', '#') }}" class="w-9 h-9 bg-pink-600 rounded-lg flex items-center justify-center text-white hover:bg-pink-700 transition-colors">
                             <i class="fab fa-instagram text-sm"></i>

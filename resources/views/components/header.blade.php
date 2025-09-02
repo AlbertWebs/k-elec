@@ -27,9 +27,9 @@ use App\Models\Setting;
                 </a>
             </div>
 
-            <a href="{{ route('home') }}" class="text-2xl font-bold text-white">
+            {{-- <a href="{{ route('home') }}" class="text-2xl font-bold text-white">
                 <i class="fas fa-home"></i> 
-            </a>
+            </a> --}}
             
             <!-- Center Search -->
             <div class="flex-1 max-w-4xl mx-8 hidden md:block">
@@ -70,23 +70,23 @@ use App\Models\Setting;
             <!-- Right Side -->
             <div class="flex items-center space-x-6">
                 <!-- Desktop Elements -->
-                <div class="hidden md:flex items-center space-x-2">
+                <div class="hidden md:flex items-center space-x-2 text-center">
                   
                    
                     <span class="text-md text-white-800" style="font-weight:600">
                     <span class="text-md text-gray-800 text-center">
-                        &nbsp; Customer Care
+                         Customer Care
                     </span><br>
                     {{ Setting::get('contact_phone', '+254 700 123 456') }}</span>
                 </div>
-                <a href="{{ route('wishlist.index') }}" class="hidden md:block text-gray-600 hover:text-red-600 relative">
+                <a href="{{ route('wishlist.index') }}" class="hidden md:block text-gray-600 hover:text-blue-600 relative">
                     <i class="fas fa-heart text-xl"></i>
-                    <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center wishlist-count">0</span>
+                    <span class="absolute -top-2 -right-2 bg-blue-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center wishlist-count">0</span>
                 </a>
                 
                 <!-- Basket with Dropdown -->
                 <div class="relative group hidden md:block">
-                    <a href="{{ route('cart.index') }}" class="flex items-center space-x-3 relative">
+                    {{-- <a href="{{ route('cart.index') }}" class="flex items-center space-x-3 relative">
                         <div class="relative">
                             <i class="fas fa-shopping-basket text-xl text-gray-600"></i>
                             <span class="absolute -top-2 -right-2 bg-blue-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center cart-count">0</span>
@@ -95,7 +95,7 @@ use App\Models\Setting;
                             <span class="text-xs text-gray-500">Total</span>
                             <span class="text-sm font-medium text-gray-900 cart-total">KES 0</span>
                         </div>
-                    </a>
+                    </a> --}}
                     
                     <!-- Basket Dropdown -->
                     <div class="absolute right-0 top-full mt-2 w-96 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
@@ -136,7 +136,7 @@ use App\Models\Setting;
             <div class="flex bg-gray-100 items-center w-[70%] mx-auto" style="max-width:1470px;">
                 
                 <!-- All Categories -->
-                <a style="min-width:300px; text-align:center" href="{{ route('products.index') }}" 
+                <a style="min-width:300px; text-align:center" href="{{ route('products.index') }}" target="_blank"
                     class="bg-black text-white px-6 py-3 flex items-center space-x-9 font-semibold hover:bg-gray-800 ">
                     <span class="mx-auto">All Categories</span>
                     <svg xmlns="http://www.w3.org/2000/svg" 
@@ -150,7 +150,7 @@ use App\Models\Setting;
                 <?php $categories = \App\Models\Category::active()->ordered()->get(); ?>
                 @foreach($categories->take(6) as $category)
                 <!-- Other Links -->
-                <a href="{{ route('products.index', ['category' => $category->slug]) }}" 
+                <a target="_blank" href="{{ route('products.index', ['category' => $category->slug]) }}" 
                     class="font-semibold px-4 py-3 hover:text-gray-700 text-black !text-black" style="color:#000000">
                     {{ $category->name }}
                 </a>

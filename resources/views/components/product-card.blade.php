@@ -24,9 +24,9 @@
         @endif
         
         <!-- Action Buttons Container - Hidden by default, animated on hover -->
-        <div class="absolute top-2 right-2 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out">
+        <div class="absolute top-2 right-2 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out text-center">
             <!-- Wishlist Button -->
-            <button class="wishlist-btn bg-white rounded-full p-2 shadow-md hover:bg-red-50 transition-all duration-200 z-10 w-8 h-8 flex items-center justify-center" 
+            <button class="wishlist-btn bg-white rounded-full p-2 shadow-md hover:bg-red-50 transition-all duration-200 z-10 w-8 h-8 flex items-center text-center" 
                     onclick="toggleWishlist('{{ $product->id }}', '{{ $product->name }}')"
                     data-product-id="{{ $product->id }}"
                     title="Add to Wishlist">
@@ -34,7 +34,7 @@
             </button>
             
             <!-- Remove from Wishlist Button (hidden by default) -->
-            <button class="remove-wishlist-btn bg-white rounded-full p-2 shadow-md hover:bg-red-50 transition-all duration-200 z-10 w-8 h-8 flex items-center justify-center hidden" 
+            <button class="remove-wishlist-btn bg-white rounded-full p-2 shadow-md hover:bg-red-50 transition-all duration-200 z-10 w-8 h-8 flex items-center text-center hidden" 
                     onclick="removeFromWishlist('{{ $product->id }}')"
                     data-product-id="{{ $product->id }}"
                     title="Remove from Wishlist">
@@ -54,11 +54,11 @@
     <div class="p-3 sm:p-4 flex flex-col">
         <!-- Product Name with Link -->
         <a href="{{ route('products.show', $product->slug) }}" class="">
-            <h3 class="text-xs sm:text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors line-clamp-2" style="height:40px;" itemprop="name">{{ $product->name }}</h3>
+            <h3 class="text-xs sm:text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors line-clamp-2 text-center" style="height:40px;" itemprop="name">{{ $product->name }}</h3>
         </a>
         
         <!-- Rating -->
-        <div class="flex items-center" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+        {{-- <div class="flex text-center" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
             @for($i = 1; $i <= 5; $i++)
                 @if($i <= $product->rating)
                     <i class="fas fa-star text-yellow-400 text-xs"></i>
@@ -71,9 +71,9 @@
             <meta itemprop="reviewCount" content="{{ $product->reviews_count }}">
             <meta itemprop="bestRating" content="5">
             <meta itemprop="worstRating" content="1">
-        </div>
+        </div> --}}
 
-         <a href="{{ route('products.index') }}" class="inline-blocks border-2 border-gray-900 text-gray-900 px-1 py-1 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors text-center" style="background-color">
+         <a href="{{ route('products.show', $product->slug) }}" class="inline-blocks border-2 border-gray-900 text-gray-900 px-1 py-1 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors text-center" style="background-color">
             View Product →
         </a>
 

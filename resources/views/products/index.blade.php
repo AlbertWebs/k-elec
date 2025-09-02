@@ -59,12 +59,12 @@
     <div class="grid grid-cols-1 md:grid-cols-2 items-center h-full gap-6">
         
         <!-- Left column: Image category -->
-        <div class="flex justify-center" style="border:2px solid white;">
+        <div class="flex justify-center">
             <img src="{{ asset('storage/' . $category->image) }}" alt="Banner Image" class="" style="width:100% !important; height:100%; object-fit:cover; position:relative; bottom:-140px; border:2px solid white; z-index:; ">
         </div>
         
         <!-- Right column: Title -->
-        <div class="text-right" style="border:2px solid white;">
+        <div class="text-right">
             <h1 class="text-4xl text-white leading-tight " style="font-size:90px; font-weight:900 !important; max-width:400px; float:right;">
                 {{ $pageTitle ?? 'All Products' }}
             </h1>

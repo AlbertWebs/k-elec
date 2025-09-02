@@ -60,7 +60,7 @@
         
         <!-- Left column: Image category -->
         <div class="flex justify-center">
-            <img src="{{ asset('storage/' . $category->image) }}" alt="Banner Image" class="" style="width:100% !important; height:100%; object-fit:cover; position:relative; bottom:-140px; z-index: ">
+            <img src="{{ asset('storage/' . $category->image) }}" alt="Banner Image" class="" style="width:100% !important; height:100%; object-fit:cover; position:relative; bottom:0px z-index: ">
         </div>
         
         <!-- Right column: Title -->

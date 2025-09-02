@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app-products')
 
 @section('title', isset($pageTitle) ? $pageTitle . ' in kenya - K-elec' : 'Products - K-elec')
 @section('description', isset($pageTitle) ? 'Shop the latest ' . $pageTitle . ' products in Kenya. Find smartphones, laptops, cameras, tablets, and more at K-elec. Fast delivery and excellent customer service.' : 'Shop a wide range of electronics and technology products in Kenya at K-elec. Fast delivery and excellent customer service.')

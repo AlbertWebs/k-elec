@@ -54,7 +54,7 @@
     <div class="p-3 sm:p-4 flex flex-col">
         <!-- Product Name with Link -->
         <a href="{{ route('products.show', $product->slug) }}" class="">
-            <h3 class="text-xs sm:text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors line-clamp-2" itemprop="name">{{ $product->name }}</h3>
+            <h3 class="text-xs sm:text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors line-clamp-2" style="height:40px;" itemprop="name">{{ $product->name }}</h3>
         </a>
         
         <!-- Rating -->
@@ -72,9 +72,15 @@
             <meta itemprop="bestRating" content="5">
             <meta itemprop="worstRating" content="1">
         </div>
+
+         <a href="{{ route('products.index') }}" class="inline-blocks border-2 border-gray-900 text-gray-900 px-1 py-1 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors text-center" style="background-color">
+            View Product →
+        </a>
+
+        
         
         <!-- Price -->
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-auto">
+        {{-- <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-auto">
             <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-2">
                 @if($product->old_price)
                     <span class="text-xs sm:text-sm text-gray-500 line-through order-2 sm:order-1">{{ $product->formatted_old_price }}</span>
@@ -83,7 +89,7 @@
                     <span itemprop="priceCurrency" content="KES">{{ $product->formatted_price }}</span>
                 </span>
             </div>
-        </div>
+        </div> --}}
     </div>
     
     <!-- Hidden structured data -->

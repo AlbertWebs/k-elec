@@ -29,7 +29,7 @@
                             <!-- Showroom Image -->
                             <div class="w-20 h-16 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
                                 @if($showroom->image)
-                                    <img src="{{ Storage::url($showroom->image) }}" alt="{{ $showroom->title }}" class="w-full h-full object-cover">
+                                    <img src="{{url('/')}}/{{ Storage::url($showroom->image) }}" alt="{{ $showroom->title }}" class="w-full h-full object-cover">
                                 @else
                                     <div class="w-full h-full bg-gray-200 flex items-center justify-center">
                                         <i class="fas fa-image text-gray-400"></i>

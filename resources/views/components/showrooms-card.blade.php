@@ -13,7 +13,7 @@
                             class="w-full aspect-square object-contain"
                             itemprop="image"
                             loading="lazy"
-                            onerror="this.src='{{ Storage::url($showroom->image) }}'; console.log('Image failed to load:', this.src);"
+                            onerror="this.src='{{url('/')}}/{{ Storage::url($showroom->image) }}'; console.log('Image failed to load:', this.src);"
                             onload="console.log('Image loaded successfully:', this.src);">
                         </a>
                         

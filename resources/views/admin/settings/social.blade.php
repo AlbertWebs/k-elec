@@ -53,6 +53,30 @@ use App\Models\Setting;
                            placeholder="https://linkedin.com/company/yourcompany"
                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                 </div>
+
+                <div>
+                    <label for="social_tiktok" class="block text-sm font-medium text-gray-700 mb-2">Tiktok URL</label>
+                    <input type="url" id="social_tiktok" name="settings[social_tiktok]" 
+                           value="{{ Setting::get('social_tiktok') }}" 
+                           placeholder="https://tiktok.com/@yourhandle"
+                           class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <div>
+                    <label for="social_whatsapp" class="block text-sm font-medium text-gray-700 mb-2">WhatsApp URL</label>
+                    <input type="url" id="social_whatsapp" name="settings[social_whatsapp]" 
+                           value="{{ Setting::get('social_whatsapp') }}" 
+                           placeholder="https://wa.me/yourphonenumber"
+                           class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <div>
+                    <label for="social_youtube" class="block text-sm font-medium text-gray-700 mb-2">Youtube URL</label>
+                    <input type="url" id="social_youtube" name="settings[social_youtube]" 
+                           value="{{ Setting::get('social_youtube') }}" 
+                           placeholder="https://youtube.com/yourchannel"
+                           class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
             </div>
 
             <div class="mt-8 flex justify-end">

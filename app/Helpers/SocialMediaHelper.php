@@ -14,7 +14,10 @@ class SocialMediaHelper
             'facebook' => 'social_facebook',
             'twitter' => 'social_twitter', 
             'instagram' => 'social_instagram',
-            'linkedin' => 'social_linkedin'
+            'linkedin' => 'social_linkedin',
+            'tiktok' => 'social_tiktok',
+            'youtube' => 'social_youtube',
+            'whatsapp' => 'social_whatsapp'
         ];
         
         foreach ($platforms as $platform => $key) {
@@ -50,7 +53,10 @@ class SocialMediaHelper
             'facebook' => 'social_facebook',
             'twitter' => 'social_twitter', 
             'instagram' => 'social_instagram',
-            'linkedin' => 'social_linkedin'
+            'linkedin' => 'social_linkedin',
+            'tiktok' => 'social_tiktok',
+            'youtube' => 'social_youtube',
+            'whatsapp' => 'social_whatsapp'
         ];
     }
 }

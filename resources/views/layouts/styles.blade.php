@@ -104,11 +104,11 @@
         }
 
         .category-image {
-            bottom: -5px; /* smaller offset for mobile */
+            bottom: -10px; /* smaller offset for mobile */
         }
          .cat-wrapper{
             min-height:auto;
-            height:210px !important;
+            height:200px !important;
         }
          .showroom-img{
             height:200px;

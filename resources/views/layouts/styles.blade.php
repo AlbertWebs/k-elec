@@ -104,7 +104,7 @@
         }
 
         .category-image {
-            bottom: -10px; /* smaller offset for mobile */
+            bottom: -15px; /* smaller offset for mobile */
         }
          .cat-wrapper{
             min-height:auto;

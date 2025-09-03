@@ -108,7 +108,7 @@
         }
          .cat-wrapper{
             min-height:auto;
-            height:240px !important;
+            height:210px !important;
         }
          .showroom-img{
             height:200px;

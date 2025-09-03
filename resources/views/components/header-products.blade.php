@@ -11,7 +11,7 @@ use App\Models\Setting;
             <!-- Logo -->
             <div class="flex-shrink-0">
                 <a href="{{ route('home') }}">
-                    <img style="width:100px; height:auto;" src="{{ asset('images/logo-white.png') }}" alt="Guru Digital" class="h-16 brand-logo">
+                    <img style="width:100px; height:auto; object-fit:cover;" src="{{ asset('images/logo-white.png') }}" alt="Guru Digital" class="h-16 brand-logo">
                 </a>
             </div>
 {{-- 

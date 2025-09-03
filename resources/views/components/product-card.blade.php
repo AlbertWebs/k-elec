@@ -73,7 +73,7 @@
             <meta itemprop="worstRating" content="1">
         </div> --}}
 
-         <a href="{{ route('products.show', $product->slug) }}" class="inline-blocks border-2 border-gray-900 text-gray-900 px-1 py-1 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors text-center" style="background-color">
+         <a href="{{ route('products.show', $product->slug) }}" class="inline-blocks border-2 border-gray-900 text-gray-900 px-1 py-1 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors text-center mobile-btn" >
             View Product →
         </a>
 

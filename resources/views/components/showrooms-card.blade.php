@@ -1,7 +1,7 @@
 <section class="py-16 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-left mb-12">Our Showrooms</h2>
-            
+            <h2 class="text-3xl font-bold text-left mb-12 mobile-heading">Our Showrooms</h2>
+
             <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
                 {{-- Showroom Card --}}
                 @foreach($showrooms as $showroom)

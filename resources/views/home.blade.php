@@ -80,6 +80,35 @@
         width: 100%;
         height: 100%;
         }
+
+        /* Base style (default for larger screens) */
+        .mobile-btn {
+            padding: 0.25rem 2rem; /* same as py-1 px-8 */
+            font-size: 1rem;       /* same as text-base */
+            
+            border-radius: 0.5rem; /* rounded-lg */
+            font-weight: 600;      /* font-semibold */
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-btn:hover {
+            background-color: #111827; /* gray-900 */
+            color: white;
+        }
+
+        /* Mobile adjustments (max width: 640px, Tailwind sm breakpoint) */
+        @media (max-width: 640px) {
+        .mobile-btn {
+            padding: 0.25rem 1rem; /* smaller horizontal padding */
+            font-size: 0.875rem;   /* smaller text */
+        }
+        .mobile-heading {
+            font-size: 1.25rem;   /* ~text-xl */
+            margin-bottom: 0.75rem;
+        }
+        }
+
     </style>
    
 
@@ -93,8 +122,8 @@
     <section class="py-16 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center mb-12">
-                <h2 class="text-3xl font-bold text-left">Recommended for you</h2>
-                <a href="{{ route('products.index') }}" class="inline-block border-2 border-blue-600 text-blue-600 px-8 py-1 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors">
+                <h2 class="text-3xl font-bold text-left mobile-heading">Recommended for you</h2>
+                <a href="{{ route('products.index') }}" class="inline-block border-2 border-blue-600 text-blue-600 px-8 py-1 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors mobile-btn">
                     View All
                 </a>
             </div>
@@ -119,7 +148,7 @@
             
             {{-- Latest Offers --}}
             <div class="flex justify-between items-center mb-12">
-                <h2 class="text-3xl font-bold text-left">Latest Offers</h2>
+                <h2 class="text-3xl font-bold text-left mobile-heading">Latest Offers</h2>
                 <a href="{{ route('products.index') }}" class="inline-block border-2 border-blue-600 text-blue-600 px-8 py-1 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors">
                     View All
                 </a>
@@ -132,7 +161,7 @@
             </div>
             
             <div class="text-center mt-8">
-                <a href="{{ route('products.index') }}" class="inline-block border-2 border-gray-900 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors">
+                <a href="{{ route('products.index') }}" class="inline-block border-2 border-gray-900 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors mobile-btn">
                     Explore More →
                 </a>
             </div>
@@ -152,8 +181,8 @@
     <!-- Trending Categories -->
     <section class="py-16 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-left mb-12">All Categories</h2>
-            
+            <h2 class="text-3xl font-bold text-left mb-12 mobile-heading">All Categories</h2>
+
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-6">
                 @foreach($categories as $category)
                     <a href="{{ route('products.index', ['category' => $category->slug]) }}"

@@ -136,6 +136,9 @@ use App\Helpers\SocialMediaHelper;
                          <a href="{{ Setting::get('social_whatsapp', '#') }}" class="w-9 h-9 bg-green-600 rounded-lg flex items-center justify-center text-white hover:bg-green-700 transition-colors">
                             <i class="fab fa-whatsapp text-sm"></i>
                         </a>
+                        <a style="border:1px solid #ffffff" href="{{ Setting::get('social_tiktok', '#') }}" class="w-9 h-9 bg-black-600 rounded-lg flex items-center justify-center text-white hover:bg-green-700 transition-colors">
+                            <i class="fab fa-tiktok text-sm"></i>
+                        </a>
                     </div>
 
                 </div>

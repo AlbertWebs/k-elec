@@ -107,7 +107,8 @@
             bottom: -5px; /* smaller offset for mobile */
         }
          .cat-wrapper{
-            height:140px
+            min-height:auto;
+            height:240px !important;
         }
          .showroom-img{
             height:200px;

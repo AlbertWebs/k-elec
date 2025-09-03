@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\CarouselSlide;
 use Illuminate\Http\Request;
 use App\Models\Banner;
+use App\Models\Showroom;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,8 @@ class HomeController extends Controller
             ->orderBy('reviews_count', 'desc')
             ->limit(4)
             ->get();
+
+        $showrooms = Showroom::where('featured', 1)->where('is_active', 1)->limit('4')->get();
 
         //get banner position 1
         $bannerPosition1 = Banner::where('position', 1)->first();
@@ -57,7 +60,8 @@ class HomeController extends Controller
             'topSellers',
             'recentProducts',
             'bannerPosition1',
-            'bannerPosition2'
+            'bannerPosition2',
+            'showrooms'
         ));
     }
 }

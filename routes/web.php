@@ -30,6 +30,7 @@ Route::get('/technical-support', [PageController::class, 'technicalSupport'])->n
 Route::get('/shipping-returns', [PageController::class, 'shippingReturns'])->name('pages.shipping-returns');
 Route::get('/faq', [PageController::class, 'faq'])->name('pages.faq');
 Route::get('/privacy', [PageController::class, 'privacy'])->name('pages.privacy');
+Route::get('/showrooms', [PageController::class, 'showrooms'])->name('showrooms.index');
 
 // Contact Messages
 Route::post('/contact-messages', [App\Http\Controllers\ContactMessageController::class, 'store'])->name('contact-messages.store');

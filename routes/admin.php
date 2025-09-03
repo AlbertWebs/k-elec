@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\ContactMessageController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\CarouselSlideController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\ShowroomController;
 
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
@@ -56,6 +57,11 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('banners', BannerController::class);
     Route::patch('banners/{banner}/toggle-status', [BannerController::class, 'toggleStatus'])->name('banners.toggle-status');
     Route::post('banners/reorder', [BannerController::class, 'updateOrder'])->name('banners.reorder');
+
+     // Showrooms
+    Route::resource('showrooms', ShowroomController::class);
+    Route::patch('showrooms/{showroom}/toggle-status', [ShowroomController::class, 'toggleStatus'])->name('showrooms.toggle-status');
+    Route::post('showrooms/reorder', [ShowroomController::class, 'updateOrder'])->name('showrooms.reorder');
 
     // Settings
     Route::get('settings', [SettingController::class, 'index'])->name('settings');

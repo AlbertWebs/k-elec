@@ -99,14 +99,14 @@
         }
 
         .category-title{
-            font-size: 18px; top:2px; font-weight:800
+            font-size: 15px; top:2px; font-weight:800
         }
 
         .category-image {
             bottom: -5px; /* smaller offset for mobile */
         }
          .cat-wrapper{
-            min-height:270px
+            min-height:170px
         }
          .showroom-img{
             height:auto;

@@ -153,8 +153,8 @@
 
                         <!-- Category Image (bottom 50% touching bottom) -->
                        <!-- Image at the bottom -->
-                        <div class="absolute bottom-0 left-0 right-0" style="position:absolute; bottom:0; width:85%; margin:0 auto; height:300px; object-fit: cover">
-                            <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}"  class="w-full" style="height:100%; width:100%; object-fit: cover !important; bottom:-10px !important;" />
+                        <div class="category-image-wrapper" >
+                            <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}"  class="w-full category-image"  />
                         </div>
 
                     </a>

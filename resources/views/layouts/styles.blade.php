@@ -35,6 +35,30 @@
             color: white;
         }
 
+        /* Wrapper styles */
+        .category-image-wrapper {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 85%;
+        margin: 0 auto;
+        height: 300px;
+        overflow: hidden; /* keep image neat inside */
+        }
+
+        /* Image styles */
+        .category-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: relative;
+        bottom: -10px; /* offset like your inline css */
+        }
+
+       
+
+
         /* Mobile adjustments (max width: 640px, Tailwind sm breakpoint) */
         @media (max-width: 640px) {
         .mobile-btn {
@@ -44,6 +68,25 @@
         .mobile-heading {
             font-size: 1.25rem;   /* ~text-xl */
             margin-bottom: 0.75rem;
+        }
+        }
+
+         /* Responsive tweaks */
+        @media (max-width: 1024px) { /* tablets */
+        .category-image-wrapper {
+            width: 90%;
+            height: auto;
+        }
+        }
+
+        @media (max-width: 640px) { /* mobile */
+        .category-image-wrapper {
+            width: 100%;
+            height: auto;
+        }
+
+        .category-image {
+            bottom: -5px; /* smaller offset for mobile */
         }
         }
 

@@ -23,12 +23,12 @@
                 <article class="bg-white border border-gray-200 overflow-hidden group" data-product-id="123" itemscope="" itemtype="https://schema.org/Product">
                     <div class="relative">
                         <a href="#" class="block flex justify-center items-center w-full bg-gray-100">
-                            <img style="height:420px; width:100%; object-fit:cover" src="{{ Storage::url($showroom->image) }}" 
+                            <img style="height:420px; width:100%; object-fit:cover" src="{{url('/')}}/{{ Storage::url($showroom->image) }}" 
                             alt="Product Name" 
                             class="w-full aspect-square object-contain"
                             itemprop="image"
                             loading="lazy"
-                            onerror="this.src='{{ Storage::url($showroom->image) }}'; console.log('Image failed to load:', this.src);"
+                            onerror="this.src='{{url('/')}}/{{ Storage::url($showroom->image) }}'; console.log('Image failed to load:', this.src);"
                             onload="console.log('Image loaded successfully:', this.src);">
                         </a>
                         

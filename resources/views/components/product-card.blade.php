@@ -54,7 +54,7 @@
     <div class="p-3 sm:p-4 flex flex-col">
         <!-- Product Name with Link -->
         <a href="{{ route('products.show', $product->slug) }}" class="">
-            <h3 class="text-xs sm:text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors line-clamp-2 text-center" style="height:40px;" itemprop="name">{{ $product->name }}</h3>
+            <h3 class="text-xs sm:text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors line-clamp-2 text-center mb-2" style="height:40px;" itemprop="name">{{ $product->name }}</h3>
         </a>
         
         <!-- Rating -->
@@ -73,7 +73,7 @@
             <meta itemprop="worstRating" content="1">
         </div> --}}
 
-         <a href="{{ route('products.show', $product->slug) }}" class="inline-block border-2 border-gray-900 text-gray-900 px-1 py-1 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors text-center mb-2 mobile-btn" >
+         <a href="{{ route('products.show', $product->slug) }}" class="inline-block border-2 border-gray-900 text-gray-900 px-1 py-1 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors text-center mt-2 mobile-btn" >
             View Product →
         </a>
 

@@ -107,7 +107,7 @@
             bottom: -5px; /* smaller offset for mobile */
         }
          .cat-wrapper{
-            max-height:180px
+            max-height:80px
         }
          .showroom-img{
             height:200px;

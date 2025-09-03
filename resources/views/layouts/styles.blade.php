@@ -100,7 +100,7 @@
 
         .category-title{
             font-size: 15px; top:2px; font-weight:800;
-            line-height: 0rem;
+            line-height: 1rem;
         }
 
         .category-image {

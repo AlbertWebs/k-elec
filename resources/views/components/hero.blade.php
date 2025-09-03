@@ -28,7 +28,7 @@
                               class="carousel-container relative overflow-hidden rounded-none lg:rounded-lg -mx-4 lg:mx-0">
                               @foreach ($carouselSlides as $index => $slide)
                                   <div class="carousel-slide {{ $index === 0 ? 'active' : '' }} bg-gradient-to-r {{ $slide->background_classes }} p-4 lg:p-8 bg-cover bg-center bg-no-repeat"
-                                      style="background-image: url('{{ Storage::url($slide->image) }}'); 
+                                      style="background-image: url('{{url('/')}}/{{ Storage::url($slide->image) }}'); 
                                                 background-size: cover; 
                                                 background-position: center;">
                                       <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 items-center">

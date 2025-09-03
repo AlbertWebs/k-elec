@@ -70,7 +70,7 @@
     @include('components.hero')
 
     <!-- Trending Products -->
-    <section class="py-16 bg-white">
+    <section class="py-6 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center mb-12">
                 <h2 class="text-3xl font-bold text-left mobile-heading">Recommended for you</h2>
@@ -94,7 +94,7 @@
     </section>
 
      <!-- Trending Products -->
-    <section class="py-16 bg-white">
+    <section class="py-6 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             
             {{-- Latest Offers --}}
@@ -130,7 +130,7 @@
     /> --}}
 
     <!-- Trending Categories -->
-    <section class="py-16 bg-white">
+    <section class="py-6 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-left mb-12 mobile-heading">All Categories</h2>
 

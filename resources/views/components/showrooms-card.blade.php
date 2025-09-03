@@ -1,4 +1,4 @@
-<section class="py-16 bg-white">
+<section class="py-6 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold text-left mb-12 mobile-heading">Our Showrooms</h2>
 

@@ -99,7 +99,8 @@
         }
 
         .category-title{
-            font-size: 15px; top:2px; font-weight:800
+            font-size: 15px; top:2px; font-weight:800;
+            line-height: 0rem;
         }
 
         .category-image {
@@ -109,7 +110,7 @@
             min-height:140px
         }
          .showroom-img{
-            height:auto;
+            height:200px;
             
         }
         }

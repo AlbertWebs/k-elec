@@ -14,7 +14,8 @@ class PageController extends Controller
 
     public function about()
     {
-        return view('pages.about');
+        $showrooms = Showroom::where('featured', 1)->where('is_active', 1)->limit('4')->get();
+        return view('pages.about', compact('showrooms'));
     }
 
     public function showrooms()

@@ -18,19 +18,13 @@
                 <div>
                     <h2 class="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
                     <p class="text-gray-600 mb-4">
-                        Founded in 2020, K-Elec started with a simple mission: to make cutting-edge technology 
-                        accessible to everyone in Kenya. What began as a small electronics shop has grown into one of 
-                        the country's most trusted names in digital retail.
+                        <strong>K-Elec,</strong> one of the largest Korean electronics companies, was founded with its global head office in Seoul, Korea.<br><br>
+                        As a trusted home appliance brand backed by industry-leading Korean technology, K-Elec has expanded its presence beyond Korea to the Middle East and Africa. Our mission is to supply <strong>“Best Quality, Made in Korea, Electronics”</strong> to households and businesses worldwide. Guided by passion for technology and innovation, we remain committed to driving industrial transformation and offering customers reliable, cutting-edge products.<br><br>
+                        With years of strategic growth, K-Elec has firmly established advanced manufacturing facilities in Korea and built international operations across the Middle East & Africa. To support efficient regional distribution, a headquarters was set up in Dubai, UAE, while our networks have extended to over 15 countries including <strong>Kenya, Ethiopia, Tanzania, Zambia, Djibouti, Senegal, Angola, and beyond.</strong><br><br>
+                        <strong>K-Elec Kenya</strong> serves as the brand’s stronghold in East Africa. We are dedicated to providing Kenyan households and businesses with modern, energy-efficient, and durable appliances tailored to local needs. Our goal is to deliver not only world-class products but also exceptional after-sales service and customer satisfaction that Kenyans can trust.<br><br>
+                        Most importantly, K-Elec will never stop innovating. Through our reliable and outstanding products, we aim to create meaningful experiences and bring new excitement to Kenyan families and enterprises alike.
                     </p>
-                    <p class="text-gray-600 mb-4">
-                        We believe that technology should enhance lives, not complicate them. That's why we carefully 
-                        curate our product selection, ensuring that every item we offer meets our high standards for 
-                        quality, reliability, and value.
-                    </p>
-                    <p class="text-gray-600">
-                        Today, we serve thousands of satisfied customers across Kenya, providing not just products, 
-                        but complete digital solutions and exceptional customer service.
-                    </p>
+                    
                 </div>
                 <div class="border border-gray-200 rounded-lg p-8 bg-gray-50">
                     <div class="text-center">
@@ -86,70 +80,11 @@
             </div>
         </div>
 
-        <!-- Stats -->
-        <div class="mb-16">
-            <div class="bg-gradient-to-r from-blue-900 to-blue-800 rounded-lg p-8 text-white">
-                <h2 class="text-3xl font-bold text-center mb-8">Our Numbers</h2>
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
-                    <div>
-                        <div class="text-3xl font-bold mb-2">10,000+</div>
-                        <div class="text-blue-200 text-sm">Happy Customers</div>
-                    </div>
-                    <div>
-                        <div class="text-3xl font-bold mb-2">500+</div>
-                        <div class="text-blue-200 text-sm">Products</div>
-                    </div>
-                    <div>
-                        <div class="text-3xl font-bold mb-2">3+</div>
-                        <div class="text-blue-200 text-sm">Years Experience</div>
-                    </div>
-                    <div>
-                        <div class="text-3xl font-bold mb-2">24/7</div>
-                        <div class="text-blue-200 text-sm">Support</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @include('components.showrooms-card')
 
+   
 
-
-        <!-- Why Choose Us -->
-        <div>
-            <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">Why Choose K-Elec?</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="text-center">
-                    <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-truck text-orange-600 text-lg"></i>
-                    </div>
-                    <h3 class="text-base font-semibold text-gray-900 mb-2">Fast Delivery</h3>
-                    <p class="text-gray-600 text-sm">Free shipping on orders over KES 50,000</p>
-                </div>
-                
-                <div class="text-center">
-                    <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-undo text-green-600 text-lg"></i>
-                    </div>
-                    <h3 class="text-base font-semibold text-gray-900 mb-2">Easy Returns</h3>
-                    <p class="text-gray-600 text-sm">30-day return policy on all products</p>
-                </div>
-                
-                <div class="text-center">
-                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-headset text-blue-600 text-lg"></i>
-                    </div>
-                    <h3 class="text-base font-semibold text-gray-900 mb-2">24/7 Support</h3>
-                    <p class="text-gray-600 text-sm">Round-the-clock customer support</p>
-                </div>
-                
-                <div class="text-center">
-                    <div class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-shield-alt text-purple-600 text-lg"></i>
-                    </div>
-                    <h3 class="text-base font-semibold text-gray-900 mb-2">Warranty</h3>
-                    <p class="text-gray-600 text-sm">Comprehensive warranty on all products</p>
-                </div>
-            </div>
-        </div>
+        
     </div>
 </div>
 @endsection 

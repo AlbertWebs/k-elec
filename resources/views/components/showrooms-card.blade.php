@@ -27,7 +27,7 @@
                         </a>
                         <h6 class="text-xs sm:text-sm text-gray-600 text-center">{{$showroom->location}}</h6>
 
-                        <a title="{{$showroom->location}}" href="{{$showroom->location_url}}" class="inline-blocks border-2 border-gray-900 text-gray-900 px-1 py-1 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors text-center" style="background-color">
+                        <a title="{{$showroom->location}}" href="{{$showroom->location_url}}" class="inline-blocks border-2 border-gray-900 text-gray-900 px-1 py-1 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors text-center mobile-btn">
                              Visit Showroom → 
                         </a>
 
@@ -42,7 +42,7 @@
             </div>
             
             <div class="text-center mt-8">
-                <a href="{{ route('showrooms.index') }}" class="inline-block border-2 border-gray-900 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors">
+                <a href="{{ route('showrooms.index') }}" class="inline-block border-2 border-gray-900 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors mobile-btn">
                    <i class="fas fa-map-marker"></i> &nbsp; More Show Rooms →
                 </a>
             </div>

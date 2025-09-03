@@ -100,7 +100,7 @@
             {{-- Latest Offers --}}
             <div class="flex justify-between items-center mb-12">
                 <h2 class="text-3xl font-bold text-left mobile-heading">Latest Offers</h2>
-                <a href="{{ route('products.index') }}" class="inline-block border-2 border-blue-600 text-blue-600 px-8 py-1 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors">
+                <a href="{{ route('products.index') }}" class="inline-block border-2 border-blue-600 text-blue-600 px-8 py-1 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors mobile-btn">
                     View All
                 </a>
             </div>
@@ -137,7 +137,7 @@
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-6">
                 @foreach($categories as $category)
                     <a href="{{ route('products.index', ['category' => $category->slug]) }}"
-                    class="relative block rounded-2xl shadow-lg overflow-hidden h-64 p-4 rounded" >
+                    class="relative block rounded-2xl shadow-lg overflow-hidden h-64 p-4 rounded cat-wrapper">
 
                         <!-- Forced gradient background (works even if Tailwind gradient classes aren't available) -->
                         <span aria-hidden="true"
@@ -147,13 +147,13 @@
 
                         <!-- Category Title (top center) -->
                         <div class="relative z-10 absolute top-4 left-1/2 -translate-x-1/2 
-                                    text-white font-bold text-lg text-center text-4xl category-title">
+                                    text-white font-bold text-lg text-center text-4xl category-title" >
                             {{ $category->name }}
                         </div>
 
                         <!-- Category Image (bottom 50% touching bottom) -->
                        <!-- Image at the bottom -->
-                        <div class="category-image-wrapper" >
+                        <div class="absolute bottom-0 left-0 right-0" >
                             <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}"  class="w-full category-image"  />
                         </div>
 

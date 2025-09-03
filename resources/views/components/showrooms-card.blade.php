@@ -8,9 +8,9 @@
                 <article class="bg-white border border-gray-200 overflow-hidden group" data-product-id="123" itemscope="" itemtype="https://schema.org/Product">
                     <div class="relative">
                         <a href="{{$showroom->location_url}}" class="block flex justify-center items-center w-full bg-gray-100">
-                            <img style="height:420px; width:100%; object-fit:cover" src="{{url('/')}}/{{ Storage::url($showroom->image) }}" 
+                            <img  src="{{url('/')}}/{{ Storage::url($showroom->image) }}" 
                             alt="Product Name" 
-                            class="w-full aspect-square object-contain"
+                            class="w-full aspect-square object-contain showroom-img"
                             itemprop="image"
                             loading="lazy"
                             onerror="this.src='{{url('/')}}/{{ Storage::url($showroom->image) }}'; console.log('Image failed to load:', this.src);"

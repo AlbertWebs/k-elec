@@ -141,7 +141,7 @@
 
                         <!-- Forced gradient background (works even if Tailwind gradient classes aren't available) -->
                         <span aria-hidden="true"
-                            class="absolute inset-0 pointer-events-none"
+                            class="absolute inset-0 pointer-events-none cat-wrapper"
                             style="background: linear-gradient(to bottom, #DC2626, #991B1B);">
                         </span>
 

@@ -52,7 +52,7 @@
             height: 100%;
             object-fit: cover;
             position: relative;
-            bottom: -10px; /* offset like your inline css */
+            bottom: -70px; /* offset like your inline css */
         }
 
         .category-title{

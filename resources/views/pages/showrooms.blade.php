@@ -5,7 +5,7 @@
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Page Header -->
         <div class="text-center mb-12">
-            <h1 class="text-4xl font-bold text-gray-900 mb-4">About K-Elec Shorooms</h1>
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">About K-Elec Showrooms</h1>
             <p class="text-lg text-gray-600 max-w-3xl mx-auto">
                 K-Elec Showrooms are immersive retail spaces designed for customers to test and experience modern electronics and home appliances. Staffed with experts, each showroom offers a personalized shopping journey, highlighting the brand's commitment to quality and innovation in every product.
             </p>

@@ -48,11 +48,11 @@
 
         /* Image styles */
         .category-image {
-            width: 100%;
+            width: 90%;
             height: 100%;
             object-fit: cover;
             position: relative;
-            bottom: -70px; /* offset like your inline css */
+            bottom: -40px; /* offset like your inline css */
         }
 
         .category-title{

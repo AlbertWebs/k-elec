@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\SubscribeController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/products', [ProductsController::class, 'index'])->name('products.index');
@@ -34,6 +35,7 @@ Route::get('/showrooms', [PageController::class, 'showrooms'])->name('showrooms.
 
 // Contact Messages
 Route::post('/contact-messages', [App\Http\Controllers\ContactMessageController::class, 'store'])->name('contact-messages.store');
+Route::post('/subscribe', [SubscribeController::class, 'store'])->name('subscribe');
 
 // Sitemap routes
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap.index');

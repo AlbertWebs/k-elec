@@ -92,7 +92,12 @@
     <!-- Trending Products -->
     <section class="py-16 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-left mb-12">Recommended for you</h2>
+            <div class="flex justify-between items-center mb-12">
+                <h2 class="text-3xl font-bold text-left">Recommended for you</h2>
+                <a href="{{ route('products.index') }}" class="inline-block border-2 border-blue-600 text-blue-600 px-8 py-1 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors">
+                    View All
+                </a>
+            </div>
             
             <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
                 @foreach($trendingProducts as $product)
@@ -111,7 +116,14 @@
      <!-- Trending Products -->
     <section class="py-16 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-left mb-12">Latest Offers</h2>
+            
+            {{-- Latest Offers --}}
+            <div class="flex justify-between items-center mb-12">
+                <h2 class="text-3xl font-bold text-left">Latest Offers</h2>
+                <a href="{{ route('products.index') }}" class="inline-block border-2 border-blue-600 text-blue-600 px-8 py-1 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors">
+                    View All
+                </a>
+            </div>
             
             <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
                 @foreach($featuredProducts as $product)

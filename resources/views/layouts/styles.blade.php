@@ -56,7 +56,7 @@
         }
 
         .category-title{
-            font-size: 30px; top:30px; font-weight:800
+            font-size: 30px; top:10px; font-weight:800
         }
 
         .cat-wrapper{

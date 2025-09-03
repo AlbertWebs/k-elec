@@ -51,7 +51,7 @@
     <!-- Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    @include('layout.styles')
+    @include('layouts.styles')
     
     <!-- Structured Data -->
     @yield('structured_data')

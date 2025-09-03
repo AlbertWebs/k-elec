@@ -137,7 +137,7 @@
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-6">
                 @foreach($categories as $category)
                     <a href="{{ route('products.index', ['category' => $category->slug]) }}"
-                    class="relative block rounded-2xl shadow-lg overflow-hidden h-64 p-4 rounded" style="min-height:420px">
+                    class="relative block rounded-2xl shadow-lg overflow-hidden h-64 p-4 rounded" >
 
                         <!-- Forced gradient background (works even if Tailwind gradient classes aren't available) -->
                         <span aria-hidden="true"
@@ -147,7 +147,7 @@
 
                         <!-- Category Title (top center) -->
                         <div class="relative z-10 absolute top-4 left-1/2 -translate-x-1/2 
-                                    text-white font-bold text-lg text-center text-4xl" style="font-size: 30px; top:30px; font-weight:800">
+                                    text-white font-bold text-lg text-center text-4xl category-title">
                             {{ $category->name }}
                         </div>
 

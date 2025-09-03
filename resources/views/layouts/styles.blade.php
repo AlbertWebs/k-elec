@@ -56,6 +56,10 @@
         bottom: -10px; /* offset like your inline css */
         }
 
+        .category-title{
+            font-size: 30px; top:30px; font-weight:800
+        }
+
        
 
 
@@ -83,6 +87,10 @@
         .category-image-wrapper {
             width: 100%;
             height: auto;
+        }
+
+        .category-title{
+            font-size: 20px; top:2px; font-weight:800
         }
 
         .category-image {

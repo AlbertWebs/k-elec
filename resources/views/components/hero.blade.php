@@ -28,7 +28,7 @@
                               class="carousel-container relative overflow-hidden rounded-none lg:rounded-lg -mx-4 lg:mx-0">
                               @foreach ($carouselSlides as $index => $slide)
                                   <div class="carousel-slide {{ $index === 0 ? 'active' : '' }} bg-gradient-to-r {{ $slide->background_classes }} p-4 lg:p-8 bg-cover bg-center bg-no-repeat"
-                                      style="background-image: url('{{url('/')}}/{{ Storage::url($slide->image) }}'); 
+                                      style="background-image: url('{{ Storage::url($slide->image) }}'); 
                                                 background-size: cover; 
                                                 background-position: center;">
                                       <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 items-center">
@@ -77,7 +77,7 @@
                           @foreach ($carouselSlides as $index => $slide)
                               <button
                                   class="carousel-dot w-6 h-1 lg:w-8 lg:h-1 bg-gray-800 {{ $index === 0 ? 'bg-opacity-80' : 'bg-opacity-50' }} hover:bg-opacity-100 rounded-full transition-all duration-200"
-                                  data-slide="{{ $index }}"></button>
+                                  data-slide="{{ $index }}" style="background-color: red"></button>
                           @endforeach
                       </div>
                   @else
@@ -107,6 +107,63 @@
           </div>
       </div>
   </section>
+
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const nextBtn = document.querySelector('.carousel-next');
+    const prevBtn = document.querySelector('.carousel-prev');
+    const dots = document.querySelectorAll('.carousel-dot');
+    let current = 0;
+    let autoPlayInterval;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active', 'prev');
+            if(i < index) slide.classList.add('prev');
+        });
+        slides[index].classList.add('active');
+        updateDots(index);
+        current = index;
+    }
+
+    function nextSlide() {
+        let nextIndex = (current + 1) % slides.length;
+        showSlide(nextIndex);
+    }
+
+    function prevSlide() {
+        let prevIndex = (current - 1 + slides.length) % slides.length;
+        showSlide(prevIndex);
+    }
+
+    function updateDots(index) {
+        dots.forEach((dot, i) => {
+            dot.classList.remove('bg-opacity-80');
+            dot.classList.add('bg-opacity-50');
+            if(i === index) {
+                dot.classList.remove('bg-opacity-50');
+                dot.classList.add('bg-opacity-80');
+            }
+        });
+    }
+
+    // Event Listeners
+    nextBtn?.addEventListener('click', nextSlide);
+    prevBtn?.addEventListener('click', prevSlide);
+    dots.forEach(dot => {
+        dot.addEventListener('click', () => showSlide(parseInt(dot.dataset.slide)));
+    });
+
+    // Auto-play every 5 seconds
+    autoPlayInterval = setInterval(nextSlide, 5000);
+
+    // Pause on hover
+    const carouselContainer = document.querySelector('.carousel-container');
+    carouselContainer.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+    carouselContainer.addEventListener('mouseleave', () => autoPlayInterval = setInterval(nextSlide, 5000));
+});
+</script>
 
 
 

@@ -48,33 +48,58 @@
 }
 </script>' !!}
 @endsection
+<style>
+/* Desktop version (default) */
+.title-stylins {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-weight: 900;
+    font-size: 80px !important;
+}
+
+/* Mobile version (screens <= 640px) */
+@media (max-width: 640px) {
+    .title-stylins {
+        font-size: 28px !important; /* adjust for mobile */
+        line-height: 1.2; /* optional for readability */
+    }
+}
+
+/* Optional: Tablet version (641px - 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+    .title-stylins {
+        font-size: 50px !important; /* adjust for tablet */
+    }
+}
+</style>
 
 
 
 @section('content')
     <!-- Page Header -->
- <section class="w-full bg-gray-50 py-8 bg-cover bg-center min-h-[500px]" style="background-image: url('{{ asset('storage/' . $category->featured) }}'); background-position:contain; background-repeat:no-repeat; height:680px !important; ">
-     {{--  --}}
-<div class="container mx-auto px-4 sm:px-6 lg:px-8 h-full">
-    <div class="grid grid-cols-1 md:grid-cols-2 items-center h-full gap-6">
-        
-        <!-- Left column: Image category -->
-        <div class="flex justify-center">
-            <img src="{{ asset('storage/' . $category->image) }}" alt="Banner Image" class="" style="width:100% !important; height:100%; object-fit:cover; position:relative; bottom:0px z-index: ">
-        </div>
-        
-        <!-- Right column: Title -->
-        <div class="text-right">
-            <h1 class="text-4xl text-white leading-tight " style="font-size:90px; font-weight:900 !important; max-width:400px; float:right;">
-                {{ $pageTitle ?? 'All Products' }}
-            </h1>
-        </div>
-        
-    </div>
-</div>
+<section class="w-full bg-gray-50 py-8 bg-cover bg-center" 
+         style="background-image: url('{{ asset('storage/' . $category->featured) }}');">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-6">
+      
+      <!-- Left column: Image category -->
+      <div class="flex justify-center">
+        <img src="{{ asset('storage/' . $category->image) }}" 
+             alt="Banner Image" 
+             class="w-full h-auto object-cover rounded-md shadow-lg">
+      </div>
+      
+      <!-- Right column: Title -->
+      <div class="text-center md:text-right">
+        <h1 class="text-white font-extrabold leading-tight 
+                   text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl max-w-full md:max-w-md title-stylins">
+          {{ $pageTitle ?? 'All Products' }}
+        </h1>
+      </div>
 
-     {{--  --}}
+    </div>
+  </div>
 </section>
+
 
 
 

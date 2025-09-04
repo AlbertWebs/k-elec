@@ -1,23 +1,55 @@
 <style>
-        .carousel-slide {
-        opacity: 0;
-        transform: translateX(100%);
-        transition: all 1s ease-in-out;
-        position: absolute;
-        inset: 0; /* replaces top/left/width/height */
-        }
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 600px; /* adjust for your design */
+}
 
-        .carousel-slide.active {
-        opacity: 1;
-        transform: translateX(0);
-        z-index: 10;
-        }
+.carousel-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 1s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .carousel-container {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        }
+.carousel-slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 10;
+}
+
+.carousel-slide.prev {
+    transform: translateX(-100%);
+}
+
+.carousel-btn {
+    z-index: 20;
+}
+
+.carousel-dot {
+    cursor: pointer;
+}
+.carousel-slide {
+    background-attachment: fixed;
+    background-position: center;
+}
+
+@media (max-width: 1024px) {
+    .carousel-container {
+        height: 400px;
+    }
+    .carousel-slide h2 {
+        font-size: 2rem !important;
+    }
+    .carousel-slide p {
+        font-size: 1rem !important;
+    }
+}
 
         /* Base style (default for larger screens) */
         .mobile-btn {

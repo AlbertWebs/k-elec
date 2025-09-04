@@ -167,32 +167,23 @@
 
 
             <!-- Specifications -->
-            <div class="space-y-4">
-                <div class="flex items-center justify-between">
-                    <label class="block text-sm font-medium text-gray-700">Specifications</label>
-                    <button type="button" onclick="addSpecificationRow()" 
-                            class="text-sm bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition-colors">
-                        Add Specification
-                    </button>
-                </div>
-                
-                <div id="specifications-container" class="space-y-3">
-                    <div class="specification-row flex items-center space-x-3">
-                        <input type="text" name="specifications[0][key]" placeholder="Specification name" 
-                               class="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                        <input type="text" name="specifications[0][value]" placeholder="Specification value" 
-                               class="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                        <button type="button" onclick="removeSpecificationRow(this)" 
-                                class="text-red-600 hover:text-red-800 p-2">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                
-                <p class="text-sm text-gray-500">Add product specifications like dimensions, weight, color, etc.</p>
-            </div>
+           <div class="space-y-6">
+    <!-- Header with add group button -->
+    <div class="flex items-center justify-between">
+        <label class="block text-sm font-medium text-gray-700">Specification Groups</label>
+        <button type="button" onclick="addGroup()" 
+            class="text-sm bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700 transition-colors">
+            Add Group
+        </button>
+    </div>
+
+    <!-- Groups container -->
+    <div id="groups-container" class="space-y-6">
+        <!-- Groups will be appended here -->
+    </div>
+
+    <p class="text-sm text-gray-500">Add groups like Display, Platform, Sound, etc., and their specifications.</p>
+</div>
 
             <!-- Images Section -->
             <div class="space-y-6">
@@ -278,33 +269,72 @@
 @push('scripts')
 <script src="{{ asset('assets/js/product-images.js') }}"></script>
 <script>
-let specificationIndex = 1;
+let groupIndex = 0;
 
-function addSpecificationRow() {
-    const container = document.getElementById('specifications-container');
+function addGroup() {
+    const groupsContainer = document.getElementById('groups-container');
+    
+    const groupDiv = document.createElement('div');
+    groupDiv.className = 'group border p-4 rounded-lg space-y-3 bg-gray-50';
+    groupDiv.dataset.groupIndex = groupIndex;
+
+    groupDiv.innerHTML = `
+        <!-- Group name + remove -->
+        <div class="flex items-center justify-between">
+            <input type="text" name="specifications[${groupIndex}][group]" 
+                placeholder="Group name (e.g. Display)" 
+                class="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mr-3">
+            <button type="button" onclick="removeGroup(this)" 
+                class="text-red-600 hover:text-red-800 p-2">
+                Remove Group
+            </button>
+        </div>
+
+        <!-- Specs inside this group -->
+        <div class="space-y-2" id="specs-${groupIndex}">
+            <!-- Specs rows will appear here -->
+        </div>
+
+        <!-- Add spec button -->
+        <button type="button" onclick="addSpecificationRow(${groupIndex})" 
+            class="text-sm bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition-colors">
+            Add Specification
+        </button>
+    `;
+
+    groupsContainer.appendChild(groupDiv);
+    groupIndex++;
+}
+
+function addSpecificationRow(groupIndex) {
+    const container = document.getElementById(`specs-${groupIndex}`);
+    const rowCount = container.querySelectorAll('.specification-row').length;
+
     const newRow = document.createElement('div');
     newRow.className = 'specification-row flex items-center space-x-3';
-    
+
     newRow.innerHTML = `
-        <input type="text" name="specifications[${specificationIndex}][key]" placeholder="Specification name" 
+        <input type="text" name="specifications[${groupIndex}][items][${rowCount}][key]" 
+               placeholder="Specification name (e.g. Size)" 
                class="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-        <input type="text" name="specifications[${specificationIndex}][value]" placeholder="Specification value" 
+        <input type="text" name="specifications[${groupIndex}][items][${rowCount}][value]" 
+               placeholder="Specification value (e.g. 22 inch)" 
                class="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
         <button type="button" onclick="removeSpecificationRow(this)" 
                 class="text-red-600 hover:text-red-800 p-2">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-            </svg>
+            ✕
         </button>
     `;
-    
+
     container.appendChild(newRow);
-    specificationIndex++;
+}
+
+function removeGroup(button) {
+    button.closest('.group').remove();
 }
 
 function removeSpecificationRow(button) {
-    const row = button.closest('.specification-row');
-    row.remove();
+    button.closest('.specification-row').remove();
 }
 </script>
 @endpush

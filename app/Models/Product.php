@@ -30,6 +30,8 @@ class Product extends Model
         'specifications'
     ];
 
+   
+
     protected $casts = [
         'price' => 'decimal:2',
         'old_price' => 'decimal:2',

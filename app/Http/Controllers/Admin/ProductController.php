@@ -79,16 +79,42 @@ class ProductController extends Controller
             $validated['images'] = array_values($images);
         }
 
-        // Process specifications
-        if (isset($validated['specifications'])) {
-            $specifications = [];
-            foreach ($validated['specifications'] as $spec) {
-                if (!empty($spec['key']) && !empty($spec['value'])) {
-                    $specifications[$spec['key']] = $spec['value'];
+        // Process grouped specifications
+if (isset($validated['specifications'])) {
+    $groups = [];
+
+    foreach ($validated['specifications'] as $group) {
+        // Skip empty groups
+        if (empty($group['group']) && empty($group['items'])) {
+            continue;
+        }
+
+        $items = [];
+
+        if (!empty($group['items'])) {
+            foreach ($group['items'] as $item) {
+                if (!empty($item['key']) && !empty($item['value'])) {
+                    $items[] = [
+                        'key'   => $item['key'],
+                        'value' => $item['value'],
+                    ];
                 }
             }
-            $validated['specifications'] = $specifications;
         }
+
+        // Only push group if it has valid data
+        if (!empty($group['group']) && !empty($items)) {
+            $groups[] = [
+                'group' => $group['group'],
+                'items' => $items,
+            ];
+        }
+    }
+
+    // Save as structured array (or JSON if column is JSON type)
+    $validated['specifications'] = $groups;
+}
+
 
         Product::create($validated);
 

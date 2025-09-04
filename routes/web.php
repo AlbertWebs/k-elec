@@ -8,6 +8,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\SubscribeController;
+use App\Models\Product;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/products', [ProductsController::class, 'index'])->name('products.index');
@@ -40,6 +41,12 @@ Route::post('/subscribe', [SubscribeController::class, 'store'])->name('subscrib
 // Sitemap routes
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap.index');
 Route::get('/sitemap-products.xml', [SitemapController::class, 'products'])->name('sitemap.products');
+
+Route::get('/api/products/{product}/specifications', function (Product $product) {
+    return response()->json([
+        'specifications' => $product->specifications,
+    ]);
+})->name('product.specifications');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

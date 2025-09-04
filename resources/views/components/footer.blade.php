@@ -122,7 +122,7 @@ use App\Helpers\SocialMediaHelper;
                         <a href="{{ Setting::get('social_facebook', '#') }}" class="w-9 h-9 bg-blue-600 rounded-lg flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
                             <i class="fab fa-facebook-f text-sm"></i>
                         </a>
-                        <a href="{{ Setting::get('social_twitter', '#') }}" class="w-9 h-9 bg-blue-400 rounded-lg flex items-center justify-center text-white hover:bg-blue-500 transition-colors">
+                        <a  style="border:1px solid #ffffff" href="{{ Setting::get('social_twitter', '#') }}" class="w-9 h-9 bg-black-600 rounded-lg flex items-center justify-center text-white hover:bg-black-500 transition-colors">
                             <i class="fab fa-x-twitter text-sm"></i>
                         </a>
                         <a href="{{ Setting::get('social_instagram', '#') }}" class="w-9 h-9 bg-pink-600 rounded-lg flex items-center justify-center text-white hover:bg-pink-700 transition-colors">

@@ -132,7 +132,7 @@
                         </div>
 
                         <!-- Price Range -->
-                        <div class="mb-6">
+                        {{-- <div class="mb-6">
                             <label class="block text-sm font-medium text-gray-700 mb-2">Price Range</label>
                             <form method="GET" action="{{ route('products.index') }}" id="price-form">
                                 @if(request('min_price') || request('max_price'))
@@ -152,7 +152,7 @@
                                     </div>
                                 </div>
                             </form>
-                        </div>
+                        </div> --}}
 
                         <!-- Rating Filter -->
                         <div class="mb-6">

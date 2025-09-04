@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.app-single-product')
 
-@section('title', $product->name . ' - ' . $product->category->name . ' | Guru Digital Kenya')
-@section('description', $product->description ?: 'Buy ' . $product->name . ' in Kenya. Quality ' . $product->category->name . ' at competitive prices. Fast delivery and excellent customer service from Guru Digital.')
-@section('keywords', $product->name . ', ' . $product->category->name . ', electronics Kenya, Guru Digital, buy online Kenya')
-@section('og_title', $product->name . ' - ' . $product->category->name . ' | Guru Digital Kenya')
+@section('title', $product->name . ' - ' . $product->category->name . ' | K-ELEC Kenya')
+@section('description', $product->description ?: 'Buy ' . $product->name . ' in Kenya. Quality ' . $product->category->name . ' at competitive prices. Fast delivery and excellent customer service from K-ELEC.')
+@section('keywords', $product->name . ', ' . $product->category->name . ', electronics Kenya, K-ELEC, buy online Kenya')
+@section('og_title', $product->name . ' - ' . $product->category->name . ' | K-ELEC Kenya')
 @section('og_description', $product->description ?: 'Buy ' . $product->name . ' in Kenya. Quality ' . $product->category->name . ' at competitive prices.')
 @section('og_type', 'product')
 @section('og_image', $product->main_image_url)
@@ -23,7 +23,7 @@
     "category": "' . addslashes($product->category->name) . '",
     "brand": {
         "@type": "Brand",
-        "name": "' . addslashes($product->brand ?? 'Guru Digital') . '"
+        "name": "' . addslashes($product->brand ?? 'K-ELEC') . '"
     },
     "offers": {
         "@type": "Offer",
@@ -33,7 +33,7 @@
         "url": "' . request()->url() . '",
         "seller": {
             "@type": "Organization",
-            "name": "Guru Digital"
+            "name": "K-ELEC"
         }
     },
     "aggregateRating": {
@@ -226,7 +226,51 @@
             </div>
         </div>
 
+
+
         @if($product->specifications)
+            <div class="mt-12">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Specifications</h2>
+
+                <div class="overflow-x-auto bg-white rounded-lg border border-gray-200">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <tbody class="divide-y divide-gray-100">
+                            @foreach ($product->specifications as $group)
+                                @php
+                                    $groupName = $group['group'] ?? null;
+                                    $items = $group['items'] ?? [];
+                                @endphp
+
+                                @if ($groupName && !empty($items))
+                                    <tr class="bg-gray-100">
+                                        <th colspan="2" class="px-6 py-3 text-left text-lg font-semibold text-gray-800">
+                                            {{ ucfirst(str_replace('_', ' ', $groupName)) }}
+                                        </th>
+                                    </tr>
+
+                                    @foreach ($items as $item)
+                                        <tr>
+                                            <td class="px-6 py-3 text-sm font-medium text-gray-700 w-1/3">
+                                                {{ ucfirst(str_replace('_', ' ', $item['key'] ?? '')) }}
+                                            </td>
+                                            <td class="px-6 py-3 text-sm text-gray-600">
+                                                {{ $item['value'] ?? '' }}
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @endif
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        @endif
+
+   
+
+        
+
+        {{-- @if($product->specifications)
             <div class="mt-12">
                 <h2 class="text-2xl font-bold text-gray-900 mb-6">Specifications</h2>
                 <div class="bg-white rounded-lg border border-gray-200 p-6">
@@ -240,7 +284,13 @@
                     </div>
                 </div>
             </div>
-        @endif
+        @endif --}}
+
+
+
+
+
+
 
         @if($relatedProducts->count() > 0)
             <div class="mt-12">

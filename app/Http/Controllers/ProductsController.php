@@ -134,4 +134,11 @@ class ProductsController extends Controller
         return view('products.show', compact('product', 'relatedProducts'));
     }
 
+    public function getSpecifications(Product $product)
+{
+    return response()->json([
+        'specifications' => $product->specifications,
+    ]);
+}
+
 } 

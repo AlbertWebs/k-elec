@@ -33,8 +33,7 @@
                         </div>
                         <h3 class="text-lg font-semibold text-gray-900 mb-3">Our Mission</h3>
                         <p class="text-gray-600 leading-relaxed">
-                            To democratize technology by making premium electronics accessible, affordable, and 
-                            easy to use for all Kenyans.
+                            To enrich people’s lives by providing reliable and innovative Korean technology, making premium electronics accessible, trusted, and inspiring, while delivering groundbreaking customer experiences and ensuring unlimited satisfaction for all. We are driven by a passion for excellence and a commitment to brighten every home and community we serve.
                         </p>
                     </div>
                 </div>

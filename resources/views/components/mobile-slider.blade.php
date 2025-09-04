@@ -21,18 +21,18 @@
                 <div class="swiper-slide p-4 lg:p-8 bg-cover bg-center bg-no-repeat"
                     style="background-image: url('{{url('/')}}/{{ Storage::url($slide->image) }}'); min-height:350px; background-size: contain; background-position: center;">
                     <div class="flex flex-col items-center justify-center text-center px-4 py-8 mt-[130px]" style="margin-top:130px">
-                        <h2 class="text-3xl lg:text-5xl xl:text-4xl font-bold {{ $slide->text_color_class }} mt-2 mb-4">
+                        {{-- <h2 class="text-3xl lg:text-5xl xl:text-4xl font-bold {{ $slide->text_color_class }} mt-2 mb-4">
                             {{ $slide->heading }}
-                        </h2>
-                        <p class="text-white mb-6 lg:text-lg text-md font-semibold">
+                        </h2> --}}
+                        {{-- <p class="text-white mb-6 lg:text-lg text-md font-semibold">
                             {{ $slide->description }}
-                        </p>
-                        @if ($slide->button_text)
+                        </p> --}}
+                        {{-- @if ($slide->button_text)
                             <a href="{{ $slide->button_link ?? route('products.index') }}"
                                class="inline-block bg-black text-white px-4 py-2 lg:px-6 lg:py-3 rounded-lg font-semibold hover:bg-gray-800 text-sm lg:text-base">
                                {{ $slide->button_text }} →
                             </a>
-                        @endif
+                        @endif --}}
                     </div>
                 </div>
             @endforeach

@@ -28,7 +28,7 @@
                             <div class="carousel-slide {{ $index === 0 ? 'active' : '' }} 
                                         bg-gradient-to-r {{ $slide->background_classes }} 
                                         p-4 lg:p-8 bg-cover bg-center bg-no-repeat flex items-center justify-center"
-                                style="background-image: url('{{asset('/')}}/{{ Storage::url($slide->image) }}'); height:100%;">
+                                style="background-image: url('{{asset('')}}{{ Storage::url($slide->image) }}'); height:100%;">
                                 
                                 <div class="text-center max-w-2xl">
                                     {{-- <span class="{{ $slide->text_color_class }} font-semibold text-sm lg:text-base">{{ $slide->title }}</span> --}}

@@ -153,7 +153,7 @@
 
                         <!-- Category Image (bottom 50% touching bottom) -->
                        <!-- Image at the bottom -->
-                        <div class="absolute bottom-0 left-0 right-0" style="margin:0 auto;">
+                        <div class="absolute bottom-0 left-0 right-0 items-center justify-center" style="margin:0 auto;">
                             <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}"  class="w-full category-image"  />
                         </div>
 

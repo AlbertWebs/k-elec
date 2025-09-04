@@ -3,7 +3,7 @@
           <div class="grid grid-cols-1 lg:grid-cols-4 gap-3">
 
               {{--  --}}
-              <div class="hidden lg:block lg:col-span-1 flex-col gap-2 h-full">
+              <div class="hidden lg:block lg:col-span-1 flex-col  h-full">
                   <!-- Top Image -->
                   <div class="mb-4">
                       <img src="{{ url('/') }}/storage/{{ $bannerPosition1->image }}" alt="Top Banner"

@@ -8,7 +8,9 @@
                 <div class="text-center py-12">
                     {{-- <h3 class="text-lg font-semibold text-gray-900">No Showrooms Available</h3>
                     <p class="mt-2 text-gray-600">Please check back later for updates.</p> --}}
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8132984184417!2d36.783985099999995!3d-1.2860503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11173841ee81%3A0xa0f9c38bd72cb408!2sDrenla%20Hub!5e0!3m2!1sen!2ske!4v1756968206868!5m2!1sen!2ske" width="100%" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    {{--  --}}
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3988.812856070968!2d36.827999999999996!3d-1.2863333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMcKwMTcnMTAuOCJTIDM2wrA0OSc0MC44IkU!5e0!3m2!1sen!2ske!4v1756992484286!5m2!1sen!2ske" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    {{--  --}}
                 </div>
             @else
 

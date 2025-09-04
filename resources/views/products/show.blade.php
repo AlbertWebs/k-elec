@@ -95,7 +95,7 @@
             <div class="space-y-4">
                 <!-- Main Image -->
                 <div class="aspect-w-1 aspect-h-1 w-full">
-                    <img id="mainImage" src="{{ $product->main_image_url }}" alt="{{ $product->name }}" class="w-full h-full object-cover rounded-lg" style="aspect-ratio: 1/1;">
+                    <img id="mainImage" src="{{ $product->main_image_url }}" alt="{{ $product->name }}" class="w-full h-full object-contain rounded-lg" style="aspect-ratio: 1/1;">
                 </div>
                 
                 <!-- Thumbnail Gallery -->

@@ -97,7 +97,7 @@
                                   </a>
                               </div>
                               <div class="hidden lg:flex justify-center lg:justify-end">
-                                  <img src="{{ asset('assets/images/1-DloPm3Vx.png') }}" alt="Electronics Product"
+                                    <img src="{{ asset('assets/images/1-DloPm3Vx.png') }}" alt="Electronics Product"
                                       class="max-w-xs lg:max-w-sm object-cover rounded-lg shadow-lg">
                               </div>
                           </div>

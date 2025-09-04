@@ -150,13 +150,13 @@
                 </div>
 
                 <!-- Price -->
-                <div class="flex items-center space-x-4">
+                {{-- <div class="flex items-center space-x-4">
                     <span class="text-3xl font-bold text-gray-900">{{ $product->formatted_price }}</span>
                     @if($product->old_price && $product->old_price > $product->price)
                         <span class="text-xl text-gray-500 line-through">{{ $product->formatted_old_price }}</span>
                         <span class="bg-red-100 text-red-800 text-sm font-medium px-2 py-1 rounded">-{{ $product->discount_percentage }}%</span>
                     @endif
-                </div>
+                </div> --}}
 
                 <!-- Badge -->
                 @if($product->badge)
@@ -191,25 +191,25 @@
                 </div>
 
                 <!-- Quantity Selection -->
-                <div class="flex items-center space-x-4">
+                {{-- <div class="flex items-center space-x-4">
                     <label class="text-sm font-medium text-gray-700">Quantity:</label>
                     <div class="flex items-center border border-gray-300 rounded-lg">
                         <button type="button" onclick="updateQuantity(-1)" class="px-3 py-2 text-gray-600 hover:text-gray-800">-</button>
                         <input type="number" id="quantity" value="1" min="1" max="{{ $product->stock_quantity }}" class="w-16 text-center border-0 focus:ring-0" readonly>
                         <button type="button" onclick="updateQuantity(1)" class="px-3 py-2 text-gray-600 hover:text-gray-800">+</button>
                     </div>
-                </div>
+                </div> --}}
 
                 <!-- Action Buttons -->
                 <div class="flex space-x-4">
-                    <button onclick="addToCartWithQuantity({{ $product->id }}, '{{ $product->name }}', {{ $product->price }}, '{{ $product->main_image_url }}')" 
+                    <button onclick="toggleWishlist({{ $product->id }}, '{{ $product->name }}')"  
                             class="flex-1 bg-black text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
-                        Add to Cart
+                        Add to Wishlist
                     </button>
-                    <button onclick="toggleWishlist({{ $product->id }}, '{{ $product->name }}')" 
+                    {{-- <button onclick="toggleWishlist({{ $product->id }}, '{{ $product->name }}')" 
                             class="w-12 h-12 border border-gray-300 rounded-lg flex items-center justify-center hover:border-gray-400 transition-colors wishlist-btn">
-                        <i class="fas fa-heart text-gray-400"></i>
-                    </button>
+                        <i class="fas fa-heart text-white"></i>
+                    </button> --}}
                 </div>
 
                 <!-- Quick Info -->

@@ -85,7 +85,7 @@
       <div class="flex justify-center">
         <img src="{{ asset('storage/' . $category->image) }}" 
              alt="Banner Image" 
-             class="w-full h-auto object-cover rounded-md shadow-lg" style="max-height:584px;">
+             class="w-full h-auto object-cover rounded-md shadow-lg" style="max-height:584px; object-fit: contain;">
       </div>
       
       <!-- Right column: Title -->

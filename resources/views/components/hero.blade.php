@@ -14,9 +14,9 @@
 
 
                   <!-- Bottom Image -->
-                  <div class="mt-0" style="bottom:0 ! important">
+                  <div class="mt-0" style="bottom:-10 ! important">
                       <img src="{{ url('/') }}/storage/{{ $bannerPosition2->image }}" alt="Middle Banner"
-                          class="w-full  rounded object-cover" style="border-radius:10px;">
+                          class="w-full  rounded object-cover" style="border-radius:10px; border: 1px solid #e2e8f0;">
                   </div>
 
 

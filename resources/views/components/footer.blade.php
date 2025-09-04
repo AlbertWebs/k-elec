@@ -4,7 +4,7 @@ use App\Helpers\SocialMediaHelper;
 @endphp
 
 <!-- Footer Top Bar -->
-<div class="bg-gray-900 py-8 hidden">
+<div class="bg-gray-900 py-8 ">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                             <div class="flex items-center space-x-3">
@@ -48,7 +48,7 @@ use App\Helpers\SocialMediaHelper;
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <!-- Company Info -->
             <div>
-                <h3 class="text-2xl font-bold text-red-600 mb-4">K-Elec</h3>
+                <img style="width:100px; height:auto; object-fit:cover;" src="{{ asset('images/logo.png') }}" alt="Guru Digital" class="h-16 brand-logo">
                 <p class="text-gray-400 mb-4">{{ Setting::get('contact_address', 'Westlands, Nairobi') }}, {{ Setting::get('contact_city', 'Kenya') }}</p>
                 <p class="text-gray-400 mb-2">{{ Setting::get('contact_phone', '+254 700 123 456') }}</p>
                 <p class="text-gray-400 mb-6">{{ Setting::get('contact_email', 'hello@k-klec.co.ke') }}</p>
@@ -85,6 +85,7 @@ use App\Helpers\SocialMediaHelper;
                     <li><a href="{{ route('pages.about') }}" class="text-gray-400 hover:text-white">About Us</a></li>
                     <li><a href="{{ route('pages.contact') }}" class="text-gray-400 hover:text-white">Contact Us</a></li>
                     <li><a href="{{ route('showrooms.index') }}" class="text-gray-400 hover:text-white">Our Showrooms</a></li>
+                    <li><a href="{{ route('products.index') }}" class="text-gray-400 hover:text-white">Our Products</a></li>
                     {{-- <li><a href="{{ route('pages.technical-support') }}" class="text-gray-400 hover:text-white">Technical Support</a></li>
                     <li><a href="{{ route('pages.shipping-returns') }}" class="text-gray-400 hover:text-white">Shipping & Returns</a></li>
                     <li><a href="{{ route('pages.faq') }}" class="text-gray-400 hover:text-white">FAQ's Page</a></li> --}}

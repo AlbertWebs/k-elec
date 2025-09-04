@@ -7,7 +7,7 @@
                   <!-- Top Image -->
                   <div class="mb-4">
                       <img src="{{ url('/') }}/storage/{{ $bannerPosition1->image }}" alt="Top Banner"
-                          class="w-full rounded object-cover">
+                          class="w-full rounded object-cover" style="border-radius:10px;">
                   </div>
 
                   
@@ -16,7 +16,7 @@
                   <!-- Bottom Image -->
                   <div class="mt-0" style="bottom:0 ! important">
                       <img src="{{ url('/') }}/storage/{{ $bannerPosition2->image }}" alt="Middle Banner"
-                          class="w-full  rounded object-cover">
+                          class="w-full  rounded object-cover" style="border-radius:10px;">
                   </div>
 
 

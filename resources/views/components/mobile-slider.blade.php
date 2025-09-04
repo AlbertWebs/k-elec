@@ -19,7 +19,7 @@
         <div class="swiper-wrapper">
             @foreach ($carouselSlides as $slide)
                 <div class="swiper-slide p-4 lg:p-8 bg-cover bg-center bg-no-repeat"
-                    style="background-image: url('{{url('/')}}/{{ Storage::url($slide->image) }}'); min-height:350px; background-size: cover; background-position: center;">
+                    style="background-image: url('{{url('/')}}/{{ Storage::url($slide->image) }}'); min-height:350px; background-size: contain; background-position: center;">
                     <div class="flex flex-col items-center justify-center text-center px-4 py-8 mt-[130px]" style="margin-top:130px">
                         <h2 class="text-3xl lg:text-5xl xl:text-4xl font-bold {{ $slide->text_color_class }} mt-2 mb-4">
                             {{ $slide->heading }}

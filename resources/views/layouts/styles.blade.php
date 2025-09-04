@@ -39,6 +39,12 @@
     background-position: center;
 }
 
+.mobile-slider {
+    min-height:350px;
+    background-size: contain;
+    background-position: center;
+}
+
 @media (max-width: 1024px) {
     .carousel-container {
         height: 400px;
@@ -109,6 +115,11 @@
         .mobile-btn {
             padding: 0.25rem 1rem; /* smaller horizontal padding */
             font-size: 0.575rem;   /* smaller text */
+        }
+        .mobile-slider {
+            min-height:auto;
+            background-size: contain;
+            background-position: center;
         }
         .mobile-heading {
             font-size: 1.25rem;   /* ~text-xl */

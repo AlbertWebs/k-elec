@@ -1,13 +1,13 @@
   <section class="bg-white py-0 lg:py-12">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8" >
-          <div class="grid grid-cols-1 lg:grid-cols-4 ">
+          <div class="grid grid-cols-1 lg:grid-cols-4 gap-3">
 
               {{--  --}}
-              <div class="hidden lg:block lg:col-span-1 flex-col h-full">
+              <div class="hidden lg:block lg:col-span-1 flex-col gap-2 h-full">
                   <!-- Top Image -->
                   <div class="mb-4">
                       <img src="{{ url('/') }}/storage/{{ $bannerPosition1->image }}" alt="Top Banner"
-                          class="w-full rounded-lg object-cover">
+                          class="w-full rounded object-cover">
                   </div>
 
                   
@@ -16,7 +16,7 @@
                   <!-- Bottom Image -->
                   <div class="mt-0" style="bottom:0 ! important">
                       <img src="{{ url('/') }}/storage/{{ $bannerPosition2->image }}" alt="Middle Banner"
-                          class="w-full  rounded-lg object-cover">
+                          class="w-full  rounded object-cover">
                   </div>
 
 

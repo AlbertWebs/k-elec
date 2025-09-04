@@ -118,6 +118,7 @@
         }
         
         .mobile-slider {
+            width:100%;
             min-height:auto;
             background-size: contain;
             background-position: center;

@@ -116,10 +116,13 @@
             padding: 0.25rem 1rem; /* smaller horizontal padding */
             font-size: 0.575rem;   /* smaller text */
         }
+        
         .mobile-slider {
             min-height:auto;
             background-size: contain;
             background-position: center;
+            background-repeat: no-repeat;
+            height:250px;
         }
         .mobile-heading {
             font-size: 1.25rem;   /* ~text-xl */

@@ -19,7 +19,7 @@
         <div class="swiper-wrapper">
             @foreach ($carouselSlides as $slide)
                 <div class="swiper-slide p-4 lg:p-8 bg-cover bg-center bg-no-repeat"
-                    style="background-image: url('{{asset('')}}{{ Storage::url($slide->image) }}'); min-height:450px; background-size: cover contain; background-position: center;">
+                    style="background-image: url('{{url('/')}}/storage{{$slide->image}}'); min-height:450px; background-size: cover contain; background-position: center;">
                     <div class="flex flex-col items-center justify-center text-center px-4 py-8 mt-[130px]" style="margin-top:40px">
                         <img style="width:120px; height:auto; object-fit:cover; margin:0 auto;" src="{{ asset('images/logo-white.png') }}" alt="K-ELEC" class="h-16 brand-logo">
                         <h2 class="text-3xl lg:text-5xl xl:text-4xl font-bold text-white mt-2 mb-4"

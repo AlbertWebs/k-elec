@@ -24,17 +24,17 @@
               <div class="carousel-slide {{ $index === 0 ? 'active' : '' }} 
                           bg-gradient-to-r {{ $slide->background_classes }} 
                           p-4 lg:p-8 bg-cover bg-center bg-no-repeat flex items-center justify-center h-full"
-                style="background-image: url('{{url('/')}}/storage/{{$slide->image}}');">
+                style="background-image: url('{{url('/')}}/storage/{{$slide->image}}'); ">
                 
                 <div class="text-center max-w-2xl">
                   <img src="{{ asset('images/logo.png') }}" alt="K-ELEC" 
-                       class="h-16 brand-logo mx-auto mb-4">
+                       class="h-16 brand-logo mx-auto mb-4" style="visibility:hidden">
                   <h2 class="text-3xl lg:text-5xl xl:text-4xl font-bold text-white mb-4"
-                      style="font-size:55px; line-height:1.2;">
+                      style="font-size:55px; line-height:1.2; visibility:hidden">
                       {{ $slide->heading }}
                   </h2>
                   <p class="text-white text-lg lg:text-3xl font-semibold"
-                     style="font-size:25px;">
+                     style="font-size:25px; visibility:hidden">
                      {{ $slide->description }}
                   </p>
                 </div>

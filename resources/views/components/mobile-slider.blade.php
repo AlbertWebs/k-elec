@@ -14,18 +14,17 @@
 </style>
 
 <!-- Carousel -->
-<div class="carousel-container relative overflow-hidden rounded-none lg:rounded-lg lg:mx-0 lg:hidden">
+<div class="carousel-container relative overflow-hidden rounded-none lg:rounded-lg lg:mx-0 lg:hidden" style="height:350px;"> 
     <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper" >
             @foreach ($carouselSlides as $slide)
                 <div class="swiper-slide p-4 lg:p-8 bg-cover bg-center bg-no-repeat"
-                    style="background-image: url('{{url('/')}}/storage/{{$slide->image}}'); min-height:450px; background-size: cover contain; background-position: center;">
+                    style="background-image: url('{{url('/')}}/storage/{{$slide->image}}');  width:100% !important; min-height:350px; background-repeat: no-repeat;  background-size: cover; background-position: center; ">
                     <div class="flex flex-col items-center justify-center text-center px-4 py-8 mt-[130px]" style="margin-top:40px">
-                        <img style=" height:auto; object-fit:cover; margin:0 auto;" src="{{ asset('images/logo.png') }}" alt="K-ELEC" class="h-16 brand-logo">
-                        <h2 class="text-3xl lg:text-5xl xl:text-4xl font-bold text-white mt-2 mb-4"
-                                                  style="font-size:45px; line-height:1.2;">{{ $slide->heading }}</h2>
-                        <h3 class="text-3xl lg:text-5xl xl:text-4xl font-bold text-white mt-2 mb-4"
-                        style="font-size:40px;"> {{ $slide->description }}</h3>
+                        <img style=" height:auto; object-fit:cover; margin:0 auto; visibility:hidden" src="{{ asset('images/logo.png') }}" alt="K-ELEC" class="h-16 brand-logo">
+                        {{-- <h2 class="text-3xl lg:text-5xl xl:text-4xl font-bold text-white mt-2 mb-4"  style="font-size:45px; line-height:1.2; visibiity:hidden !important;">{{ $slide->heading }}</h2> --}}
+                        {{-- <h3 class="text-3xl lg:text-5xl xl:text-4xl font-bold text-white mt-2 mb-4"
+                        style="font-size:40px; visibiity:hidden !important;"> {{ $slide->description }}</h3> --}}
                         {{-- <p class="text-white mb-6 lg:text-lg text-md font-semibold">
                             {{ $slide->description }}
                         </p> --}}

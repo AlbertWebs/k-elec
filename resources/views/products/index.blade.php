@@ -221,7 +221,7 @@
                                             <img src="{{ $product->main_image_url }}" alt="{{ $product->name }}" class="w-16 h-16 object-cover rounded">
                                             <div class="flex-1">
                                                 <h4 class="text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors">{{ $product->name }}</h4>
-                                                <p class="text-sm text-gray-500">{{ $product->formatted_price }}</p>
+                                                {{-- <p class="text-sm text-gray-500">{{ $product->formatted_price }}</p> --}}
                                             </div>
                                         </div>
                                     </a>

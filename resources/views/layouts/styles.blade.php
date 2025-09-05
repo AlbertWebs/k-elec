@@ -145,6 +145,13 @@
 
         .category-image {
             bottom: -15px; /* smaller offset for mobile */
+            
+            object-fit: contain;
+            position: relative;
+            
+            display: block;
+            padding-left:5px;
+            padding-right:5px;
         }
          .cat-wrapper{
             min-height:auto;

@@ -14,37 +14,31 @@
 </style>
 
 <!-- Carousel -->
-<div class="carousel-container relative overflow-hidden rounded-none lg:rounded-lg lg:mx-0 lg:hidden" style="height:350px;"> 
+<div class="carousel-container relative overflow-hidden rounded-none lg:rounded-lg lg:mx-0 lg:hidden" style="height:300px;"> 
     <div class="swiper mySwiper">
-        <div class="swiper-wrapper" >
+        <div class="swiper-wrapper">
             @foreach ($carouselSlides as $slide)
-                <div class="swiper-slide p-4 lg:p-8 bg-cover bg-center bg-no-repeat"
-                    style="background-image: url('{{url('/')}}/storage/{{$slide->image}}');  width:100% !important; min-height:350px; background-repeat: no-repeat;  background-size: cover; background-position: center; ">
-                    <div class="flex flex-col items-center justify-center text-center px-4 py-8 mt-[130px]" style="margin-top:40px">
-                        <img style=" height:auto; object-fit:cover; margin:0 auto; visibility:hidden" src="{{ asset('images/logo.png') }}" alt="K-ELEC" class="h-16 brand-logo">
-                        {{-- <h2 class="text-3xl lg:text-5xl xl:text-4xl font-bold text-white mt-2 mb-4"  style="font-size:45px; line-height:1.2; visibiity:hidden !important;">{{ $slide->heading }}</h2> --}}
-                        {{-- <h3 class="text-3xl lg:text-5xl xl:text-4xl font-bold text-white mt-2 mb-4"
-                        style="font-size:40px; visibiity:hidden !important;"> {{ $slide->description }}</h3> --}}
-                        {{-- <p class="text-white mb-6 lg:text-lg text-md font-semibold">
-                            {{ $slide->description }}
-                        </p> --}}
-                        {{-- @if ($slide->button_text)
-                            <a href="{{ $slide->button_link ?? route('products.index') }}"
-                               class="inline-block bg-black text-white px-4 py-2 lg:px-6 lg:py-3 rounded-lg font-semibold hover:bg-gray-800 text-sm lg:text-base">
-                               {{ $slide->button_text }} →
-                            </a>
-                        @endif --}}
+                <div class="swiper-slide flex items-center justify-center"
+                     style="width:100% !important; height:350px;">
+                    
+                    <img src="{{url('/')}}/storage/{{$slide->image}}" 
+                         alt="Slide Image"
+                         class="w-full h-full object-fill rounded-lgs">
+                         
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 py-8">
+                        <img style="height:auto; object-fit:cover; margin:0 auto; visibility:hidden" 
+                             src="{{ asset('images/logo.png') }}" 
+                             alt="K-ELEC" class="h-16 brand-logo">
                     </div>
                 </div>
             @endforeach
         </div>
-
-       
-       
     </div>
-     <!-- Pagination (dots) -->
-        <div class="swiper-pagination"></div>
+
+    <!-- Pagination (dots) -->
+    <div class="swiper-pagination"></div>
 </div>
+
 
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>

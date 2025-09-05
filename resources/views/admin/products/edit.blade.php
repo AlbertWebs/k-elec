@@ -166,7 +166,7 @@
             </script>
 
             <!-- Specifications -->
-            <div class="space-y-4">
+            {{-- <div class="space-y-4">
                 <div class="flex items-center justify-between">
                     <label class="block text-sm font-medium text-gray-700">Specifications</label>
                     <button type="button" onclick="addSpecificationRow()" 
@@ -210,7 +210,7 @@
                 </div>
                 
                 <p class="text-sm text-gray-500">Add product specifications like dimensions, weight, color, etc.</p>
-            </div>
+            </div> --}}
 
             <!-- Images Section -->
             <div class="space-y-6">

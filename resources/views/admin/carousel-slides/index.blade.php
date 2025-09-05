@@ -34,7 +34,7 @@
                             <!-- Slide Image -->
                             <div class="w-20 h-16 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
                                 @if($slide->image)
-                                    <img src="{{ Storage::url($slide->image) }}" alt="{{ $slide->title }}" class="w-full h-full object-cover">
+                                    <img src="{{ url('/') }}/storage/{{ $slide->image }}" alt="{{ $slide->title }}" class="w-full h-full object-cover">
                                 @else
                                     <div class="w-full h-full bg-gray-200 flex items-center justify-center">
                                         <i class="fas fa-image text-gray-400"></i>

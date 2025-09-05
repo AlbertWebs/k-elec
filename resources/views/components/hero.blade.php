@@ -35,7 +35,7 @@
                                 
                                 <div class="text-center max-w-2xl">
                                     {{-- <span class="{{ $slide->text_color_class }} font-semibold text-sm lg:text-base">{{ $slide->title }}</span> --}}
-                                    <img style="width:180px; height:auto; object-fit:cover; margin:0 auto;" src="{{ asset('images/logo-white.png') }}" alt="K-ELEC" class="h-16 brand-logo">
+                                    <img style=" height:auto; object-fit:cover; margin:0 auto;" src="{{ asset('images/logo.png') }}" alt="K-ELEC" class="h-16 brand-logo">
                                     
                                     <h2 class="text-3xl lg:text-5xl xl:text-4xl font-bold text-white mt-2 mb-4"
                                         style="font-size:55px; line-height:1.2;">
@@ -46,12 +46,12 @@
                                         {{ $slide->description }}
                                     </p>
                                     
-                                    @if ($slide->button_text)
+                                    {{-- @if ($slide->button_text)
                                         <a href="{{ $slide->button_link ?? route('products.index') }}"
-                                        class="inline-block bg-black text-white px-4 py-2 lg:px-6 lg:py-3 rounded-lg font-semibold hover:bg-gray-800 text-sm lg:text-base">
+                                        class="inline-block {{ $slide->text_color_class }} text-white px-4 py-2 lg:px-6 lg:py-3 rounded-lg font-semibold hover:bg-gray-800 text-sm lg:text-base">
                                             {{ $slide->button_text }} →
                                         </a>
-                                    @endif
+                                    @endif --}}
                                 </div>
                             </div>
                         @endforeach

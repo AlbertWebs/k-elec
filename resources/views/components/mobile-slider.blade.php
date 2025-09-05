@@ -10,7 +10,7 @@
 .swiper-pagination-bullet-active {
     background: #b91c1c !important; /* Tailwind's red-700 */
 }
-.carousel-container {
+.carousel-containers {
   height: auto;
   max-height: -webkit-fill-available; /* Fix for iPhone Safari */
 }
@@ -18,7 +18,7 @@
 </style>
 
 <!-- Carousel -->
-   <div class="carousel-container relative overflow-hidden rounded-none lg:rounded-lg lg:mx-0 lg:hidden border border-black"> 
+<div class="carousel-container carousel-containers relative overflow-hidden rounded-none lg:rounded-lg lg:mx-0 lg:hidden border border-black"> 
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
             @foreach ($carouselSlides as $slide)

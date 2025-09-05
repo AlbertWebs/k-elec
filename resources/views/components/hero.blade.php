@@ -1,82 +1,53 @@
-  <section class="bg-white py-0 lg:py-12">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8" >
-          <div class="grid grid-cols-1 lg:grid-cols-4 gap-3">
-
-              {{--  --}}
-              <div class="hidden lg:block lg:col-span-1 flex-col  h-full">
-                  <!-- Top Image -->
-                  <div class="mb-4">
-                      <img src="{{ url('/') }}/storage/{{ $bannerPosition1->image }}" alt="Top Banner"
-                          class="w-full rounded object-cover" style="border-radius:10px;">
-                  </div>
-
-                  
-
-
-                  <!-- Bottom Image -->
-                  <div class="mt-0" style="bottom:-10 ! important">
-                      <img src="{{ url('/') }}/storage/{{ $bannerPosition2->image }}" alt="Middle Banner"
-                          class="w-full  rounded object-cover" style="border-radius:10px; border: 1px solid #e2e8f0;">
-                  </div>
-
-
-              </div>
-
-              {{--  --}}
-              <!-- Main Banner Carousel -->
-              <div class="lg:col-span-3 relative bg-blacks rounded hidden lg:block h-full">
-                @if ($carouselSlides->count() > 0)
-                    <div class="carousel-container relative overflow-hidden rounded-none lg:rounded-lg -mx-4 lg:mx-0">
-                        @foreach ($carouselSlides as $index => $slide)
-                            <div class="carousel-slide {{ $index === 0 ? 'active' : '' }} 
-                                        bg-gradient-to-r {{ $slide->background_classes }} 
-                                        p-4 lg:p-8 bg-cover bg-center bg-no-repeat flex items-center justify-center"
-                                style="background-image: url('{{url('/')}}/storage/{{$slide->image}}'); height:100%;">
-                                
-                                <div class="text-center max-w-2xl">
-                                    {{-- <span class="{{ $slide->text_color_class }} font-semibold text-sm lg:text-base">{{ $slide->title }}</span> --}}
-                                    <img style=" height:auto; object-fit:cover; margin:0 auto;" src="{{ asset('images/logo.png') }}" alt="K-ELEC" class="h-16 brand-logo">
-                                    
-                                    <h2 class="text-3xl lg:text-5xl xl:text-4xl font-bold text-white mt-2 mb-4"
-                                        style="font-size:55px; line-height:1.2;">
-                                        {{ $slide->heading }}
-                                    </h2>
-                                    
-                                    <p class="text-white mb-6 text-md lg:text-3xl font-semibold" style="font-size:25px;">
-                                        {{ $slide->description }}
-                                    </p>
-                                    
-                                    {{-- @if ($slide->button_text)
-                                        <a href="{{ $slide->button_link ?? route('products.index') }}"
-                                        class="inline-block {{ $slide->text_color_class }} text-white px-4 py-2 lg:px-6 lg:py-3 rounded-lg font-semibold hover:bg-gray-800 text-sm lg:text-base">
-                                            {{ $slide->button_text }} →
-                                        </a>
-                                    @endif --}}
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-
-                    <!-- Carousel Navigation & Indicators remain unchanged -->
-                @else
-                    <!-- Fallback content -->
-                    <div class="bg-gradient-to-r from-blue-100 to-blue-200 p-4 lg:p-8 rounded-none lg:rounded-lg -mx-4 lg:mx-0 flex items-center justify-center">
-                        <div class="text-center max-w-2xl">
-                            <span class="text-blue-600 font-semibold text-sm lg:text-base">Welcome</span>
-                            <h2 class="text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-900 mt-2 mb-4">K-Elec</h2>
-                            <p class="text-gray-600 mb-6 text-sm lg:text-base">Your trusted source for quality Korean electronics and technology</p>
-                            <a href="{{ route('products.index') }}"
-                            class="inline-block bg-black text-white px-4 py-2 lg:px-6 lg:py-3 rounded-lg font-semibold hover:bg-gray-800 text-sm lg:text-base">
-                            Shop Now →
-                            </a>
-                        </div>
-                    </div>
-                @endif
-            </div>
-
-          </div>
+<section class="bg-white py-0 lg:py-12">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-3 items-stretch">
+      
+      <!-- Left Column -->
+      <div class="hidden lg:flex lg:col-span-1 flex-col h-full">
+        <!-- Top Image -->
+        <div class="mb-4 flex-1">
+          <img src="{{ url('/') }}/storage/{{ $bannerPosition1->image }}" alt="Top Banner"
+            class="w-full h-full rounded object-cover" style="border-radius:10px;">
+        </div>
+        <!-- Bottom Image -->
+        <div class="mt-0 flex-1">
+          <img src="{{ url('/') }}/storage/{{ $bannerPosition2->image }}" alt="Middle Banner"
+            class="w-full h-full rounded object-cover" style="border-radius:10px; border: 1px solid #e2e8f0;">
+        </div>
       </div>
-  </section>
+
+      <!-- Right Column -->
+      <div class="lg:col-span-3 relative bg-blacks rounded hidden lg:block h-full flex">
+        @if ($carouselSlides->count() > 0)
+          <div class="carousel-container relative overflow-hidden rounded-none lg:rounded-lg -mx-4 lg:mx-0 flex-1">
+            @foreach ($carouselSlides as $index => $slide)
+              <div class="carousel-slide {{ $index === 0 ? 'active' : '' }} 
+                          bg-gradient-to-r {{ $slide->background_classes }} 
+                          p-4 lg:p-8 bg-cover bg-center bg-no-repeat flex items-center justify-center h-full"
+                style="background-image: url('{{url('/')}}/storage/{{$slide->image}}');">
+                
+                <div class="text-center max-w-2xl">
+                  <img src="{{ asset('images/logo.png') }}" alt="K-ELEC" 
+                       class="h-16 brand-logo mx-auto mb-4">
+                  <h2 class="text-3xl lg:text-5xl xl:text-4xl font-bold text-white mb-4"
+                      style="font-size:55px; line-height:1.2;">
+                      {{ $slide->heading }}
+                  </h2>
+                  <p class="text-white text-lg lg:text-3xl font-semibold"
+                     style="font-size:25px;">
+                     {{ $slide->description }}
+                  </p>
+                </div>
+              </div>
+            @endforeach
+          </div>
+        @endif
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
   <script>
 document.addEventListener('DOMContentLoaded', function () {

@@ -10,33 +10,40 @@
 .swiper-pagination-bullet-active {
     background: #b91c1c !important; /* Tailwind's red-700 */
 }
+.carousel-container {
+  height: auto;
+  max-height: -webkit-fill-available; /* Fix for iPhone Safari */
+}
 
 </style>
 
 <!-- Carousel -->
-<div class="carousel-container relative overflow-hidden rounded-none lg:rounded-lg lg:mx-0 lg:hidden border border-black" style="height:auto;"> 
-    <div class="swiper mySwiper h-full">
-        <div class="swiper-wrapper h-full">
+   <div class="carousel-container relative overflow-hidden rounded-none lg:rounded-lg lg:mx-0 lg:hidden border border-black"> 
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
             @foreach ($carouselSlides as $slide)
-                <div class="swiper-slide flex items-center justify-center h-full bg-black">
+                <div class="swiper-slide flex items-center justify-center bg-black">
                     
-                    <img src="{{url('/')}}/storage/{{$slide->image}}" 
+                    <img src="{{ url('/') }}/storage/{{ $slide->image }}" 
                          alt="Slide Image"
-                         class="h-full w-auto object-contain rounded-lg">
+                         class="max-h-[80vh] w-auto object-contain rounded-lg mx-auto">
                          
                     <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 py-8">
-                        <img style="height:auto; object-fit:cover; margin:0 auto; visibility:hidden" 
-                             src="{{ asset('images/logo.png') }}" 
-                             alt="K-ELEC" class="h-16 brand-logo">
+                        <img src="{{ asset('images/logo.png') }}" 
+                             alt="K-ELEC" 
+                             class="h-16 brand-logo mx-auto"
+                             style="visibility:hidden">
                     </div>
                 </div>
             @endforeach
         </div>
 
         <!-- Pagination (dots) -->
-        <div class="swiper-pagination"></div>
+        <div class="swiper-pagination !bottom-2"></div>
     </div>
 </div>
+
+
 
 
 

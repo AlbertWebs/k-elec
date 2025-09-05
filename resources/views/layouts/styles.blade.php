@@ -181,4 +181,30 @@
 	}
 }
 
+/* Base style for product images */
+.products-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;   /* Ensures square container */
+  object-fit: contain;   /* Keeps image proportions, no stretch */
+  background-color: #f9f9f9; /* Optional: neutral background */
+  padding: 5px;          /* Optional: breathing space */
+}
+
+/* Mobile: slightly smaller square */
+@media (max-width: 767px) {
+  .products-image {
+    max-width: 150px;
+    height: 150px; /* fallback for browsers without aspect-ratio */
+  }
+}
+
+/* Desktop: larger square */
+@media (min-width: 768px) {
+  .products-image {
+    max-width: 250px;
+    height: 250px; /* fallback */
+  }
+}
+
+
 </style>

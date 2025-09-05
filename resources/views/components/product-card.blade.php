@@ -4,15 +4,17 @@
     <div class="relative">
         <!-- Product Image with Link - Square aspect ratio -->
         <a href="{{ route('products.show', $product->slug) }}" 
-        class="block flex justify-center items-center w-full bg-gray-100">
+        class="block flex justify-center items-center w-full bg-white">
             <img src="{{ $product->main_image_url }}"
              alt="{{ $product->name }}" 
-             class="w-[95%] aspect-square object-contain"
+             class="w-[95%] aspect-square object-contain products-image"
              itemprop="image"
              loading="lazy"
              onerror="this.src='https://via.placeholder.com/300x200/cccccc/ffffff?text=No+Image'; console.log('Image failed to load:', this.src);"
              onload="console.log('Image loaded successfully:', this.src);">
         </a>
+
+        
         
         <!-- Sale Badge -->
         @if($product->badge)

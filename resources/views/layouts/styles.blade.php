@@ -88,6 +88,9 @@
             position: relative;
             bottom: -40px; /* keep your offset */
             display: block;
+            padding-left:40px;
+            padding-right:40px;
+            /* margin: 0 auto; */
         }
 
         .category-title{

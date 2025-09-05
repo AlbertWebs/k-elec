@@ -183,7 +183,7 @@ use App\Models\Setting;
                 </div>
                 
                 <!-- Account & Cart -->
-                <div>
+                {{-- <div>
                     <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">Account</h3>
                     <div class="space-y-2">
                         @auth
@@ -208,7 +208,7 @@ use App\Models\Setting;
                             <span class="ml-auto bg-blue-500 text-white text-xs rounded-full px-2 py-1 wishlist-count">0</span>
                         </a>
                     </div>
-                </div>
+                </div> --}}
                 
                 <!-- Contact Info -->
                 <div>

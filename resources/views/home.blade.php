@@ -154,9 +154,9 @@
                         <!-- Category Image (bottom 50% touching bottom) -->
                        <!-- Image at the bottom -->
                        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 flex justify-center w-full">
-    <img src="{{ asset('storage/' . $category->image) }}" 
-         alt="{{ $category->name }}"  
-         class="category-image" />
+                        <img src="{{ asset('storage/' . $category->image) }}" 
+                            alt="{{ $category->name }}"  
+                            class="category-image" />
                         </div>
 
                     </a>

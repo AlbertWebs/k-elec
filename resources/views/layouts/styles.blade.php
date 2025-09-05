@@ -81,14 +81,14 @@
         }
 
         /* Image styles */
-   .category-image {
-    width: 90%;
-    height: 100%;
-    object-fit: cover;
-    position: relative;
-    bottom: -40px; /* keep your offset */
-    display: block;
-}
+        .category-image {
+            /* width: 90%; */
+            height: 100%;
+            object-fit: contain;
+            position: relative;
+            bottom: -40px; /* keep your offset */
+            display: block;
+        }
 
         .category-title{
             font-size: 30px; top:10px; font-weight:800

@@ -128,9 +128,9 @@ use App\Helpers\SocialMediaHelper;
                         <a href="{{ Setting::get('social_instagram', '#') }}" class="w-9 h-9 bg-pink-600 rounded-lg flex items-center justify-center text-white hover:bg-pink-700 transition-colors">
                             <i class="fab fa-instagram text-sm"></i>
                         </a>
-                        <a href="{{ Setting::get('social_linkedin', '#') }}" class="w-9 h-9 bg-blue-800 rounded-lg flex items-center justify-center text-white hover:bg-blue-900 transition-colors">
+                        {{-- <a href="{{ Setting::get('social_linkedin', '#') }}" class="w-9 h-9 bg-blue-800 rounded-lg flex items-center justify-center text-white hover:bg-blue-900 transition-colors">
                             <i class="fab fa-linkedin-in text-sm"></i>
-                        </a>
+                        </a> --}}
                          <a href="{{ Setting::get('social_youtube', '#') }}" class="w-9 h-9 bg-red-600 rounded-lg flex items-center justify-center text-white hover:bg-red-700 transition-colors">
                             <i class="fab fa-youtube text-sm"></i>
                         </a>

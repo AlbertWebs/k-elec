@@ -14,16 +14,15 @@
 </style>
 
 <!-- Carousel -->
-<div class="carousel-container relative overflow-hidden rounded-none lg:rounded-lg lg:mx-0 lg:hidden" style="height:350px;"> 
-    <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
+<div class="carousel-container relative overflow-hidden rounded-none lg:rounded-lg lg:mx-0 lg:hidden border border-black" style="height:auto;"> 
+    <div class="swiper mySwiper h-full">
+        <div class="swiper-wrapper h-full">
             @foreach ($carouselSlides as $slide)
-                <div class="swiper-slide flex items-center justify-center"
-                     style="width:100% !important; height:350px; background-color:#000;">
+                <div class="swiper-slide flex items-center justify-center h-full bg-black">
                     
                     <img src="{{url('/')}}/storage/{{$slide->image}}" 
                          alt="Slide Image"
-                         class="w-full h-full object-contain rounded-lg">
+                         class="h-full w-auto object-contain rounded-lg">
                          
                     <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 py-8">
                         <img style="height:auto; object-fit:cover; margin:0 auto; visibility:hidden" 
@@ -33,11 +32,12 @@
                 </div>
             @endforeach
         </div>
-    </div>
 
-    <!-- Pagination (dots) -->
-    <div class="swiper-pagination"></div>
+        <!-- Pagination (dots) -->
+        <div class="swiper-pagination"></div>
+    </div>
 </div>
+
 
 
 

@@ -17,13 +17,13 @@
         
         
         <!-- Sale Badge -->
-        {{-- @if($product->badge)
-            <div class="absolute top-2 left-2">
+        @if($product->badge)
+            <div class="hidden absolute top-2 left-2">
                 <span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
                     {{ $product->badge }}
                 </span>
             </div>
-        @endif --}}
+        @endif
         
         <!-- Action Buttons Container - Hidden by default, animated on hover -->
         <div class="absolute top-2 right-2 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out text-center">

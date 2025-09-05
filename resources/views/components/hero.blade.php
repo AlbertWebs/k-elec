@@ -115,25 +115,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-  <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-  <script>
-      var swiper = new Swiper(".mySwiper", {
-          loop: true,
-          slidesPerView: 1, // mobile-first: one slide per screen
-          pagination: {
-              el: ".swiper-pagination",
-              clickable: true,
-          },
-          navigation: {
-              nextEl: ".swiper-button-next",
-              prevEl: ".swiper-button-prev",
-          },
-      });
-  </script>
+<script>
+  var swiper = new Swiper(".mySwiper", {
+      loop: true,
+      slidesPerView: 1,
+      pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+      },
+      navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+      },
+      autoplay: {
+          delay: 5000,   // 5 seconds
+          disableOnInteraction: false, // keeps autoplay even after manual swipe
+      },
+  });
+</script>
+
 
 
 

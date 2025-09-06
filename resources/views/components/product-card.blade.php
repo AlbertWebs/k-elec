@@ -44,11 +44,11 @@
             </button>
             
             <!-- Add to Cart Button -->
-            <button class="bg-white rounded-full p-2 shadow-md hover:bg-blue-50 transition-all duration-200 z-10 w-8 h-8 flex items-center justify-center"
+            {{-- <button class="bg-white rounded-full p-2 shadow-md hover:bg-blue-50 transition-all duration-200 z-10 w-8 h-8 flex items-center justify-center"
                     onclick="addToCart({{ $product->id }}, '{{ $product->name }}', {{ $product->price }}, '{{ $product->main_image_url }}')"
                     title="Add to Cart">
                 <i class="fas fa-shopping-cart text-gray-400 hover:text-blue-600 transition-colors text-sm"></i>
-            </button>
+            </button> --}}
         </div>
     </div>
     

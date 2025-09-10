@@ -141,29 +141,40 @@
                 </div>
             </div>
 
-            <!-- Description -->
-            <div>
-                <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Description *</label>
-                <textarea id="description" name="description" rows="4" required 
-                          class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                          placeholder="Enter product description...">{{ old('description') }}</textarea>
-                @error('description')
-                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                @enderror
-            </div>
-           
-            {{-- <textarea  required id="article-ckeditor" name="ckeditor" class="materialilze-textarea" placeholder="content" style="min-height:500px !important"></textarea> --}}
-            {{-- CKEditor 5 CDN --}}
-            {{-- <script src="https://cdn.ckeditor.com/4.25.1-lts/standard/ckeditor.js"></script> --}}
-            <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
-    
+        <style>
+            /* Set the height of the CKEditor */
+            .ck-editor__editable {
+                min-height: 300px; /* Adjust this value to your desired height */
+            }
+        </style>
+           <!-- Description -->
+        <div>
+            <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Description *</label>
+            <textarea id="description" name="description" rows="4" required 
+                    class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Enter product description...">{{ old('description') }}</textarea>
+            @error('description')
+                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            @enderror
+        </div>
 
-            <script>
-                CKEDITOR.replace('description', {
-                    filebrowserUploadUrl: "https://africanpharmaceuticalreview.com/product/img?_token=mbshGdbPIBHaYR8lxZTHV2zwwjJQJrwrDsk5jevS",
-                    filebrowserUploadMethod: 'form'
+        <!-- CKEditor 5 CDN -->
+        <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+
+        <script>
+            ClassicEditor
+                .create(document.querySelector('#description'), {
+                    simpleUpload: {
+                        uploadUrl: "{{ url('/uploads/products/img') }}?_token={{ csrf_token() }}",
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
                 });
-            </script>
+        </script>
 
 
             <!-- Specifications -->

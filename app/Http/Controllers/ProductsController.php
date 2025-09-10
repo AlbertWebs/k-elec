@@ -135,10 +135,36 @@ class ProductsController extends Controller
     }
 
     public function getSpecifications(Product $product)
-{
-    return response()->json([
-        'specifications' => $product->specifications,
-    ]);
-}
+    {
+        return response()->json([
+            'specifications' => $product->specifications,
+        ]);
+    }
+
+    public function uploadImage(Request $request)
+    {
+        // Validate the file
+        $validated = $request->validate([
+            'upload' => 'required|image|mimes:jpg,jpeg,png,gif|max:2048'
+        ]);
+
+        if ($request->hasFile('upload')) {
+            $file = $request->file('upload');
+
+            // Store the image in the 'products' directory
+            $path = $file->store('products', 'public');  // 'public' disk
+
+            // Return the file URL
+            return response()->json([
+                'uploaded' => true,
+                'fileName' => $file->getClientOriginalName(),
+                'url' => asset('storage/' . $path)
+            ]);
+        }
+
+        return response()->json(['uploaded' => false], 400);
+    }
+
+
 
 } 

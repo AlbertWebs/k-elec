@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Setting;
+use Illuminate\Support\Facades\Log;
 
 class ProductsController extends Controller
 {
@@ -141,27 +142,32 @@ class ProductsController extends Controller
         ]);
     }
 
-    public function uploadImage(Request $request)
+   public function uploadImage(Request $request)
     {
-        // Validate the file
+        // Log the incoming request data for debugging
+        Log::info('Upload Image Request:', $request->all());
+
+        // Validate the uploaded file (ensure it's an image and matches the allowed formats)
         $validated = $request->validate([
             'upload' => 'required|image|mimes:jpg,jpeg,png,gif|max:2048'
         ]);
 
+        // Check if a file was uploaded
         if ($request->hasFile('upload')) {
             $file = $request->file('upload');
 
-            // Store the image in the 'products' directory
-            $path = $file->store('products', 'public');  // 'public' disk
+            // Store the image in 'public/uploads/products' directory under the 'public' disk
+            $path = $file->store('uploads/products', 'public');  // This stores the file in public/storage/uploads/products
 
-            // Return the file URL
+            // Return the file URL, making sure it points to the public storage
             return response()->json([
                 'uploaded' => true,
                 'fileName' => $file->getClientOriginalName(),
-                'url' => asset('storage/' . $path)
+                'url' => asset('storage/' . $path)  // Return URL accessible publicly
             ]);
         }
 
+        // If no file was uploaded, return an error response
         return response()->json(['uploaded' => false], 400);
     }
 

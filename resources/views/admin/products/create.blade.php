@@ -141,40 +141,128 @@
                 </div>
             </div>
 
-        <style>
-            /* Set the height of the CKEditor */
-            .ck-editor__editable {
-                min-height: 300px; /* Adjust this value to your desired height */
+            {{--  --}}
+
+<style>
+    /* Set the height of the CKEditor */
+    .ck-editor__editable {
+        min-height: 300px;
+    }
+</style>
+
+<div>
+    <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Description *</label>
+    <textarea id="description" name="description" rows="4" required 
+              class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Enter product description...">{{ old('description') }}</textarea>
+    @error('description')
+        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+    @enderror
+</div>
+
+<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+
+<script>
+    // Define the custom upload adapter class
+    class MyUploadAdapter {
+        constructor(loader) {
+            // The file loader instance to use during the upload.
+            this.loader = loader;
+        }
+
+        // Starts the upload process.
+        upload() {
+            return this.loader.file
+                .then(file => new Promise((resolve, reject) => {
+                    this._initRequest();
+                    this._initListeners(resolve, reject, file);
+                    this._sendRequest(file);
+                }));
+        }
+
+        // Aborts the upload process.
+        abort() {
+            if (this.xhr) {
+                this.xhr.abort();
             }
-        </style>
-           <!-- Description -->
-        <div>
-            <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Description *</label>
-            <textarea id="description" name="description" rows="4" required 
-                    class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Enter product description...">{{ old('description') }}</textarea>
-            @error('description')
-                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-            @enderror
-        </div>
+        }
 
-        <!-- CKEditor 5 CDN -->
-        <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+        // Initializes the XMLHttpRequest object.
+        _initRequest() {
+            const xhr = this.xhr = new XMLHttpRequest();
+            // Your upload endpoint
+            xhr.open('POST', '{{ url("/uploads/products/img") }}', true);
+            // CSRF token header
+            xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}');
+            xhr.responseType = 'json';
+        }
 
-        <script>
-            ClassicEditor
-                .create(document.querySelector('#description'), {
-                    simpleUpload: {
-                        uploadUrl: "{{ url('/uploads/products/img') }}?_token={{ csrf_token() }}",
-                        headers: {
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                        }
-                    }
-                })
-                .catch(error => {
-                    console.error(error);
+        // Initializes XMLHttpRequest listeners.
+        _initListeners(resolve, reject, file) {
+            const xhr = this.xhr;
+            const loader = this.loader;
+            const genericErrorText = `Couldn't upload file: ${file.name}.`;
+
+            xhr.addEventListener('error', () => reject(genericErrorText));
+            xhr.addEventListener('abort', () => reject());
+            xhr.addEventListener('load', () => {
+                const response = xhr.response;
+
+                if (!response || response.error) {
+                    return reject(response && response.error ? response.error.message : genericErrorText);
+                }
+
+                // If the server response contains a 'url' property, resolve the promise.
+                resolve({
+                    default: response.url
                 });
-        </script>
+            });
+
+            if (xhr.upload) {
+                xhr.upload.addEventListener('progress', evt => {
+                    if (evt.lengthComputable) {
+                        loader.uploadTotal = evt.total;
+                        loader.uploaded = evt.loaded;
+                    }
+                });
+            }
+        }
+
+        // Prepares and sends the request.
+        _sendRequest(file) {
+            const data = new FormData();
+            data.append('upload', file);
+            this.xhr.send(data);
+        }
+    }
+
+    // A plugin function to register the custom adapter
+    function MyUploadAdapterPlugin(editor) {
+        editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+            return new MyUploadAdapter(loader);
+        };
+    }
+
+    ClassicEditor
+        .create(document.querySelector('#description'), {
+            toolbar: {
+                items: [
+                    'undo', 'redo', '|', 'heading', '|',
+                    'bold', 'italic', 'underline', 'link', '|',
+                    'bulletedList', 'numberedList', 'indent', 'outdent', '|',
+                    'imageUpload', 'insertTable', 'mediaEmbed'
+                ]
+            },
+            extraPlugins: [MyUploadAdapterPlugin] // Register your custom plugin here
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+
+            {{--  --}}
+
+
 
 
             <!-- Specifications -->

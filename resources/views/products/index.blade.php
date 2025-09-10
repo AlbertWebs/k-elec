@@ -300,8 +300,7 @@
                             <input type="email" name="email" required
                                 class="w-full px-4 py-2 border border-gray-300 rounded-l focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
                                 placeholder="Enter your email address">
-                            <button type="submit"
-                                    class="px-4 py-2 bg-blue-600 text-white font-medium rounded-r hover:bg-blue-700 transition">
+                            <button style="min-width:150px" type="submit" class="px-8 py-2 bg-red-600 text-white font-medium rounded-r hover:bg-red-700 transition">
                                 Notify Me
                             </button>
                         </form>

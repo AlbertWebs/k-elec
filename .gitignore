@@ -10,6 +10,9 @@ Homestead.json
 Homestead.yaml
 /.vagrant/
 
+/storage
+/public/storage
+
 # IDE & Editor
 /.idea/
 /.vscode/

@@ -6,12 +6,12 @@
       <div class="hidden lg:flex lg:col-span-1 flex-col h-full">
         <!-- Top Image -->
         <div class="mb-4 flex-1">
-          <a href="{{$banner1uel->url}}"> <img src="{{ url('/') }}/storage/{{ $bannerPosition1->image }}" alt="Top Banner"
+          <a href="{{$bannerPosition1->url}}"> <img src="{{ url('/') }}/storage/{{ $bannerPosition1->image }}" alt="Top Banner"
             class="w-full h-full rounded object-cover" style="border-radius:10px;"></a>
         </div>
         <!-- Bottom Image -->
         <div class="mt-0 flex-1">
-          <a href="{{$banner2uel}}"><img src="{{ url('/') }}/storage/{{ $bannerPosition2->image }}" alt="Middle Banner"
+          <a href="{{$bannerPosition2->url}}"><img src="{{ url('/') }}/storage/{{ $bannerPosition2->image }}" alt="Middle Banner"
             class="w-full h-full rounded object-cover" style="border-radius:10px; border: 1px solid #e2e8f0;">
           </a>
         </div>

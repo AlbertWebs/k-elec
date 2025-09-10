@@ -30,8 +30,6 @@ class HomeController extends Controller
         //get banner position 1
         $bannerPosition1 = Banner::where('position', 1)->first();
         $bannerPosition2 = Banner::where('position', 2)->first();
-        $banner1uel = $bannerPosition1 ? $bannerPosition1->url : '#';
-        $banner2uel = $bannerPosition2 ? $bannerPosition2->url : '#';
 
         $featuredProducts = Product::with('category')
             ->active()
@@ -63,9 +61,7 @@ class HomeController extends Controller
             'recentProducts',
             'bannerPosition1',
             'bannerPosition2',
-            'showrooms',
-            'banner1uel',
-            'banner2uel'
+            'showrooms'
         ));
     }
 }

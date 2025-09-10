@@ -65,5 +65,16 @@
     
     @include('components.footer')
     
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll('a[href]').forEach(function (link) {
+            if (!link.target || link.target.toLowerCase() !== "_blank") {
+                link.target = "_blank";
+                link.rel = "noopener noreferrer";
+            }
+            });
+        });
+    </script>
+
 </body>
 </html>

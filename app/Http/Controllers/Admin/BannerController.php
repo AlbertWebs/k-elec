@@ -52,6 +52,7 @@ class BannerController extends Controller
             'title'    => 'required|string|max:255',
             'image'    => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
             'position' => 'required|integer',
+            'url'      => 'nullable|url|max:255',
         ]);
 
         if ($request->hasFile('image')) {

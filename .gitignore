@@ -1,0 +1,37 @@
+# Laravel & PHP
+/vendor/
+/node_modules/
+/public/storage
+/storage/*.key
+.env
+.env.*
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+/.vagrant/
+
+# IDE & Editor
+/.idea/
+/.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Composer
+composer.lock
+
+# NPM
+package-lock.json
+
+# Logs
+/storage/logs/*.log
+
+# Other
+*.log
+*.tmp
+
+# Ignore test coverage
+coverage/

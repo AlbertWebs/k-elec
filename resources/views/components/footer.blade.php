@@ -106,15 +106,23 @@ use App\Helpers\SocialMediaHelper;
             
             <!-- Subscribe & Payments -->
             <div>
+                @if(session('success'))
+                    <div class="mt-4 p-3 bg-green-100 text-green-700 rounded-lg text-center">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 <h4 class="text-lg font-semibold mb-4">SUBSCRIBE</h4>
                 <p class="text-gray-400 mb-4">Receive updates, hot deals, discounts sent straight to your inbox daily.</p>
                 
                 <!-- Email Subscription -->
                 <div class="flex mb-6">
-                    <input type="email" placeholder="Email Address" class="flex-1 px-3 py-2 bg-gray-800 border border-gray-700 rounded-l text-white placeholder-gray-400 focus:outline-none focus:border-gray-600">
-                    <button class="bg-red-600 px-4 py-2 rounded-r hover:bg-red-700">
+                    <form action="{{ route('subscribe') }}" method="POST">
+                        @csrf
+                    <input type="email" name="email" placeholder="Email Address" class="flex-1 px-3 py-2 bg-gray-800 border border-gray-700 rounded-l text-white placeholder-gray-400 focus:outline-none focus:border-gray-600">
+                    <button  type="submit" name="submit" class="bg-red-600 px-4 py-2 rounded-r hover:bg-red-700">
                         <i class="fas fa-arrow-right"></i>
                     </button>
+                    </form>
                 </div>
                 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 

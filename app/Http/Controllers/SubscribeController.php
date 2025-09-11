@@ -9,6 +9,7 @@ class SubscribeController extends Controller
 {
     public function store(Request $request)
     {
+        // dd('you hit the subscribe route');
         // Validate email input
         $request->validate([
             'email' => 'required|email|unique:subscribers,email',

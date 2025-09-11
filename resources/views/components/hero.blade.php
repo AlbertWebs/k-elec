@@ -26,9 +26,13 @@
             <div class="swiper-wrapper">
               @foreach ($carouselSlides as $index => $slide)
                 
-                  <div class="swiper-slide bg-gradient-to-r {{ $slide->background_classes }} 
-                              p-4 lg:p-8 bg-cover bg-center bg-no-repeat flex items-center justify-center h-full"
-                    style="background-image: url('{{url('/')}}/storage/{{$slide->image}}'); background-size:  cover; background-position: center;">
+                  <a href="{{ $slide->button_link }}" class="block w-full h-full">
+    <div class="swiper-slide bg-gradient-to-r {{ $slide->background_classes }} 
+        p-4 lg:p-8 bg-cover bg-center bg-no-repeat flex items-center justify-center h-full"
+        style="background-image: url('{{ url('/') }}/storage/{{ $slide->image }}'); background-size: cover; background-position: center;">
+        {{-- Optional slide content here --}}
+    </div>
+</a>
                     
                     <div class="text-center max-w-2xl">
                       <img src="{{ asset('images/logo.png') }}" alt="K-ELEC" 

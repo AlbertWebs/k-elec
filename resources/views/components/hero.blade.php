@@ -25,7 +25,7 @@
             
             <div class="swiper-wrapper">
               @foreach ($carouselSlides as $index => $slide)
-                <a href="{{$slide->button_link}}">
+                
                   <div class="swiper-slide bg-gradient-to-r {{ $slide->background_classes }} 
                               p-4 lg:p-8 bg-cover bg-center bg-no-repeat flex items-center justify-center h-full"
                     style="background-image: url('{{url('/')}}/storage/{{$slide->image}}'); background-size:  cover; background-position: center;">
@@ -43,7 +43,7 @@
                       </p>
                     </div>
                   </div>
-                </a>
+              
               @endforeach
             </div>
 

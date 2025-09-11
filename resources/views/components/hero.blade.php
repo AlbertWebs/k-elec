@@ -20,33 +20,37 @@
       <!-- Right Column -->
       <div class="lg:col-span-3 relative bg-blacks rounded hidden lg:block h-full flex">
         @if ($carouselSlides->count() > 0)
+      
           <div class="carousel-container relative overflow-hidden rounded-none lg:rounded-lg -mx-4 lg:mx-0 flex-1 swiper mySwiper">
             
             <div class="swiper-wrapper">
               @foreach ($carouselSlides as $index => $slide)
-                <div class="swiper-slide bg-gradient-to-r {{ $slide->background_classes }} 
-                            p-4 lg:p-8 bg-cover bg-center bg-no-repeat flex items-center justify-center h-full"
-                  style="background-image: url('{{url('/')}}/storage/{{$slide->image}}'); background-size:  cover; background-position: center;">
-                  
-                  <div class="text-center max-w-2xl">
-                    <img src="{{ asset('images/logo.png') }}" alt="K-ELEC" 
-                         class="h-16 brand-logo mx-auto mb-4" style="visibility:hidden">
-                    <h2 class="text-3xl lg:text-5xl xl:text-4xl font-bold text-white mb-4"
-                        style="font-size:55px; line-height:1.2; visibility:hidden">
-                        {{ $slide->heading }}
-                    </h2>
-                    <p class="text-white text-lg lg:text-3xl font-semibold"
-                       style="font-size:25px; visibility:hidden">
-                       {{ $slide->description }}
-                    </p>
+                <a href="{{$slide->button_link}}">
+                  <div class="swiper-slide bg-gradient-to-r {{ $slide->background_classes }} 
+                              p-4 lg:p-8 bg-cover bg-center bg-no-repeat flex items-center justify-center h-full"
+                    style="background-image: url('{{url('/')}}/storage/{{$slide->image}}'); background-size:  cover; background-position: center;">
+                    
+                    <div class="text-center max-w-2xl">
+                      <img src="{{ asset('images/logo.png') }}" alt="K-ELEC" 
+                          class="h-16 brand-logo mx-auto mb-4" style="visibility:hidden">
+                      <h2 class="text-3xl lg:text-5xl xl:text-4xl font-bold text-white mb-4"
+                          style="font-size:55px; line-height:1.2; visibility:hidden">
+                          {{ $slide->heading }}
+                      </h2>
+                      <p class="text-white text-lg lg:text-3xl font-semibold"
+                        style="font-size:25px; visibility:hidden">
+                        {{ $slide->description }}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </a>
               @endforeach
             </div>
 
             <!-- Pagination Dots -->
             <div class="swiper-pagination !bottom-4"></div>
           </div>
+      
         @endif
       </div>
 

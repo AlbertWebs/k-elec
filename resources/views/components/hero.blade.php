@@ -53,8 +53,8 @@
             <!-- Pagination Dots -->
             <div class="swiper-pagination !bottom-4"></div>
             <!-- Navigation Arrows -->
-            <div class="swiper-button-prev !text-white"></div>
-            <div class="swiper-button-next !text-white"></div>
+            <div class="swiper-button-prev text-white" style="color:#ffffff"></div>
+            <div class="swiper-button-next text-white"  style="color:#ffffff"></div>
           </div>
       
         @endif

@@ -1,89 +1,169 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="bg-gray-50 py-12">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Page Header -->
-        <div class="text-center mb-12">
-            <h1 class="text-4xl font-bold text-gray-900 mb-4">About K-Elec</h1>
-            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                We are Kenya's premier destination for cutting-edge electronics and digital solutions, 
-                committed to bringing the latest technology to our customers.
-            </p>
-        </div>
+{{-- styles --}}
+<style>
+  .min-height-100 {
+    min-height: 100px; /* Adjust the value as needed */
+  }
+  .min-height-heading{
+    min-height: 64px; 
+    font-weight: 800 !important;
+  }
+</style>
+{{-- Image --}}
+<section 
+  class="relative bg-center bg-no-repeat py-16 px-6 text-white flex items-center justify-center" 
+  style="
+    width: 100%;
+    margin: 0 auto;
+    background-image: url('{{ url('/') }}/uploads/About-Us-Slider.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    aspect-ratio: 16/9;
+  "
+>
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/50"></div>
 
-        <!-- Company Story -->
-        <div class="mb-16">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
-                    <p class="text-gray-600 mb-4">
-                        <strong>K-Elec,</strong> one of the largest Korean electronics companies, was founded with its global head office in Seoul, Korea.<br><br>
-                        As a trusted home appliance brand backed by industry-leading Korean technology, K-Elec has expanded its presence beyond Korea to the Middle East and Africa. Our mission is to supply <strong>“Best Quality, Made in Korea, Electronics”</strong> to households and businesses worldwide. Guided by passion for technology and innovation, we remain committed to driving industrial transformation and offering customers reliable, cutting-edge products.<br><br>
-                        With years of strategic growth, K-Elec has firmly established advanced manufacturing facilities in Korea and built international operations across the Middle East & Africa. To support efficient regional distribution, a headquarters was set up in Dubai, UAE, while our networks have extended to over 15 countries including <strong>Kenya, Ethiopia, Tanzania, Zambia, Djibouti, Senegal, Angola, and beyond.</strong><br><br>
-                        <strong>K-Elec Kenya</strong> serves as the brand’s stronghold in East Africa. We are dedicated to providing Kenyan households and businesses with modern, energy-efficient, and durable appliances tailored to local needs. Our goal is to deliver not only world-class products but also exceptional after-sales service and customer satisfaction that Kenyans can trust.<br><br>
-                        Most importantly, K-Elec will never stop innovating. Through our reliable and outstanding products, we aim to create meaningful experiences and bring new excitement to Kenyan families and enterprises alike.
-                    </p>
-                    
-                </div>
-                <div class="border border-gray-200 rounded-lg p-8 bg-gray-50">
-                    <div class="text-center">
-                        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-rocket text-blue-600 text-2xl"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Our Mission</h3>
-                        <p class="text-gray-600 leading-relaxed">
-                            To enrich people’s lives by providing reliable and innovative Korean technology, making premium electronics accessible, trusted, and inspiring, while delivering groundbreaking customer experiences and ensuring unlimited satisfaction for all. We are driven by a passion for excellence and a commitment to brighten every home and community we serve.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="relative max-w-7xl mx-auto text-center">
+    <h1 class="text-4xl font-bold mb-4">
+      {{-- Title --}}
+    </h1>
+  </div>
+</section>
 
-        <!-- Values -->
-        <div class="mb-16">
-            <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">Our Values</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="border border-gray-200 rounded-lg p-6 text-center bg-gray-50">
-                    <div class="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-shield-alt text-green-600 text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Quality</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm">
-                        We never compromise on quality. Every product we offer is carefully selected and tested 
-                        to ensure it meets our high standards.
-                    </p>
-                </div>
-                
-                <div class="border border-gray-200 rounded-lg p-6 text-center bg-gray-50">
-                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-users text-blue-600 text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Customer First</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm">
-                        Our customers are at the heart of everything we do. We're committed to providing 
-                        exceptional service and support.
-                    </p>
-                </div>
-                
-                <div class="border border-gray-200 rounded-lg p-6 text-center bg-gray-50">
-                    <div class="w-14 h-14 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-lightbulb text-purple-600 text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold text-gray-900 mb-3">Innovation</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm">
-                        We stay ahead of the curve, constantly exploring new technologies and trends 
-                        to bring you the latest innovations.
-                    </p>
-                </div>
-            </div>
-        </div>
+<section class="bg-gray-800 ">
+    <div ion class="py-16   container mx-auto flex-row ">
 
-        @include('components.showrooms-card')
-
-   
-
-        
+        {{--  --}}
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+  <!-- Card -->
+  <div class="bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition flex flex-col">
+    <div class="p-6 flex flex-col justify-between h-full min-h-[320px]">
+      <h3 class="text-2xl font-extrabold text-white mb-4">Our Vision: Korean Excellence for Every Home</h3>
+      <p class="text-gray-400 text-sm">
+        In a market dominated by extremes, K-Elec offers a smarter choice. We bridge the
+        gap between uncompromising quality and accessible prices, driven by a single
+        mission: to deliver genuine Korean engineering excellence to households worldwide.
+        Every K-Elec product embodies the innovation, thoughtful design, and trusted
+        reliability that defines the best of Korean technology.
+      </p>
     </div>
+    <img src="{{ url('/') }}/uploads/About-Us-Slider.jpg" alt="Service 1" class="w-full h-56 object-cover">
+  </div>
+
+  <!-- Card -->
+  <div class="bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition flex flex-col">
+    <div class="p-6 flex flex-col justify-between h-full min-h-[320px]">
+      <h3 class="text-2xl font-extrabold text-white mb-4">The Core of Our Innovation: Our R&D Partnership with Neurosys</h3>
+      <p class="text-gray-400 text-sm">
+        The soul of every K-Elec appliance is its core technology. To ensure world-class
+        performance, K-Elec proudly collaborates with one of Korea's leading electronic
+        R&D powerhouses: Neurosys. At their advanced R&D center in Korea, Neurosys's
+        expert engineers develop, test, and perfect the core PCBs (Printed Circuit Boards)
+        that function as the 'brain' inside our refrigerators and TVs. This strategic
+        partnership is the foundation of our technological edge.
+      </p>
+    </div>
+    <img src="{{ url('/') }}/uploads/About-Us-Slider.jpg" alt="Service 2" class="w-full h-56 object-cover">
+  </div>
+
+  <!-- Card -->
+  <div class="bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition flex flex-col">
+    <div class="p-6 flex flex-col justify-between h-full min-h-[320px]">
+      <h3 class="text-2xl font-extrabold text-white mb-4">Designed in Korea, For Your Life</h3>
+      <p class="text-gray-400 text-sm">
+        Our collaboration with Neurosys is rooted in a shared design philosophy:
+        technology must serve people. This partnership allows us to infuse every product
+        with features that matter—from energy-saving intelligence in our refrigerators to
+        flawless visual processing in our TVs. The result is a seamless blend of modern
+        aesthetics and practical innovation, conceived in Korea and crafted for your
+        everyday life.
+      </p>
+    </div>
+    <img src="{{ url('/') }}/uploads/About-Us-Slider.jpg" alt="Service 3" class="w-full h-56 object-cover">
+  </div>
+
+  <!-- Card -->
+  <div class="bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition flex flex-col">
+    <div class="p-6 flex flex-col justify-between h-full min-h-[320px]">
+      <h3 class="text-2xl font-extrabold text-white mb-4">Innovation for Everyday Life</h3>
+      <p class="text-gray-400 text-sm">
+        We believe technology should make life easier, healthier, and smarter.
+        This core belief is the driving force behind our collaboration with our Korean R&D
+        partner, Neurosys. Their expertise in advanced electronics allows us to build
+        intelligent features directly into our products—creating refrigerators that optimize
+        cooling for ultimate freshness and TVs that deliver a stunningly immersive sound
+        experience. It’s how we ensure every K-Elec appliance delivers on its promise:
+        genuine Korean innovation, designed for your everyday life.
+      </p>
+    </div>
+    <img src="{{ url('/') }}/uploads/About-Us-Slider.jpg" alt="Service 4" class="w-full h-56 object-cover">
+  </div>
 </div>
+
+        {{--  --}}
+
+
+    </div>
+</section>
+
+<section class="bg-gray-800 ">
+<div ion class="py-16   container mx-auto flex-row ">
+  <div class="max-w-5xl mx-auto mb-12">
+    <h2 class="text-3xl font-bold text-white font-extrabold">Our Technology Hub: A Glimpse into the Neurosys R&D Center</h2>
+    <p class="text-gray-300 mt-2">
+        Since 2000, Neurosys has been a trusted leader in electronic control systems for major Korean appliance brands.
+        Their state-of-the-art labs are where K-Elec's product concepts are transformed into reliable technology. This deep-rooted expertise
+        ensures every K-Elec product is built on a foundation of proven Korean engineering excellence. The images below offer a window
+        into the home of our innovation.
+    </p>
+  </div>
+
+ 
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto py-16 px-6 bg-gray-800">
+  
+  <!-- Column 1: One tall image -->
+  <div class="overflow-hidden rounded-xl shadow-lg">
+    <img src="{{ url('/') }}/uploads/About-Us-Slider.jpg" 
+         alt="K-Elec Vision" 
+         class="w-full h-full object-cover hover:scale-105 transition duration-500">
+  </div>
+
+  <!-- Column 2: Two stacked images -->
+  <div class="grid grid-rows-2 gap-6">
+    <div class="overflow-hidden rounded-xl shadow-lg">
+      <img src="{{ url('/') }}/uploads/About-Us-Slider.jpg" 
+           alt="Neurosys R&D" 
+           class="w-full h-full object-cover hover:scale-105 transition duration-500">
+    </div>
+    <div class="overflow-hidden rounded-xl shadow-lg">
+      <img src="{{ url('/') }}/uploads/About-Us-Slider.jpg" 
+           alt="PCB Technology" 
+           class="w-full h-full object-cover hover:scale-105 transition duration-500">
+    </div>
+  </div>
+
+  <!-- Column 3: Two stacked images -->
+  <div class="grid grid-rows-2 gap-6">
+    <div class="overflow-hidden rounded-xl shadow-lg">
+      <img src="{{ url('/') }}/uploads/About-Us-Slider.jpg" 
+           alt="Korean Design" 
+           class="w-full h-full object-cover hover:scale-105 transition duration-500">
+    </div>
+    <div class="overflow-hidden rounded-xl shadow-lg">
+      <img src="{{ url('/') }}/uploads/About-Us-Slider.jpg" 
+           alt="Smart Home Tech" 
+           class="w-full h-full object-cover hover:scale-105 transition duration-500">
+    </div>
+  </div>
+  </div>
+</div>
+
+</section>
+
+
+
 @endsection 

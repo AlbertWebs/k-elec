@@ -28,6 +28,8 @@ Route::get('/wishlist', [App\Http\Controllers\WishlistController::class, 'index'
 // Static Pages
 Route::get('/contact', [PageController::class, 'contact'])->name('pages.contact');
 Route::get('/about', [PageController::class, 'about'])->name('pages.about');
+Route::get('/k-elec', [PageController::class, 'k_elec'])->name('pages.k-elec');
+
 Route::get('/technical-support', [PageController::class, 'technicalSupport'])->name('pages.technical-support');
 Route::get('/shipping-returns', [PageController::class, 'shippingReturns'])->name('pages.shipping-returns');
 Route::get('/faq', [PageController::class, 'faq'])->name('pages.faq');

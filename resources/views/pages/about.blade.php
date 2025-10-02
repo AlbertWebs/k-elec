@@ -51,7 +51,7 @@
         reliability that defines the best of Korean technology.
       </p>
     </div>
-    <img src="{{ url('/') }}/uploads/About-Us-Slider.jpg" alt="Service 1" class="w-full h-56 object-cover">
+    <img src="{{ url('/') }}/uploads/1.jpg" alt="Service 1" class="w-full h-56 object-cover">
   </div>
 
   <!-- Card -->
@@ -67,7 +67,7 @@
         partnership is the foundation of our technological edge.
       </p>
     </div>
-    <img src="{{ url('/') }}/uploads/About-Us-Slider.jpg" alt="Service 2" class="w-full h-56 object-cover">
+    <img src="{{ url('/') }}/uploads/2.jpg" alt="Service 2" class="w-full h-56 object-cover">
   </div>
 
   <!-- Card -->
@@ -83,7 +83,7 @@
         everyday life.
       </p>
     </div>
-    <img src="{{ url('/') }}/uploads/About-Us-Slider.jpg" alt="Service 3" class="w-full h-56 object-cover">
+    <img src="{{ url('/') }}/uploads/3.jpg" alt="Service 3" class="w-full h-56 object-cover">
   </div>
 
   <!-- Card -->
@@ -100,7 +100,7 @@
         genuine Korean innovation, designed for your everyday life.
       </p>
     </div>
-    <img src="{{ url('/') }}/uploads/About-Us-Slider.jpg" alt="Service 4" class="w-full h-56 object-cover">
+    <img src="{{ url('/') }}/uploads/4.jpg" alt="Service 4" class="w-full h-56 object-cover">
   </div>
 </div>
 
@@ -127,7 +127,7 @@
   
   <!-- Column 1: One tall image -->
   <div class="overflow-hidden rounded-xl shadow-lg">
-    <img src="{{ url('/') }}/uploads/About-Us-Slider.jpg" 
+    <img src="{{ url('/') }}/uploads/5.jpg" 
          alt="K-Elec Vision" 
          class="w-full h-full object-cover hover:scale-105 transition duration-500">
   </div>
@@ -135,12 +135,12 @@
   <!-- Column 2: Two stacked images -->
   <div class="grid grid-rows-2 gap-6">
     <div class="overflow-hidden rounded-xl shadow-lg">
-      <img src="{{ url('/') }}/uploads/About-Us-Slider.jpg" 
+      <img src="{{ url('/') }}/uploads/6.jpg" 
            alt="Neurosys R&D" 
            class="w-full h-full object-cover hover:scale-105 transition duration-500">
     </div>
     <div class="overflow-hidden rounded-xl shadow-lg">
-      <img src="{{ url('/') }}/uploads/About-Us-Slider.jpg" 
+      <img src="{{ url('/') }}/uploads/7.jpg" 
            alt="PCB Technology" 
            class="w-full h-full object-cover hover:scale-105 transition duration-500">
     </div>
@@ -149,12 +149,12 @@
   <!-- Column 3: Two stacked images -->
   <div class="grid grid-rows-2 gap-6">
     <div class="overflow-hidden rounded-xl shadow-lg">
-      <img src="{{ url('/') }}/uploads/About-Us-Slider.jpg" 
+      <img src="{{ url('/') }}/uploads/8.jpg" 
            alt="Korean Design" 
            class="w-full h-full object-cover hover:scale-105 transition duration-500">
     </div>
     <div class="overflow-hidden rounded-xl shadow-lg">
-      <img src="{{ url('/') }}/uploads/About-Us-Slider.jpg" 
+      <img src="{{ url('/') }}/uploads/9.jpg" 
            alt="Smart Home Tech" 
            class="w-full h-full object-cover hover:scale-105 transition duration-500">
     </div>

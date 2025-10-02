@@ -82,8 +82,9 @@ use App\Helpers\SocialMediaHelper;
                 <h4 class="text-lg font-semibold mb-4">SUPPORTS</h4>
                 <ul class="space-y-2">
                     <li><a href="{{ route('home') }}" class="text-gray-400 hover:text-white">Home </a></li>
-                    <li><a href="{{ route('pages.about') }}" class="text-gray-400 hover:text-white">About Us</a></li>
-                    <li><a href="{{ route('pages.k-elec') }}" class="text-gray-400 hover:text-white">K-Elec</a></li>
+                    
+                    <li><a href="{{ route('pages.k-elec') }}" class="text-gray-400 hover:text-white">About Us</a></li>
+                    <li><a href="{{ route('pages.about') }}" class="text-gray-400 hover:text-white">K-Elec Story</a></li>
                     <li><a href="{{ route('pages.contact') }}" class="text-gray-400 hover:text-white">Contact Us</a></li>
                     {{-- <li><a href="{{ route('showrooms.index') }}" class="text-gray-400 hover:text-white">Our Showrooms</a></li> --}}
                     <li><a href="{{ route('products.index') }}" class="text-gray-400 hover:text-white">Our Products</a></li>

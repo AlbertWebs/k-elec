@@ -206,10 +206,12 @@
                             class="flex-1 bg-black text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
                         Add to Wishlist
                     </button>
-                    {{-- <button onclick="toggleWishlist({{ $product->id }}, '{{ $product->name }}')" 
-                            class="w-12 h-12 border border-gray-300 rounded-lg flex items-center justify-center hover:border-gray-400 transition-colors wishlist-btn">
-                        <i class="fas fa-heart text-white"></i>
-                    </button> --}}
+                    <a href="https://wa.me/254716052243?text={{ urlencode('Hello there, I am interested in this ' . $product->name) }}" 
+                       target="_blank"
+                       class="flex-1 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors text-center flex items-center justify-center space-x-2">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                        <span>Buy Now</span>
+                    </a>
                 </div>
 
                 <!-- Quick Info -->

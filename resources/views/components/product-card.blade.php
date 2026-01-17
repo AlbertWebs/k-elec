@@ -75,23 +75,21 @@
             <meta itemprop="worstRating" content="1">
         </div> --}}
 
-         <a href="{{ route('products.show', $product->slug) }}" class="inline-block border-2 border-gray-900 text-gray-900 px-1 py-1 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors text-center mt-2 mobile-btn" >
-            View Product →
-        </a>
-
-        
-        
         <!-- Price -->
-        {{-- <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-auto">
-            <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-2">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-center mt-2 mb-2">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-2 justify-center">
                 @if($product->old_price)
                     <span class="text-xs sm:text-sm text-gray-500 line-through order-2 sm:order-1">{{ $product->formatted_old_price }}</span>
                 @endif
-                <span class="text-base sm:text-lg font-bold text-gray-900 order-1 sm:order-2" itemprop="price" content="{{ $product->price }}">
+                <span class="text-base sm:text-lg font-bold text-gray-900 order-1 sm:order-2 text-center" itemprop="price" content="{{ $product->price }}">
                     <span itemprop="priceCurrency" content="KES">{{ $product->formatted_price }}</span>
                 </span>
             </div>
-        </div> --}}
+        </div>
+
+         <a href="{{ route('products.show', $product->slug) }}" class="inline-block border-2 border-gray-900 text-gray-900 px-1 py-1 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors text-center mt-2 mobile-btn" >
+            View Product →
+        </a>
     </div>
     
     <!-- Hidden structured data -->

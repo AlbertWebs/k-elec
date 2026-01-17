@@ -5,16 +5,31 @@
       <!-- Left Column -->
       <div class="hidden lg:flex lg:col-span-1 flex-col h-full">
         <!-- Top Image -->
+        @if($bannerPosition1)
         <div class="mb-4 flex-1">
-          <a href="{{$bannerPosition1->url}}"> <img src="{{ url('/') }}/storage/{{ $bannerPosition1->image }}" alt="Top Banner"
-            class="w-full h-full rounded object-cover" style="border-radius:10px;"></a>
+          @if($bannerPosition1->url)
+            <a href="{{$bannerPosition1->url}}">
+          @endif
+          <img src="{{ url('/') }}/storage/{{ $bannerPosition1->image }}" alt="Top Banner"
+            class="w-full h-full rounded object-cover" style="border-radius:10px;">
+          @if($bannerPosition1->url)
+            </a>
+          @endif
         </div>
+        @endif
         <!-- Bottom Image -->
+        @if($bannerPosition2)
         <div class="mt-0 flex-1">
-          <a href="{{$bannerPosition2->url}}"><img src="{{ url('/') }}/storage/{{ $bannerPosition2->image }}" alt="Middle Banner"
+          @if($bannerPosition2->url)
+            <a href="{{$bannerPosition2->url}}">
+          @endif
+          <img src="{{ url('/') }}/storage/{{ $bannerPosition2->image }}" alt="Middle Banner"
             class="w-full h-full rounded object-cover" style="border-radius:10px; border: 1px solid #e2e8f0;">
-          </a>
+          @if($bannerPosition2->url)
+            </a>
+          @endif
         </div>
+        @endif
       </div>
 
       <!-- Right Column -->

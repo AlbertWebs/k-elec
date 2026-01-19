@@ -152,12 +152,13 @@
 
 <div>
     <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Description *</label>
-    <textarea id="description" name="description" rows="4" required 
+    <textarea id="description" name="description" rows="4" 
               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               placeholder="Enter product description...">{{ old('description') }}</textarea>
     @error('description')
         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
     @enderror
+    <p id="description-error" class="text-red-500 text-sm mt-1 hidden">Description is required.</p>
 </div>
 
 <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
@@ -243,6 +244,8 @@
         };
     }
 
+    let editorInstance;
+
     ClassicEditor
         .create(document.querySelector('#description'), {
             toolbar: {
@@ -255,9 +258,33 @@
             },
             extraPlugins: [MyUploadAdapterPlugin] // Register your custom plugin here
         })
+        .then(editor => {
+            editorInstance = editor;
+        })
         .catch(error => {
             console.error(error);
         });
+
+    // Form validation for CKEditor
+    document.querySelector('form').addEventListener('submit', function(e) {
+        const descriptionError = document.getElementById('description-error');
+        
+        if (editorInstance) {
+            const descriptionData = editorInstance.getData();
+            // Check if description is empty (strip HTML tags)
+            const textOnly = descriptionData.replace(/<[^>]*>/g, '').trim();
+            
+            if (!textOnly) {
+                e.preventDefault();
+                descriptionError.classList.remove('hidden');
+                // Scroll to error
+                descriptionError.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                return false;
+            } else {
+                descriptionError.classList.add('hidden');
+            }
+        }
+    });
 </script>
 
             {{--  --}}

@@ -115,6 +115,10 @@ if (isset($validated['specifications'])) {
     $validated['specifications'] = $groups;
 }
 
+        // Set default values if not provided (rating cannot be null in database)
+        $validated['rating'] = isset($validated['rating']) && $validated['rating'] !== '' && $validated['rating'] !== null ? (int)$validated['rating'] : 5;
+        $validated['reviews_count'] = isset($validated['reviews_count']) && $validated['reviews_count'] !== '' && $validated['reviews_count'] !== null ? (int)$validated['reviews_count'] : 12;
+        $validated['badge'] = isset($validated['badge']) && trim($validated['badge']) !== '' ? trim($validated['badge']) : 'New';
 
         Product::create($validated);
 

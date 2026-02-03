@@ -20,10 +20,11 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     
     // Products
-    Route::resource('products', ProductController::class);
+    Route::get('products/export', [ProductController::class, 'export'])->name('products.export');
     Route::post('products/bulk-action', [ProductController::class, 'bulkAction'])->name('products.bulk-action');
     Route::post('products/upload-image', [ProductController::class, 'uploadImage'])->name('products.upload-image');
     Route::post('products/test-update', [ProductController::class, 'testUpdate'])->name('products.test-update');
+    Route::resource('products', ProductController::class);
     
     // Categories
     Route::resource('categories', CategoryController::class);

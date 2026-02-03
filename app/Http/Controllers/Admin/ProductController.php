@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Category;
+use App\Exports\ProductsExport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProductController extends Controller
 {
@@ -356,5 +358,18 @@ if (isset($validated['specifications'])) {
             'path' => $path,
             'url' => asset('storage/' . $path)
         ]);
+    }
+
+    public function export(Request $request)
+    {
+        $filters = [
+            'search' => $request->search,
+            'category' => $request->category,
+            'status' => $request->status,
+        ];
+
+        $filename = 'products_' . date('Y-m-d_His') . '.xlsx';
+
+        return Excel::download(new ProductsExport($filters), $filename);
     }
 } 

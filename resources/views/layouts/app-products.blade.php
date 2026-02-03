@@ -49,7 +49,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     @include('layouts.styles')
     <!-- Styles -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{ asset('build/assets/app-vxrG4Adk.css') }}">
+    <script type="module" src="{{ asset('build/assets/app-C1vo8EPt.js') }}"></script>
     
     <!-- Structured Data -->
     @yield('structured_data')

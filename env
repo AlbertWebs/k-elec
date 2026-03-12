@@ -2,9 +2,7 @@ APP_NAME="k-eleck"
 APP_ENV=production
 APP_KEY=base64:4mUnJ73EdOtGpIN92JLc7HVLPeX7okQx1DJjyvzgY3Y=
 APP_DEBUG=false
-# APP_URL=https://k-elec.co.ke
-# APP_URL=https://d653-41-90-172-228.ngrok-free.app/
-# ASSET_URL=https://d653-41-90-172-228.ngrok-free.app/
+APP_URL=https://k-elec.co.ke
 APP_URL=http://127.0.0.1:8000/
 ASSET_URL=http://127.0.0.1:8000/
 

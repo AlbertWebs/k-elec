@@ -4,6 +4,42 @@ import Alpine from 'alpinejs';
 
 window.Alpine = Alpine;
 
+// Global function to extract phone and construct proper WhatsApp link
+window.getProperWhatsAppLink = function(whatsappUrl, message = 'Hello') {
+    let phoneNumber = null;
+    
+    // Try to extract from wa.me format (handles both wa.me/254716052243 and wa.me/=254716052243)
+    const waMatch = whatsappUrl.match(/wa\.me\/?=?(\d+)/);
+    if (waMatch) {
+        phoneNumber = waMatch[1];
+    }
+    
+    // Try to extract from phone= parameter
+    if (!phoneNumber) {
+        const phoneMatch = whatsappUrl.match(/phone=(\d+)/);
+        if (phoneMatch) {
+            phoneNumber = phoneMatch[1];
+        }
+    }
+    
+    // Try to extract any 12-digit number from deeplink format
+    if (!phoneNumber) {
+        const numberMatch = whatsappUrl.match(/(\d{12})/);
+        if (numberMatch) {
+            phoneNumber = numberMatch[1];
+        }
+    }
+    
+    // If we found a phone number, construct proper link
+    if (phoneNumber) {
+        const message_encoded = encodeURIComponent(message);
+        return 'https://wa.me/' + phoneNumber + '?text=' + message_encoded;
+    }
+    
+    // Fallback to original URL
+    return whatsappUrl + (whatsappUrl.includes('?') ? '&' : '?') + 'text=' + encodeURIComponent(message);
+};
+
 // E-commerce functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize cart functionality
@@ -41,6 +77,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize product image switching
     initializeProductImageSwitching();
+    
+    // Initialize subscription form
+    initializeSubscriptionForm();
 });
 
 // Format number with abbreviations (K, M, etc.)
@@ -1078,4 +1117,213 @@ function initializeProductImageSwitching() {
     };
 }
 
+// Subscription form handler
+let subscriptionFormInitialized = false;
+
+function initializeSubscriptionForm() {
+    // Prevent double initialization
+    if (subscriptionFormInitialized) {
+        return;
+    }
+    
+    const subscriptionForm = document.getElementById('subscription-form');
+    
+    if (!subscriptionForm) {
+        return;
+    }
+    
+    subscriptionFormInitialized = true;
+    
+    subscriptionForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const email = document.getElementById('subscription-email').value;
+        const phone = document.getElementById('subscription-phone').value;
+        const messageDiv = document.getElementById('subscription-message');
+        const submitBtn = subscriptionForm.querySelector('button[type="submit"]');
+        
+        // Disable submit button to prevent double submission
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.6';
+        }
+        
+        // Clear previous messages
+        messageDiv.classList.add('hidden');
+        messageDiv.innerHTML = '';
+        
+        // Get the action URL
+        const actionUrl = subscriptionForm.getAttribute('data-action');
+        
+        fetch(actionUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify({
+                email: email,
+                phone: phone || null
+            })
+        })
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            messageDiv.classList.remove('hidden');
+            
+            // Check data.success flag regardless of HTTP status
+            if (data && data.success) {
+                messageDiv.className = 'mt-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg';
+                messageDiv.innerHTML = '<i class="fas fa-check mr-2"></i>' + (data.message || 'Success!');
+                
+                // Reset form
+                subscriptionForm.reset();
+                
+                // Re-enable submit button
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = '1';
+                }
+                
+                // Scroll to message
+                messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                
+                // Auto-hide after 5 seconds
+                setTimeout(() => {
+                    messageDiv.classList.add('hidden');
+                }, 5000);
+            } else {
+                messageDiv.className = 'mt-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg';
+                messageDiv.innerHTML = '<i class="fas fa-exclamation-circle mr-2"></i>' + (data.message || 'An error occurred');
+                
+                // Re-enable submit button
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = '1';
+                }
+                
+                // Scroll to message
+                messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        })
+        .catch(error => {
+            messageDiv.classList.remove('hidden');
+            messageDiv.className = 'mt-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg';
+            messageDiv.innerHTML = '<i class="fas fa-exclamation-circle mr-2"></i>Error: ' + error.message;
+            
+            // Re-enable submit button
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+            }
+            
+            // Scroll to message
+            messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+    });
+}
+
+// Footer subscription form handler
+function initializeFooterSubscriptionForm() {
+    const footerForm = document.getElementById('footer-subscription-form');
+    
+    if (!footerForm) {
+        return;
+    }
+    
+    footerForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const email = document.getElementById('footer-subscription-email').value;
+        const phone = document.getElementById('footer-subscription-phone').value;
+        const messageDiv = document.getElementById('footer-subscription-message');
+        const submitBtn = footerForm.querySelector('button[type="submit"]');
+        const csrfToken = footerForm.querySelector('input[name="_token"]').value;
+        
+        // Disable submit button
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.6';
+        }
+        
+        // Clear previous messages
+        messageDiv.classList.add('hidden');
+        messageDiv.innerHTML = '';
+        
+        // Get the action URL
+        const actionUrl = footerForm.getAttribute('data-action');
+        
+        fetch(actionUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest',
+                'X-CSRF-TOKEN': csrfToken
+            },
+            body: JSON.stringify({
+                email: email,
+                phone: phone || null
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            messageDiv.classList.remove('hidden');
+            
+            if (data && data.success) {
+                messageDiv.className = 'p-2 bg-green-100 border border-green-400 text-green-700 rounded text-sm';
+                messageDiv.innerHTML = '<i class="fas fa-check mr-2"></i>' + (data.message || 'Subscribed successfully!');
+                
+                // Reset form
+                footerForm.reset();
+                
+                // Re-enable submit button
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = '1';
+                }
+                
+                // Auto-hide after 5 seconds
+                setTimeout(() => {
+                    messageDiv.classList.add('hidden');
+                }, 5000);
+            } else {
+                messageDiv.className = 'p-2 bg-red-100 border border-red-400 text-red-700 rounded text-sm';
+                messageDiv.innerHTML = '<i class="fas fa-exclamation-circle mr-2"></i>' + (data.message || 'An error occurred');
+                
+                // Re-enable submit button
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = '1';
+                }
+            }
+        })
+        .catch(error => {
+            console.error('Subscription error:', error);
+            messageDiv.classList.remove('hidden');
+            messageDiv.className = 'p-2 bg-red-100 border border-red-400 text-red-700 rounded text-sm';
+            messageDiv.innerHTML = '<i class="fas fa-exclamation-circle mr-2"></i>Error: ' + error.message;
+            
+            // Re-enable submit button
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+            }
+        });
+    });
+}
+
+// Initialize on DOM ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+        initializeSubscriptionForm();
+        initializeFooterSubscriptionForm();
+    });
+} else {
+    initializeSubscriptionForm();
+    initializeFooterSubscriptionForm();
+}
 Alpine.start();

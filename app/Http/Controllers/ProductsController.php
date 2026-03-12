@@ -91,7 +91,22 @@ class ProductsController extends Controller
             ->limit(4)
             ->get();
         
-        // Paginate products
+        // Check if this is an AJAX request for loading more products
+        if ($request->ajax()) {
+            $page = $request->get('page', 1);
+            $products = $query->paginate(12, ['*'], 'page', $page);
+            
+            return response()->json([
+                'html' => view('products.partials.product-grid', [
+                    'products' => $products,
+                    'show_product_filters' => $show_product_filters
+                ])->render(),
+                'hasMore' => $products->hasMorePages(),
+                'nextPage' => $products->currentPage() + 1,
+            ]);
+        }
+        
+        // For regular page load, get first page
         $products = $query->paginate(12)->withQueryString();
         
         // Get filter stats

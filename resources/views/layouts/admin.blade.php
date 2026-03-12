@@ -47,7 +47,7 @@
                 </button>
             </div>
             
-            <nav class="mt-6">
+            <nav class="mt-6 overflow-y-auto" style="height: calc(100vh - 80px);">
                 <div class="px-4 space-y-2">
                     <!-- Dashboard -->
                     <a href="{{ route('admin.dashboard') }}" 
@@ -93,6 +93,12 @@
                 <span class="ml-3">Messages</span>
             </a>
 
+                    <a href="{{ route('admin.subscriptions.index') }}"
+               class="flex items-center px-4 py-3 text-white rounded-lg hover:bg-white/10 transition-colors {{ request()->routeIs('admin.subscriptions.*') ? 'bg-white/20' : '' }}">
+                <i class="fas fa-bell w-5"></i>
+                <span class="ml-3">Subscriptions</span>
+            </a>
+
             <a href="{{ route('admin.carousel-slides.index') }}"
                class="flex items-center px-4 py-3 text-white rounded-lg hover:bg-white/10 transition-colors {{ request()->routeIs('admin.carousel-slides.*') ? 'bg-white/20' : '' }}">
                 <i class="fas fa-images w-5"></i>
@@ -111,6 +117,65 @@
                 <i class="fas fa-map-marker w-5"></i>
                 <span class="ml-3">Showrooms</span>
             </a>
+
+            {{-- Brand Shops --}}
+            <a href="{{ route('admin.brand-shops.index') }}"
+               class="flex items-center px-4 py-3 text-white rounded-lg hover:bg-white/10 transition-colors {{ request()->routeIs('admin.brand-shops.*') ? 'bg-white/20' : '' }}">
+                <i class="fas fa-store w-5"></i>
+                <span class="ml-3">Brand Shops</span>
+            </a>
+
+            {{-- Vendors Menu --}}
+            <div x-data="{ vendorsOpen: {{ request()->routeIs('admin.vendors.*') ? 'true' : 'false' }} }">
+                <button @click="vendorsOpen = !vendorsOpen"
+                   class="w-full flex items-center px-4 py-3 text-white rounded-lg hover:bg-white/10 transition-colors {{ request()->routeIs('admin.vendors.*') ? 'bg-white/20' : '' }}">
+                    <i class="fas fa-handshake w-5"></i>
+                    <span class="ml-3 flex-1 text-left">Vendors</span>
+                    <i class="fas fa-chevron-down w-4 transition-transform" :class="{'rotate-180': vendorsOpen}"></i>
+                </button>
+
+                <div x-show="vendorsOpen" x-transition class="bg-white/5 border-l-2 border-white/20 ml-4">
+                    {{-- Vendor Inquiries --}}
+                    <a href="{{ route('admin.vendors.index') }}"
+                       class="flex items-center px-4 py-3 text-white rounded-lg hover:bg-white/10 transition-colors {{ request()->routeIs('admin.vendors.index', 'admin.vendors.show') && !request()->routeIs('admin.vendors.approved') ? 'bg-white/20' : '' }}">
+                        <i class="fas fa-inbox w-5"></i>
+                        <span class="ml-3">Inquiries</span>
+                    </a>
+
+                    {{-- Approved Vendors --}}
+                    <a href="{{ route('admin.vendors.approved') }}"
+                       class="flex items-center px-4 py-3 text-white rounded-lg hover:bg-white/10 transition-colors {{ request()->routeIs('admin.vendors.approved') ? 'bg-white/20' : '' }}">
+                        <i class="fas fa-check-circle w-5"></i>
+                        <span class="ml-3">Approved</span>
+                    </a>
+                </div>
+            </div>
+
+            {{-- Blog Menu --}}
+            <div x-data="{ blogOpen: {{ request()->routeIs('admin.blog-posts.*', 'admin.blog-settings.*') ? 'true' : 'false' }} }">
+                <button @click="blogOpen = !blogOpen"
+                   class="w-full flex items-center px-4 py-3 text-white rounded-lg hover:bg-white/10 transition-colors {{ request()->routeIs('admin.blog-posts.*', 'admin.blog-settings.*') ? 'bg-white/20' : '' }}">
+                    <i class="fas fa-pen-fancy w-5"></i>
+                    <span class="ml-3 flex-1 text-left">Blogs</span>
+                    <i class="fas fa-chevron-down w-4 transition-transform" :class="{'rotate-180': blogOpen}"></i>
+                </button>
+
+                <div x-show="blogOpen" x-transition class="bg-white/5 border-l-2 border-white/20 ml-4">
+                    {{-- Blog Posts --}}
+                    <a href="{{ route('admin.blog-posts.index') }}"
+                       class="flex items-center px-4 py-3 text-white rounded-lg hover:bg-white/10 transition-colors {{ request()->routeIs('admin.blog-posts.*') ? 'bg-white/20' : '' }}">
+                        <i class="fas fa-file-alt w-5"></i>
+                        <span class="ml-3">Posts</span>
+                    </a>
+
+                    {{-- Blog Settings --}}
+                    <a href="{{ route('admin.blog-settings.edit') }}"
+                       class="flex items-center px-4 py-3 text-white rounded-lg hover:bg-white/10 transition-colors {{ request()->routeIs('admin.blog-settings.*') ? 'bg-white/20' : '' }}">
+                        <i class="fas fa-sliders-h w-5"></i>
+                        <span class="ml-3">Settings</span>
+                    </a>
+                </div>
+            </div>
 
                     
                     <div class="border-t border-white/20 my-4"></div>
@@ -256,6 +321,20 @@
                                 <div class="flex items-center">
                                     <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
                                     <span class="text-sm font-medium text-gray-500">Messages</span>
+                                </div>
+                            </li>
+                        @elseif(request()->routeIs('admin.vendors.*'))
+                            <li>
+                                <div class="flex items-center">
+                                    <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
+                                    <span class="text-sm font-medium text-gray-500">Vendors</span>
+                                </div>
+                            </li>
+                        @elseif(request()->routeIs('admin.blog-posts.*', 'admin.blog-settings.*'))
+                            <li>
+                                <div class="flex items-center">
+                                    <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
+                                    <span class="text-sm font-medium text-gray-500">Blogs</span>
                                 </div>
                             </li>
                         @elseif(request()->routeIs('admin.settings'))

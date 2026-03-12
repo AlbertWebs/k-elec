@@ -8,6 +8,7 @@ use App\Models\CarouselSlide;
 use Illuminate\Http\Request;
 use App\Models\Banner;
 use App\Models\Showroom;
+use App\Models\BrandShop;
 
 class HomeController extends Controller
 {
@@ -26,6 +27,9 @@ class HomeController extends Controller
             ->get();
 
         $showrooms = Showroom::where('featured', 1)->where('is_active', 1)->limit('4')->get();
+
+        // Get featured brand shops (limit to 3 for the home page)
+        $shops = BrandShop::where('is_active', 1)->ordered()->limit(3)->get();
 
         //get banner position 1
         $bannerPosition1 = Banner::where('position', 1)->first();
@@ -61,7 +65,8 @@ class HomeController extends Controller
             'recentProducts',
             'bannerPosition1',
             'bannerPosition2',
-            'showrooms'
+            'showrooms',
+            'shops'
         ));
     }
 }

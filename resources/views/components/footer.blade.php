@@ -85,7 +85,10 @@ use App\Helpers\SocialMediaHelper;
                     
                     <li><a href="{{ route('pages.k-elec') }}" class="text-gray-400 hover:text-white">About Us</a></li>
                     <li><a href="{{ route('pages.about') }}" class="text-gray-400 hover:text-white">K-Elec Story</a></li>
+                    <li><a href="{{ route('blog.index') }}" class="text-gray-400 hover:text-white">Blog</a></li>
+                    <li><a href="{{ route('pages.vendors') }}" class="text-gray-400 hover:text-white">Be A Vendor</a></li>
                     <li><a href="{{ route('pages.contact') }}" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                    <li><a href="{{ route('pages.subscribe') }}" class="text-gray-400 hover:text-white">VIP Offers</a></li>
                     {{-- <li><a href="{{ route('showrooms.index') }}" class="text-gray-400 hover:text-white">Our Showrooms</a></li> --}}
                     <li><a href="{{ route('products.index') }}" class="text-gray-400 hover:text-white">Our Products</a></li>
                     {{-- <li><a href="{{ route('pages.technical-support') }}" class="text-gray-400 hover:text-white">Technical Support</a></li>
@@ -117,15 +120,33 @@ use App\Helpers\SocialMediaHelper;
                 <p class="text-gray-400 mb-4">Receive updates, hot deals, discounts sent straight to your inbox daily.</p>
                 
                 <!-- Email Subscription -->
-                <div class="flex mb-6">
-                    <form action="{{ route('subscribe') }}" method="POST">
-                        @csrf
-                    <input type="email" name="email" placeholder="Email Address" class="flex-1 px-3 py-2 bg-gray-800 border border-gray-700 rounded-l text-white placeholder-gray-400 focus:outline-none focus:border-gray-600">
-                    <button  type="submit" name="submit" class="bg-red-600 px-4 py-2 rounded-r hover:bg-red-700">
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                    </form>
-                </div>
+                <form id="footer-subscription-form" method="POST" data-action="{{ route('subscriptions.store') }}" class="space-y-2 mb-6">
+                    @csrf
+                    <div class="flex gap-2">
+                        <input type="email" 
+                               id="footer-subscription-email" 
+                               name="email" 
+                               required 
+                               placeholder="Email Address" 
+                               class="flex-1 px-3 py-2 bg-gray-800 border border-gray-700 rounded text-white placeholder-gray-400 focus:outline-none focus:border-gray-600">
+                    </div>
+                    
+                    <div class="flex gap-2">
+                        <input type="tel" 
+                               id="footer-subscription-phone" 
+                               name="phone" 
+                               placeholder="Phone Number" 
+                               class="flex-1 px-3 py-2 bg-gray-800 border border-gray-700 rounded text-white placeholder-gray-400 focus:outline-none focus:border-gray-600">
+                        
+                        <button type="submit" 
+                                class="bg-red-600 px-4 py-2 rounded hover:bg-red-700 transition-colors">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </form>
+                
+                <!-- Subscription Message -->
+                <div id="footer-subscription-message" class="hidden mb-6 p-2 rounded text-sm"></div>
                 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
 
                 <div class="flex space-x-3">
@@ -144,7 +165,7 @@ use App\Helpers\SocialMediaHelper;
                          <a href="{{ Setting::get('social_youtube', '#') }}" class="w-9 h-9 bg-red-600 rounded-lg flex items-center justify-center text-white hover:bg-red-700 transition-colors">
                             <i class="fab fa-youtube text-sm"></i>
                         </a>
-                         <a href="{{ Setting::get('social_whatsapp', '#') }}" class="w-9 h-9 bg-green-600 rounded-lg flex items-center justify-center text-white hover:bg-green-700 transition-colors">
+                         <a href="#" id="footer-whatsapp-link" data-whatsapp="{{ Setting::get('social_whatsapp', '#') }}" class="w-9 h-9 bg-green-600 rounded-lg flex items-center justify-center text-white hover:bg-green-700 transition-colors">
                             <i class="fab fa-whatsapp text-sm"></i>
                         </a>
                         <a style="border:1px solid #ffffff" href="{{ Setting::get('social_tiktok', '#') }}" class="w-9 h-9 bg-black-600 rounded-lg flex items-center justify-center text-white hover:bg-green-700 transition-colors">
@@ -160,7 +181,22 @@ use App\Helpers\SocialMediaHelper;
     <!-- Copyright -->
     <div class="bg-gray-800 py-4">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <p class="text-center text-gray-400 text-sm">© {{date('Y')}} K-Elec. Design & Develop By <a href="https://drenla.com" target="_blank" class="text-white hover:text-red-400 transition-colors">Drenla Hub</a>.</p>
+            <p class="text-center text-gray-400 text-sm">© {{date('Y')}} K-Elec. All rights reserved.</p>
         </div>
     </div>
-</footer> 
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const footerWhatsappLink = document.getElementById('footer-whatsapp-link');
+    if (footerWhatsappLink) {
+        const whatsappUrl = footerWhatsappLink.getAttribute('data-whatsapp');
+        if (whatsappUrl && whatsappUrl !== '#') {
+            const properLink = window.getProperWhatsAppLink(whatsappUrl, 'Hello, I would like to know more');
+            footerWhatsappLink.href = properLink;
+            footerWhatsappLink.target = '_blank';
+            footerWhatsappLink.rel = 'noopener noreferrer';
+        }
+    }
+});
+</script>

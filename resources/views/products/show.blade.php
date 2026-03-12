@@ -150,13 +150,13 @@
                 </div>
 
                 <!-- Price -->
-                {{-- <div class="flex items-center space-x-4">
+                <div class="flex items-center space-x-4">
                     <span class="text-3xl font-bold text-gray-900">{{ $product->formatted_price }}</span>
                     @if($product->old_price && $product->old_price > $product->price)
                         <span class="text-xl text-gray-500 line-through">{{ $product->formatted_old_price }}</span>
                         <span class="bg-red-100 text-red-800 text-sm font-medium px-2 py-1 rounded">-{{ $product->discount_percentage }}%</span>
                     @endif
-                </div> --}}
+                </div>
 
                 <!-- Badge -->
                 @if($product->badge)
@@ -380,4 +380,4 @@ input[type="number"] {
     appearance: textfield;
 }
 </style>
-@endpush 
+@endpush

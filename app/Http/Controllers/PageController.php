@@ -48,6 +48,22 @@ class PageController extends Controller
         return view('pages.faq', compact('faqs'));
     }
 
+    public function subscribe()
+    {
+        return view('pages.subscribe');
+    }
+
+    public function vendors()
+    {
+        return view('pages.vendors');
+    }
+
+    public function brandShops()
+    {
+        $shops = \App\Models\BrandShop::active()->ordered()->get();
+        return view('pages.brand-shops', compact('shops'));
+    }
+
     public function privacy()
     {
         return view('pages.privacy');

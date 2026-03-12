@@ -12,6 +12,11 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\CarouselSlideController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ShowroomController;
+use App\Http\Controllers\Admin\BrandShopController;
+use App\Http\Controllers\Admin\BlogPostController;
+use App\Http\Controllers\Admin\BlogSettingController;
+use App\Http\Controllers\Admin\SubscriptionController;
+use App\Http\Controllers\Admin\VendorController;
 
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
@@ -49,6 +54,22 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::patch('contact-messages/{contactMessage}/notes', [ContactMessageController::class, 'updateNotes'])->name('contact-messages.update-notes');
     Route::post('contact-messages/mark-all-read', [ContactMessageController::class, 'markAllAsRead'])->name('contact-messages.mark-all-read');
     
+    // Subscriptions
+    Route::resource('subscriptions', SubscriptionController::class)->only(['index', 'show', 'destroy']);
+    Route::patch('subscriptions/{subscription}/status', [SubscriptionController::class, 'updateStatus'])->name('subscriptions.update-status');
+    Route::patch('subscriptions/{subscription}/notes', [SubscriptionController::class, 'updateNotes'])->name('subscriptions.update-notes');
+    Route::post('subscriptions/mark-all-read', [SubscriptionController::class, 'markAllRead'])->name('subscriptions.mark-all-read');
+    
+    // Vendors
+    Route::resource('vendors', VendorController::class)->only(['index', 'show', 'destroy']);
+    Route::patch('vendors/{vendor}/status', [VendorController::class, 'update'])->name('vendors.update-status');
+    Route::get('vendors/filter/approved', [VendorController::class, 'approved'])->name('vendors.approved');
+    
+    // Brand Shops
+    Route::resource('brand-shops', BrandShopController::class);
+    Route::patch('brand-shops/{brandShop}/toggle-status', [BrandShopController::class, 'toggleStatus'])->name('brand-shops.toggle-status');
+    Route::post('brand-shops/reorder', [BrandShopController::class, 'updateOrder'])->name('brand-shops.reorder');
+    
     // Carousel Slides
     Route::resource('carousel-slides', CarouselSlideController::class);
     Route::patch('carousel-slides/{carouselSlide}/toggle-status', [CarouselSlideController::class, 'toggleStatus'])->name('carousel-slides.toggle-status');
@@ -63,6 +84,15 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('showrooms', ShowroomController::class);
     Route::patch('showrooms/{showroom}/toggle-status', [ShowroomController::class, 'toggleStatus'])->name('showrooms.toggle-status');
     Route::post('showrooms/reorder', [ShowroomController::class, 'updateOrder'])->name('showrooms.reorder');
+
+    // Blog Posts
+    Route::resource('blog-posts', BlogPostController::class);
+    Route::patch('blog-posts/{blogPost}/toggle-publish', [BlogPostController::class, 'togglePublish'])->name('blog-posts.toggle-publish');
+    Route::post('blog-posts/reorder', [BlogPostController::class, 'updateOrder'])->name('blog-posts.reorder');
+
+    // Blog Settings
+    Route::get('blog-settings', [BlogSettingController::class, 'edit'])->name('blog-settings.edit');
+    Route::put('blog-settings', [BlogSettingController::class, 'update'])->name('blog-settings.update');
 
     // Settings
     Route::get('settings', [SettingController::class, 'index'])->name('settings');

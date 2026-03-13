@@ -81,7 +81,7 @@
                 @php
                     $allowedCategories = [
                         'Television & Audio',
-                        'Refrigerator',
+                        'Refrigerators',
                         'Air Conditioners',
                         'Kitchen Appliances',
                         'Washing Machines',

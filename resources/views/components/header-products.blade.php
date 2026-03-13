@@ -93,15 +93,15 @@ use App\Models\Setting;
                             <div class="absolute left-0 mt-0 w-56 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                                 <div class="px-4 py-2">
                                     <p class="text-xs font-semibold text-gray-700 mb-1">Refrigerators</p>
-                                    <a href="{{ route('products.index', ['search' => 'Refrigerator']) }}" class="block text-sm text-gray-700 hover:text-red-600 ml-2 py-1">90L, 532L</a>
+                                    <a href="{{ route('products.index', ['category' => 'refrigerators']) }}" class="block text-sm text-gray-700 hover:text-red-600 ml-2 py-1">90L, 532L</a>
                                 </div>
                                 <div class="px-4 py-2 border-t border-gray-200">
                                     <p class="text-xs font-semibold text-gray-700 mb-1">Chest Freezers</p>
-                                    <a href="{{ route('products.index', ['search' => 'chest+freezer']) }}" class="block text-sm text-gray-700 hover:text-red-600 ml-2 py-1">100L, 200L</a>
+                                    <a href="{{ route('products.index', ['category' => 'chest-freezers']) }}" class="block text-sm text-gray-700 hover:text-red-600 ml-2 py-1">100L, 200L</a>
                                 </div>
                                 <div class="px-4 py-2 border-t border-gray-200">
                                     <p class="text-xs font-semibold text-gray-700 mb-1">Mini Refrigerators</p>
-                                    <a href="{{ route('products.index', ['search' => 'mini+refrigerator']) }}" class="block text-sm text-gray-700 hover:text-red-600 ml-2 py-1">181L</a>
+                                    <a href="{{ route('products.index', ['category' => 'mini-refrigerators']) }}" class="block text-sm text-gray-700 hover:text-red-600 ml-2 py-1">181L</a>
                                 </div>
                             </div>
                         </div>
@@ -370,15 +370,15 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div id="appliances-mobile" class="mobile-submenu hidden bg-gray-50 rounded-lg mt-1">
                                 <div class="px-4 py-2">
                                     <p class="text-xs font-semibold text-gray-700 mb-1">Refrigerators</p>
-                                    <a href="{{ route('products.index', ['search' => 'Refrigerator']) }}" class="block text-sm text-gray-700 hover:text-red-600 ml-2 py-1">90L, 532L</a>
+                                    <a href="{{ route('products.index', ['category' => 'refrigerators']) }}" class="block text-sm text-gray-700 hover:text-red-600 ml-2 py-1">90L, 532L</a>
                                 </div>
                                 <div class="px-4 py-2 border-t border-gray-200">
                                     <p class="text-xs font-semibold text-gray-700 mb-1">Chest Freezers</p>
-                                    <a href="{{ route('products.index', ['search' => 'chest+freezer']) }}" class="block text-sm text-gray-700 hover:text-red-600 ml-2 py-1">100L, 200L</a>
+                                    <a href="{{ route('products.index', ['category' => 'chest-freezers']) }}" class="block text-sm text-gray-700 hover:text-red-600 ml-2 py-1">100L, 200L</a>
                                 </div>
                                 <div class="px-4 py-2 border-t border-gray-200">
                                     <p class="text-xs font-semibold text-gray-700 mb-1">Mini Refrigerators</p>
-                                    <a href="{{ route('products.index', ['search' => 'mini+refrigerator']) }}" class="block text-sm text-gray-700 hover:text-red-600 ml-2 py-1">181L</a>
+                                    <a href="{{ route('products.index', ['category' => 'mini-refrigerators']) }}" class="block text-sm text-gray-700 hover:text-red-600 ml-2 py-1">181L</a>
                                 </div>
                             </div>
                         </div>

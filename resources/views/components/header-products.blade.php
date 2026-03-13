@@ -108,11 +108,17 @@ use App\Models\Setting;
                         
                         <span class="text-gray-400">|</span>
                         
-                        <!-- SKIN CARE -->
-                        <a href="{{ route('products.index', ['search' => 'skin+care']) }}" 
-                           class="font-semibold px-4 py-2 hover:text-gray-700 text-black">
-                            SKIN CARE
-                        </a>
+                        <!-- KOREAN COSMETICS with Submenu -->
+                        <div class="relative group">
+                            <button class="font-semibold px-4 py-2 hover:text-gray-700 text-black flex items-center space-x-1">
+                                <span>KOREAN COSMETICS</span>
+                                <i class="fas fa-chevron-down text-xs"></i>
+                            </button>
+                            <!-- Dropdown Menu -->
+                            <div class="absolute left-0 mt-0 w-48 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                <a href="{{ route('products.index', ['category' => 'skin-care']) }}" class="block px-4 py-2 text-gray-900 hover:bg-gray-100 first:rounded-t-lg">SKIN CARE</a>
+                            </div>
+                        </div>
                         
                         <span class="text-gray-400">|</span>
                         
@@ -377,11 +383,19 @@ document.addEventListener('DOMContentLoaded', function() {
                             </div>
                         </div>
                         
-                        <!-- SKIN CARE Mobile Link -->
-                        <a href="{{ route('products.index', ['search' => 'skin+care']) }}" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 text-gray-700">
-                            <i class="fas fa-spa text-lg"></i>
-                            <span>SKIN CARE</span>
-                        </a>
+                        <!-- KOREAN COSMETICS Mobile Submenu -->
+                        <div>
+                            <button class="mobile-submenu-toggle w-full flex items-center justify-between space-x-3 p-3 rounded-lg hover:bg-gray-50 text-gray-700" data-submenu="cosmetics-mobile">
+                                <div class="flex items-center space-x-3">
+                                    <i class="fas fa-spa text-lg"></i>
+                                    <span>KOREAN COSMETICS</span>
+                                </div>
+                                <i class="fas fa-chevron-down text-xs"></i>
+                            </button>
+                            <div id="cosmetics-mobile" class="mobile-submenu hidden bg-gray-50 rounded-lg mt-1">
+                                <a href="{{ route('products.index', ['category' => 'skin-care']) }}" class="block px-6 py-2 text-sm text-gray-700 hover:text-red-600">Skin Care</a>
+                            </div>
+                        </div>
                         
                         <a href="{{ route('products.index') }}" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 {{ request()->routeIs('products.*') ? 'bg-blue-50 text-blue-600' : 'text-gray-700' }}">
                             <i class="fas fa-shopping-bag text-lg"></i>

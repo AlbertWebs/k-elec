@@ -78,7 +78,18 @@
             <h2 class="text-3xl font-bold text-left mb-12 mobile-heading">All Categories</h2>
 
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-6">
-                @foreach($categories as $category)
+                @php
+                    $allowedCategories = [
+                        'Television & Audio',
+                        'Refrigerator',
+                        'Air Conditioners',
+                        'Kitchen Appliances',
+                        'Washing Machines',
+                        'Mini- Refrigerators'
+                    ];
+                    $filteredCategories = $categories->whereIn('name', $allowedCategories);
+                @endphp
+                @foreach($filteredCategories as $category)
                     <a href="{{ route('products.index', ['category' => $category->slug]) }}"
                     class="relative block rounded-2xl shadow-lg overflow-hidden h-48 p-4 rounded cat-wrapper">
 

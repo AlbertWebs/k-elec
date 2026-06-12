@@ -67,6 +67,9 @@
     @include('components.footer')
     @include('components.floating-whatsapp')
     
+    <!-- Custom page scripts -->
+    @stack('scripts')
+
     <!-- <script>
         document.addEventListener("DOMContentLoaded", function () {
             document.querySelectorAll('a[href]').forEach(function (link) {

@@ -149,13 +149,30 @@
                     <span class="text-sm text-gray-500">{{ $product->reviews_count }} reviews</span>
                 </div>
 
-                <!-- Price -->
+                <!-- Price (temporarily hidden and preserved below) -->
+                {{--
                 <div class="flex items-center space-x-4">
                     <span class="text-3xl font-bold text-gray-900">{{ $product->formatted_price }}</span>
                     @if($product->old_price && $product->old_price > $product->price)
                         <span class="text-xl text-gray-500 line-through">{{ $product->formatted_old_price }}</span>
                         <span class="bg-red-100 text-red-800 text-sm font-medium px-2 py-1 rounded">-{{ $product->discount_percentage }}%</span>
                     @endif
+                </div>
+                --}}
+
+                <!-- Price label -->
+                <h4 class="text-lg font-medium text-gray-1200 mb-2">Price</h4>
+
+                <!-- Contact for pricing - friendly notice -->
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-lg">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0">
+                            <svg class="h-6 w-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M2 5a2 2 0 012-2h3.5a1 1 0 01.8.4L10 5h6a2 2 0 012 2v7a2 2 0 01-2 2H4a2 2 0 01-2-2V5z"/></svg>
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm text-yellow-800 font-medium">For pricing, please contact us and we will direct you to your nearest K-Elec Brandshop or authorized dealer.</p>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Badge -->
@@ -200,12 +217,33 @@
                     </div>
                 </div> --}}
 
-                <!-- Action Buttons -->
-                <div class="flex space-x-4">
-                    <button onclick="toggleWishlist({{ $product->id }}, '{{ $product->name }}')"  
+                <!-- Action Buttons (wishlist temporarily removed) -->
+                <div class="flex space-x-4 items-start">
+                    {{-- Original wishlist button commented out for now --}}
+                    {{--
+                    <button onclick="toggleWishlist({{ $product->id }}, '{{ $product->name }}')  
                             class="flex-1 bg-black text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
                         Add to Wishlist
                     </button>
+                    --}}
+
+                    <div class="flex-1">
+                        <div id="contact-button-wrap-{{ $product->id }}">
+                            <button id="contact-btn-{{ $product->id }}" onclick="revealContact('{{ $product->id }}')" aria-expanded="false" class="w-full bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors flex items-center justify-center space-x-2">
+                                <i class="fas fa-phone-alt"></i>
+                                <span>Contact Us</span>
+                            </button>
+                        </div>
+
+                        <div id="contact-number-{{ $product->id }}" class="mt-0 text-center text-lg font-semibold text-gray-900 hidden">
+                            <div class="inline-flex items-center justify-center w-full px-3 py-3 bg-red-600 border border-red-700 rounded-md">
+                                <a id="contact-link-{{ $product->id }}" href="tel:+254716052243" class="text-white hover:underline text-lg font-medium">+254 716 052 243</a>
+                                <button id="contact-hide-{{ $product->id }}" onclick="hideContact('{{ $product->id }}')" class="ml-4 text-sm text-white hover:underline">Hide</button>
+                            </div>
+                            <div id="contact-toast-{{ $product->id }}" class="mt-2 text-sm text-red-600 hidden">Number copied to clipboard</div>
+                        </div>
+                    </div>
+
                     <a href="https://wa.me/254716052243?text={{ urlencode('Hello there, I am interested in this ' . $product->name) }}" 
                        target="_blank"
                        class="flex-1 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors text-center flex items-center justify-center space-x-2">
@@ -379,5 +417,56 @@ input[type="number"] {
     -moz-appearance: textfield;
     appearance: textfield;
 }
+</style>
+@endpush
+
+@push('scripts')
+<script>
+function revealContact(id) {
+    var el = document.getElementById('contact-number-' + id);
+    var btnWrap = document.getElementById('contact-button-wrap-' + id);
+    var btn = document.getElementById('contact-btn-' + id);
+    var link = document.getElementById('contact-link-' + id);
+    var toast = document.getElementById('contact-toast-' + id);
+    var phone = '+254 716 052 243';
+    if (!el || !btn || !btnWrap) return;
+
+    // hide the button and show the phone container in its place
+    btnWrap.style.display = 'none';
+    el.classList.remove('hidden');
+    el.classList.add('block','animate-fade-in');
+    if (btn) btn.setAttribute('aria-expanded','true');
+
+    // normalize phone for tel: link and clipboard
+    var tel = phone.replace(/\s+/g,'');
+    if (link) link.href = 'tel:' + tel.replace('+','');
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(tel).then(function(){
+            if (toast) {
+                toast.classList.remove('hidden');
+                setTimeout(function(){ toast.classList.add('hidden'); }, 1800);
+            }
+        }).catch(function(){ if (toast) { toast.classList.remove('hidden'); setTimeout(function(){ toast.classList.add('hidden'); }, 1800); } });
+    } else {
+        if (toast) { toast.classList.remove('hidden'); setTimeout(function(){ toast.classList.add('hidden'); }, 1800); }
+    }
+    if (link) link.focus();
+}
+
+function hideContact(id) {
+    var el = document.getElementById('contact-number-' + id);
+    var btnWrap = document.getElementById('contact-button-wrap-' + id);
+    var btn = document.getElementById('contact-btn-' + id);
+    if (!el || !btnWrap) return;
+
+    el.classList.add('hidden');
+    el.classList.remove('block','animate-fade-in');
+    btnWrap.style.display = '';
+    if (btn) btn.setAttribute('aria-expanded','false');
+}
+</script>
+<style>
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-6px);} to { opacity:1; transform: translateY(0);} }
+.animate-fade-in { animation: fadeIn 220ms ease-out; }
 </style>
 @endpush

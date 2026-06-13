@@ -3,8 +3,8 @@ APP_ENV=production
 APP_KEY=base64:4mUnJ73EdOtGpIN92JLc7HVLPeX7okQx1DJjyvzgY3Y=
 APP_DEBUG=false
 APP_URL=https://k-elec.co.ke
-APP_URL=http://127.0.0.1:8000/
-ASSET_URL=http://127.0.0.1:8000/
+APP_URL=https://k-elec.co.ke/
+ASSET_URL=https://k-elec.co.ke/
 
 APP_LOCALE=en
 APP_FALLBACK_LOCALE=en

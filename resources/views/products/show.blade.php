@@ -164,13 +164,13 @@
                 <h4 class="text-lg font-medium text-gray-1200 mb-2">Price</h4>
 
                 <!-- Contact for pricing - friendly notice -->
-                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-lg">
+                <div class="bg-red-50 border-2 border-red-400 p-4 rounded-lg">
                     <div class="flex items-start">
                         <div class="flex-shrink-0">
                             <svg class="h-6 w-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M2 5a2 2 0 012-2h3.5a1 1 0 01.8.4L10 5h6a2 2 0 012 2v7a2 2 0 01-2 2H4a2 2 0 01-2-2V5z"/></svg>
                         </div>
                         <div class="ml-3">
-                            <p class="text-sm text-yellow-800 font-medium">For pricing, please contact us and we will direct you to your nearest K-Elec Brandshop or authorized dealer.</p>
+                            <p class="text-sm text-black-800 font-medium">For pricing, please contact us and we will direct you to your nearest K-Elec Brandshop or authorized dealer.</p>
                         </div>
                     </div>
                 </div>

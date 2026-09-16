@@ -1,6 +1,6 @@
 @if(!isset($homepageVideo) || !$homepageVideo || $homepageVideo->is_active)
 <section class="py-6 bg-gray-100" data-about-kelec="1">
-<h2 class="mt-4 mb-8 text-2xl lg:text-3xl font-bold text-black-900 text-center">{{ $homepageVideo->title ?? 'ABOUT K-ELEC' }}</h2>
+<h2 class="mt-4 mb-8 text-2xl lg:text-3xl font-bold text-black-900 text-center">{{ (isset($homepageVideo) && $homepageVideo && $homepageVideo->title) ? $homepageVideo->title : 'ABOUT K-ELEC' }}</h2>
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 border-2 !border-gray-100 py-2 rounded-lg" style="border: 2px solid #e5e7eb;">
     <div class="flex flex-col gap-8">
       
@@ -30,7 +30,7 @@
       <!-- Text Content -->
       <div class="text-center">
         <p class="text-lg lg:text-xl text-black-900 font-semibold leading-relaxed mb-6">
-          FIRST EVER KOREAN TECHNOLOGY PRODUCTION IN KENYA, THE HEART OF EAST AFRICA
+          {{ (isset($homepageVideo) && $homepageVideo && $homepageVideo->description) ? $homepageVideo->description : \App\Models\HomepageVideo::DEFAULT_DESCRIPTION }}
         </p>
         <a href="/k-elec" class="inline-block px-8 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors duration-200">
           Learn More

@@ -12,6 +12,7 @@ class HomepageVideo extends Model
 
     protected $fillable = [
         'title',
+        'description',
         'video_path',
         'video_url',
         'poster_path',
@@ -22,15 +23,44 @@ class HomepageVideo extends Model
         'is_active' => 'boolean',
     ];
 
+    public const DEFAULT_TITLE = 'ABOUT K-ELEC';
+
+    public const DEFAULT_DESCRIPTION = 'FIRST EVER KOREAN TECHNOLOGY PRODUCTION IN KENYA, THE HEART OF EAST AFRICA';
+
     public const DEFAULT_VIDEO_URL = 'https://drive.google.com/file/d/1goNHL_j4Rt-IMOn59-_CQLVSPMOUk9hZ/preview';
 
     public static function current(): self
     {
-        return static::query()->firstOrCreate([], [
-            'is_active' => true,
-            'title' => 'ABOUT K-ELEC',
-            'video_url' => self::DEFAULT_VIDEO_URL,
-        ]);
+        $video = static::query()->first();
+
+        if (!$video) {
+            return static::create([
+                'is_active' => true,
+                'title' => self::DEFAULT_TITLE,
+                'description' => self::DEFAULT_DESCRIPTION,
+                'video_url' => self::DEFAULT_VIDEO_URL,
+            ]);
+        }
+
+        $updates = [];
+
+        if (!filled($video->title)) {
+            $updates['title'] = self::DEFAULT_TITLE;
+        }
+
+        if (!filled($video->description)) {
+            $updates['description'] = self::DEFAULT_DESCRIPTION;
+        }
+
+        if (!filled($video->video_url) && !filled($video->video_path)) {
+            $updates['video_url'] = self::DEFAULT_VIDEO_URL;
+        }
+
+        if ($updates !== []) {
+            $video->update($updates);
+        }
+
+        return $video;
     }
 
     public function hasMedia(): bool

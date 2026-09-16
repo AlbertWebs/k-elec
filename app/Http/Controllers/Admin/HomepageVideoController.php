@@ -22,14 +22,16 @@ class HomepageVideoController extends Controller
 
         $validated = $request->validate([
             'title' => 'nullable|string|max:255',
+            'description' => 'nullable|string|max:1000',
             'video_url' => 'nullable|string|max:500',
             'video' => 'nullable|file|mimes:mp4,webm,ogg,mov|max:51200',
             'poster' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
         $data = [
-            'title' => $validated['title'] ?? null,
-            'video_url' => $this->normalizeUrl($validated['video_url'] ?? null),
+            'title' => $validated['title'] ?: HomepageVideo::DEFAULT_TITLE,
+            'description' => $validated['description'] ?: HomepageVideo::DEFAULT_DESCRIPTION,
+            'video_url' => $this->normalizeUrl($validated['video_url'] ?? null) ?: HomepageVideo::DEFAULT_VIDEO_URL,
         ];
 
         if ($request->boolean('remove_video') && $homepageVideo->video_path) {

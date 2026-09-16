@@ -61,6 +61,7 @@ class HomepageVideoTest extends TestCase
         $this->actingAs($admin)
             ->put(route('admin.homepage-video.update'), [
                 'title' => 'ABOUT K-ELEC',
+                'description' => HomepageVideo::DEFAULT_DESCRIPTION,
                 'video_url' => 'https://youtu.be/dQw4w9WgXcQ',
             ])
             ->assertRedirect(route('admin.homepage-video.edit'));

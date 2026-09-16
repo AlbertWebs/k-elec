@@ -51,12 +51,22 @@
             @method('PUT')
 
             <div>
-                <label for="title" class="block text-sm font-medium text-gray-700 mb-1">Title (optional)</label>
+                <label for="title" class="block text-sm font-medium text-gray-700 mb-1">Title</label>
                 <input type="text" id="title" name="title"
-                       value="{{ old('title', $homepageVideo->title) }}"
-                       placeholder="e.g. Brand film"
+                       value="{{ old('title', $homepageVideo->title ?: \App\Models\HomepageVideo::DEFAULT_TITLE) }}"
+                       placeholder="ABOUT K-ELEC"
                        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                 @error('title')
+                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div>
+                <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Tagline</label>
+                <textarea id="description" name="description" rows="3"
+                          placeholder="FIRST EVER KOREAN TECHNOLOGY PRODUCTION IN KENYA, THE HEART OF EAST AFRICA"
+                          class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">{{ old('description', $homepageVideo->description ?: \App\Models\HomepageVideo::DEFAULT_DESCRIPTION) }}</textarea>
+                @error('description')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                 @enderror
             </div>
@@ -102,8 +112,8 @@
             <div>
                 <label for="video_url" class="block text-sm font-medium text-gray-700 mb-1">Video URL</label>
                 <input type="text" id="video_url" name="video_url"
-                       value="{{ old('video_url', $homepageVideo->video_url) }}"
-                       placeholder="Google Drive, YouTube, or Vimeo URL"
+                       value="{{ old('video_url', $homepageVideo->video_url ?: \App\Models\HomepageVideo::DEFAULT_VIDEO_URL) }}"
+                       placeholder="https://drive.google.com/file/d/..."
                        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                 <p class="text-xs text-gray-500 mt-1">Google Drive, YouTube, Vimeo, or a direct MP4 link. Used when no video file is uploaded.</p>
                 @error('video_url')

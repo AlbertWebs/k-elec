@@ -10,11 +10,41 @@
 .swiper-pagination-bullet-active {
     background: #b91c1c !important; /* Tailwind's red-700 */
 }
+
 .carousel-containers {
-  height: auto;
-  max-height: -webkit-fill-available; /* Fix for iPhone Safari */
+    height: 720px !important; /* Set explicit height to 720px */
+    width: 100% !important;
+    max-height: -webkit-fill-available; /* Fix for iPhone Safari */
 }
 
+.carousel-containers .swiper-slide {
+    height: 720px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Responsive heights */
+@media (max-width: 1024px) {
+    .carousel-containers,
+    .carousel-containers .swiper-slide {
+        height: 640px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-containers,
+    .carousel-containers .swiper-slide {
+        height: 480px !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .carousel-containers,
+    .carousel-containers .swiper-slide {
+        height: 380px !important;
+    }
+}
 </style>
 
 <!-- Carousel -->
@@ -23,17 +53,18 @@
         <div class="swiper-wrapper">
             @foreach ($carouselSlides as $slide)
                 <div class="swiper-slide flex items-center justify-center bg-black">
-                    
-                    <img src="{{ url('/') }}/storage/{{ $slide->image }}" 
-                         alt="Slide Image"
-                         class="max-h-[80vh] w-auto object-contain rounded-lg mx-auto">
-                         
-                    <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 py-8">
-                        <img src="{{ asset('images/logo.png') }}" 
-                             alt="K-ELEC" 
-                             class="h-16 brand-logo mx-auto"
-                             style="visibility:hidden">
-                    </div>
+                    <a href="{{ $slide->button_link }}" class="block w-full h-full flex items-center justify-center">
+                        <img src="{{ url('/') }}/storage/{{ $slide->image }}" 
+                             alt="Slide Image"
+                             class="max-h-[80vh] w-auto object-contain rounded-lg mx-auto">
+                             
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 py-8">
+                            <img src="{{ asset('images/logo.png') }}" 
+                                 alt="K-ELEC" 
+                                 class="h-16 brand-logo mx-auto"
+                                 style="visibility:hidden">
+                        </div>
+                    </a>
                 </div>
             @endforeach
         </div>
@@ -53,6 +84,13 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+    // Ensure all mobile slider links open in same tab
+    const mobileSliderLinks = document.querySelectorAll('.carousel-containers a[href]');
+    mobileSliderLinks.forEach(link => {
+        link.removeAttribute('target');
+        link.rel = '';
+    });
+
     new Swiper(".mySwiper", {
         loop: true,
         slidesPerView: 1,
@@ -63,6 +101,10 @@ document.addEventListener("DOMContentLoaded", function () {
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
+        },
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
         },
     });
 });

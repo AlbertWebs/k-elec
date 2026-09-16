@@ -49,8 +49,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('build/assets/app-vxrG4Adk.css') }}">
-    <script type="module" src="{{ asset('build/assets/app-C1vo8EPt.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('build/assets/app-ZM0IQ5Wp.css') }}">
+    <script type="module" src="{{ asset('build/assets/app-d5g6ciXd.js') }}"></script>
 
     @include('layouts.styles')
     
@@ -60,13 +60,17 @@
 <body class="bg-gray-50">
     @include('components.header')
     
-    <main>
+    <main class="w-full">
         @yield('content')
     </main>
     
     @include('components.footer')
+    @include('components.floating-whatsapp')
     
-    <script>
+    <!-- Custom page scripts -->
+    @stack('scripts')
+
+    <!-- <script>
         document.addEventListener("DOMContentLoaded", function () {
             document.querySelectorAll('a[href]').forEach(function (link) {
             if (!link.target || link.target.toLowerCase() !== "_blank") {
@@ -75,7 +79,7 @@
             }
             });
         });
-    </script>
+    </script> -->
 
 </body>
 </html>

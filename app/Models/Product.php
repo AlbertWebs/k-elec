@@ -27,7 +27,8 @@ class Product extends Model
         'stock_quantity',
         'is_featured',
         'is_active',
-        'specifications'
+        'specifications',
+        'product_type'
     ];
 
    

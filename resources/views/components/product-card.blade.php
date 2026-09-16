@@ -76,7 +76,7 @@
         </div> --}}
 
         <!-- Price -->
-        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-center mt-2 mb-2">
+        <!-- <div class="flex flex-col sm:flex-row sm:items-center sm:justify-center mt-2 mb-2">
             <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-2 justify-center">
                 @if($product->old_price)
                     <span class="text-xs sm:text-sm text-gray-500 line-through order-2 sm:order-1">{{ $product->formatted_old_price }}</span>
@@ -85,9 +85,9 @@
                     <span itemprop="priceCurrency" content="KES">{{ $product->formatted_price }}</span>
                 </span>
             </div>
-        </div>
+        </div> -->
 
-         <a href="{{ route('products.show', $product->slug) }}" class="inline-block border-2 border-gray-900 text-gray-900 px-1 py-1 rounded-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors text-center mt-2 mobile-btn" >
+         <a href="{{ route('products.show', $product->slug) }}" class="inline-block bg-red-600 text-white px-1 py-1 rounded-lg font-semibold hover:bg-gray-600 hover:text-white transition-colors text-center mt-2 mobile-btn" >
             View Product →
         </a>
     </div>

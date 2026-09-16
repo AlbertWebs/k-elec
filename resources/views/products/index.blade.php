@@ -103,7 +103,7 @@
 
 
 
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8" style="z-index:1">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div class="grid grid-cols-1 {{ $show_product_filters == '1' ? 'lg:grid-cols-4' : 'lg:grid-cols-3' }} gap-8">
 
             @if($show_product_filters == '1')
@@ -263,19 +263,30 @@
                 <!-- Products Grid -->
                 @if($products->count() > 0)
                     @if($show_product_filters == '1')
-                       <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
+                       <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6" id="products-container">
                     @else
-                        <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
+                        <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6" id="products-container">
                     @endif
                         @foreach($products as $product)
                             <x-product-card :product="$product" />
                         @endforeach
                     </div>
 
-                    <!-- Pagination -->
-                    <div class="mt-8">
-                        {{ $products->links() }}
-                    </div>
+                    <!-- Show More Button -->
+                    @if($products->hasMorePages())
+                        <div class="mt-8 text-center">
+                            <button id="load-more-btn" 
+                                    class="bg-white text-red-600 px-8 py-3 rounded-lg font-semibold border-2 border-red-600 hover:bg-red-50 transition-colors"
+                                    data-next-page="2"
+                                    data-loading="false">
+                                <i class="fas fa-chevron-down mr-2"></i>
+                                Show More Products
+                            </button>
+                            <p class="text-sm text-gray-500 mt-3">
+                                Showing <span id="product-count">{{ $products->count() }}</span> of {{ $totalProducts }} products
+                            </p>
+                        </div>
+                    @endif
                 @else
 
                 @if(session('success'))
@@ -315,10 +326,25 @@
 @push('scripts')
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('=== Products Page Loaded ===');
+    
+    // Mobile Filter Toggle
+    const mobileFilterToggle = document.getElementById('mobile-filter-toggle');
+    const mobileFilters = document.getElementById('mobile-filters');
+    const filterToggleIcon = document.getElementById('filter-toggle-icon');
+    
+    if (mobileFilterToggle && mobileFilters) {
+        mobileFilterToggle.addEventListener('click', function() {
+            mobileFilters.classList.toggle('hidden');
+            if (filterToggleIcon) {
+                filterToggleIcon.style.transform = mobileFilters.classList.contains('hidden') ? 'rotate(0)' : 'rotate(180deg)';
+            }
+        });
+    }
+
     // Price range slider
     const priceRange = document.getElementById('price-range');
     const priceValue = document.getElementById('price-value');
-    const priceForm = document.getElementById('price-form');
     
     if (priceRange && priceValue) {
         priceRange.addEventListener('input', function() {
@@ -332,6 +358,161 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = url.toString();
         });
     }
+
+    // Show More Products Handler
+    console.log('Initializing load more handler');
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    const productsContainer = document.getElementById('products-container');
+    
+    console.log('Load more button found:', !!loadMoreBtn);
+    console.log('Products container found:', !!productsContainer);
+    
+    if (!loadMoreBtn || !productsContainer) {
+        console.log('Load more button or products container not found - skipping handler');
+        return;
+    }
+    
+    console.log('Load more handler successfully attached');
+    
+    loadMoreBtn.addEventListener('click', function(e) {
+        console.log('=== LOAD MORE BUTTON CLICKED ===');
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Prevent multiple clicks
+        if (loadMoreBtn.dataset.loading === 'true') {
+            console.log('Already loading, preventing duplicate request');
+            return;
+        }
+        
+        loadMoreBtn.dataset.loading = 'true';
+        const originalText = loadMoreBtn.innerHTML;
+        const nextPage = parseInt(loadMoreBtn.dataset.nextPage);
+        
+        console.log('Next page to load:', nextPage);
+        console.log('Original button text:', originalText);
+        
+        loadMoreBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Loading...';
+        loadMoreBtn.disabled = true;
+        
+        // Build URL with all current filters
+        const url = new URL(window.location.href);
+        url.searchParams.set('page', nextPage);
+        
+        console.log('Fetching from URL:', url.toString());
+        console.log('Request headers:', {
+            'X-Requested-With': 'XMLHttpRequest',
+            'Accept': 'application/json'
+        });
+        
+        fetch(url.toString(), {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'Accept': 'application/json'
+            },
+            credentials: 'same-origin'
+        })
+        .then(response => {
+            console.log('Response received!');
+            console.log('Status:', response.status);
+            console.log('Headers:', {
+                'content-type': response.headers.get('content-type')
+            });
+            
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            
+            return response.json();
+        })
+        .then(data => {
+            console.log('=== JSON DATA RECEIVED ===');
+            console.log('Full data object:', data);
+            console.log('Data keys:', Object.keys(data));
+            console.log('Has html:', !!data.html);
+            console.log('Has hasMore:', !!data.hasMore);
+            console.log('Has nextPage:', !!data.nextPage);
+            if (data.html) {
+                console.log('HTML length:', data.html.length);
+                console.log('First 200 chars of HTML:', data.html.substring(0, 200));
+            }
+            
+            if (!data.html) {
+                throw new Error('No HTML content in response');
+            }
+            
+            // Parse the HTML response
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data.html, 'text/html');
+            const productCards = doc.querySelectorAll('article');
+            
+            console.log(`Found ${productCards.length} product cards to append`);
+            
+            if (productCards.length === 0) {
+                console.warn('WARNING: No product cards found in HTML');
+                console.warn('HTML content:', data.html);
+            }
+            
+            // Append each product card
+            let appendedCount = 0;
+            productCards.forEach((card, index) => {
+                const clone = card.cloneNode(true);
+                productsContainer.appendChild(clone);
+                appendedCount++;
+            });
+            
+            console.log(`Successfully appended ${appendedCount} cards`);
+            
+            // Update product count display
+            const currentCount = productsContainer.children.length;
+            const productCountEl = document.getElementById('product-count');
+            if (productCountEl) {
+                productCountEl.textContent = currentCount;
+                console.log('Updated product count display to:', currentCount);
+            }
+            
+            // Check if there are more pages
+            if (data.hasMore) {
+                console.log('More pages available, next page:', data.nextPage);
+                loadMoreBtn.dataset.nextPage = data.nextPage;
+                loadMoreBtn.innerHTML = originalText;
+                loadMoreBtn.disabled = false;
+                loadMoreBtn.dataset.loading = 'false';
+            } else {
+                console.log('No more pages - hiding button');
+                // No more products, replace button with message
+                const buttonContainer = loadMoreBtn.parentElement;
+                buttonContainer.innerHTML = `
+                    <p class="text-sm text-gray-500 mt-3">
+                        Showing all ${currentCount} products
+                    </p>
+                `;
+            }
+        })
+        .catch(error => {
+            console.error('=== ERROR ===');
+            console.error('Error message:', error.message);
+            console.error('Error stack:', error.stack);
+            
+            loadMoreBtn.innerHTML = originalText;
+            loadMoreBtn.disabled = false;
+            loadMoreBtn.dataset.loading = 'false';
+            
+            // Show error message
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg';
+            errorDiv.innerHTML = `<strong>Error:</strong> ${error.message}`;
+            loadMoreBtn.parentElement.insertBefore(errorDiv, loadMoreBtn);
+            
+            // Remove error after 5 seconds
+            setTimeout(() => {
+                errorDiv.remove();
+            }, 5000);
+        });
+    });
 });
 </script>
-@endpush 
+@endpush
+
+ 

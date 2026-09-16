@@ -8,11 +8,14 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\SubscribeController;
+use App\Http\Controllers\BlogPostController;
+use App\Http\Controllers\HomeAppliancesController;
 use App\Models\Product;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/products', [ProductsController::class, 'index'])->name('products.index');
 Route::get('/products/{slug}', [ProductsController::class, 'show'])->name('products.show');
+Route::get('/home-appliances', [HomeAppliancesController::class, 'index'])->name('home-appliances.index');
 
 // Cart routes
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
@@ -27,6 +30,10 @@ Route::get('/wishlist', [App\Http\Controllers\WishlistController::class, 'index'
 
 // Static Pages
 Route::get('/contact', [PageController::class, 'contact'])->name('pages.contact');
+Route::get('/subscribe', [PageController::class, 'subscribe'])->name('pages.subscribe');
+Route::get('/vendors', [PageController::class, 'vendors'])->name('pages.vendors');
+Route::post('/vendors', [App\Http\Controllers\VendorController::class, 'store'])->name('vendors.store');
+Route::get('/brand-shops', [PageController::class, 'brandShops'])->name('pages.brand-shops');
 Route::get('/about', [PageController::class, 'about'])->name('pages.about');
 Route::get('/k-elec', [PageController::class, 'k_elec'])->name('pages.k-elec');
 
@@ -38,6 +45,7 @@ Route::get('/showrooms', [PageController::class, 'showrooms'])->name('showrooms.
 
 // Contact Messages
 Route::post('/contact-messages', [App\Http\Controllers\ContactMessageController::class, 'store'])->name('contact-messages.store');
+Route::post('/subscriptions', [App\Http\Controllers\SubscriptionController::class, 'store'])->name('subscriptions.store');
 Route::post('/subscribe', [SubscribeController::class, 'store'])->name('subscribe');
 
 // Sitemap routes
@@ -49,6 +57,10 @@ Route::get('/api/products/{product}/specifications', function (Product $product)
         'specifications' => $product->specifications,
     ]);
 })->name('product.specifications');
+
+// Blog routes
+Route::get('/blog', [BlogPostController::class, 'index'])->name('blog.index');
+Route::get('/blog/{slug}', [BlogPostController::class, 'show'])->name('blog.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

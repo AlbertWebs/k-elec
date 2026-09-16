@@ -3,24 +3,40 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Subscriber; // we'll create this model
+use App\Models\Subscriber;
 
 class SubscribeController extends Controller
 {
     public function store(Request $request)
     {
-        // dd('you hit the subscribe route');
-        // Validate email input
-        $request->validate([
-            'email' => 'required|email|unique:subscribers,email',
-        ]);
+        try {
+            // Validate input
+            $validated = $request->validate([
+                'email' => 'required|email|unique:subscribers,email',
+                'phone' => 'nullable|string|max:20',
+            ]);
 
-        // Save subscriber
-        Subscriber::create([
-            'email' => $request->email,
-        ]);
+            // Save subscriber
+            Subscriber::create($validated);
 
-        // Redirect back with success message
-        return back()->with('success', 'Thank you for subscribing! We will notify you once this product is live.');
+            // Return success response
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Thank you for subscribing! We will notify you when new products arrive.'
+                ], 200);
+            }
+
+            return back()->with('success', 'Thank you for subscribing!');
+
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Validation failed: ' . implode(', ', array_map(fn($msgs) => implode(', ', $msgs), $e->errors()))
+                ], 422);
+            }
+            throw $e;
+        }
     }
 }

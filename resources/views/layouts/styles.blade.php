@@ -2,8 +2,7 @@
 	position: relative;
 	overflow: hidden;
 	width: 100%;
-	height: 600px;
-	/* adjust for your design */
+	height: 720px !important;
 }
 
 .carousel-slide {
@@ -40,10 +39,22 @@
 	background-position: center;
 }
 
+.swiper {
+	height: 100% !important;
+	width: 100% !important;
+}
+
+.swiper-slide {
+	height: 720px !important;
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+}
 
 @media (max-width: 1024px) {
-	.carousel-container {
-		height: 400px;
+	.carousel-container,
+	.swiper-slide {
+		height: 640px !important;
 	}
 
 	.carousel-slide h2 {
@@ -52,6 +63,20 @@
 
 	.carousel-slide p {
 		font-size: 1rem !important;
+	}
+}
+
+@media (max-width: 768px) {
+	.carousel-container,
+	.swiper-slide {
+		height: 600px !important;
+	}
+}
+
+@media (max-width: 640px) {
+	.carousel-container,
+	.swiper-slide {
+		height: 500px !important;
 	}
 }
 
@@ -109,7 +134,13 @@
 }
 
 .cat-wrapper {
-	min-height: 420px
+	min-height: 420px;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cat-wrapper:hover {
+	transform: translateY(-8px);
+	box-shadow: 0 12px 24px rgba(220, 38, 38, 0.45);
 }
 
 .showroom-img {

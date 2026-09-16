@@ -49,54 +49,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     @include('layouts.styles')
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('build/assets/app-vxrG4Adk.css') }}">
-    <script type="module" src="{{ asset('build/assets/app-C1vo8EPt.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('build/assets/app-ZM0IQ5Wp.css') }}">
+    <script type="module" src="{{ asset('build/assets/app-d5g6ciXd.js') }}"></script>
     
     <!-- Structured Data -->
     @yield('structured_data')
 </head>
 <body class="bg-gray-50">
     @include('components.header-products')
-    {{--  --}}
-    <!-- Navigation Menu -->
-    <nav class="bg-transparent hidden md:block mx-auto">
-        <div class="px-4 sm:px-6 lg:px-8">
-            <div class="flex bg-gray-100 items-center w-[70%] mx-auto" style="max-width:1470px;">
-                
-                <!-- All Categories -->
-                <a target="_blank" style="min-width:300px; text-align:center" href="{{ route('products.index') }}" 
-                    class="bg-black text-white px-6 py-3 flex items-center space-x-9 font-semibold hover:bg-gray-800 ">
-                    <span class="mx-auto">All Categories</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" 
-                        class="h-4 w-4 text-white" fill="none" 
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                            d="M9 5l7 7-7 7" />
-                    </svg>
-                </a>
-
-                <?php $categories = \App\Models\Category::active()->ordered()->get(); ?>
-                @foreach($categories->take(6) as $category)
-                <!-- Other Links -->
-                <a  target="_blank" href="{{ route('products.index', ['category' => $category->slug]) }}" 
-                    class="font-semibold px-4 py-3 hover:text-gray-700 text-black !text-black" style="color:#000000">
-                    {{ $category->name }}
-                </a>
-                @endforeach
-
-               
-            </div>
-        </div>
-
-    </nav>
-    {{--  --}}
-    <main>
+    
+    <main class="w-full">
         @yield('content')
     </main>
     
     @include('components.footer')
+    @include('components.floating-whatsapp')
 
-    <script>
+    <!-- <script>
         document.addEventListener("DOMContentLoaded", function () {
             document.querySelectorAll('a[href]').forEach(function (link) {
             if (!link.target || link.target.toLowerCase() !== "_blank") {
@@ -105,7 +74,8 @@
             }
             });
         });
-    </script>
+    </script> -->
 
+    @stack('scripts')
 </body>
 </html>

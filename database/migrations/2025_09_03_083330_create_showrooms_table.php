@@ -11,16 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('showrooms', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('image')->nullable();
-            $table->string('location');
-            $table->boolean('is_active')->default(1);
-            $table->boolean('featured')->default(0);
-            $table->string('location_url')->nullable();
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('showrooms')) {
+            Schema::create('showrooms', function (Blueprint $table) {
+                $table->id();
+                $table->string('name');
+                $table->string('image')->nullable();
+                $table->string('location');
+                $table->boolean('is_active')->default(1);
+                $table->boolean('featured')->default(0);
+                $table->string('location_url')->nullable();
+                $table->timestamps();
+            });
+        }
     }
 
     /**

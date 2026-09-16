@@ -1,11 +1,12 @@
-<section class="bg-white py-0 lg:py-12">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-4 gap-3 items-stretch">
+<section class="bg-white py-0 lg:py-0 w-full">
+  <!-- Remove the container div wrapper to make it full-width -->
+  <div class="w-full px-0 sm:px-0 lg:px-0">
+    <div class="grid grid-cols-1 lg:grid-cols-1 gap-3 items-stretch w-full">
       
       <!-- Left Column -->
-      <div class="hidden lg:flex lg:col-span-1 flex-col h-full">
+      <!-- <div class="hidden lg:flex lg:col-span-1 flex-col h-full"> -->
         <!-- Top Image -->
-        @if($bannerPosition1)
+        <!-- @if($bannerPosition1)
         <div class="mb-4 flex-1">
           @if($bannerPosition1->url)
             <a href="{{$bannerPosition1->url}}">
@@ -16,9 +17,9 @@
             </a>
           @endif
         </div>
-        @endif
+        @endif -->
         <!-- Bottom Image -->
-        @if($bannerPosition2)
+        <!-- @if($bannerPosition2)
         <div class="mt-0 flex-1">
           @if($bannerPosition2->url)
             <a href="{{$bannerPosition2->url}}">
@@ -30,18 +31,17 @@
           @endif
         </div>
         @endif
-      </div>
+      </div> -->
 
       <!-- Right Column -->
-      <div class="lg:col-span-3 relative bg-blacks rounded hidden lg:block h-full flex">
+      <div class="lg:col-span-3 relative bg-blacks rounded hidden lg:block h-full flex w-full">
         @if ($carouselSlides->count() > 0)
-      
-          <div class="carousel-container relative overflow-hidden rounded-none lg:rounded-lg -mx-4 lg:mx-0 flex-1 swiper mySwiper">
+          <div class="carousel-container relative overflow-hidden rounded-none w-full -mx-0 lg:-mx-0 flex-1 swiper mySwiper" style="height: 720px;">
             
             <div class="swiper-wrapper">
               @foreach ($carouselSlides as $index => $slide)
-                <div class="swiper-slide">
-                  <a href="{{ $slide->button_link }}" class="block w-full h-full">
+                <div class="swiper-slide" style="height: 720px;">
+                  <a href="{{ $slide->button_link }}" class="block w-full h-full" target="_self">
                     <div class="bg-gradient-to-r {{ $slide->background_classes }} 
                                 p-4 lg:p-8 bg-cover bg-center bg-no-repeat flex items-center justify-center h-full"
                       style="background-image: url('{{ url('/') }}/storage/{{ $slide->image }}'); background-size: cover; background-position: center;">
@@ -81,60 +81,14 @@
 
 
 
-  <script>
+<script>
 document.addEventListener('DOMContentLoaded', function () {
-    const slides = document.querySelectorAll('.carousel-slide');
-    const nextBtn = document.querySelector('.carousel-next');
-    const prevBtn = document.querySelector('.carousel-prev');
-    const dots = document.querySelectorAll('.carousel-dot');
-    let current = 0;
-    let autoPlayInterval;
-
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.classList.remove('active', 'prev');
-            if(i < index) slide.classList.add('prev');
-        });
-        slides[index].classList.add('active');
-        updateDots(index);
-        current = index;
-    }
-
-    function nextSlide() {
-        let nextIndex = (current + 1) % slides.length;
-        showSlide(nextIndex);
-    }
-
-    function prevSlide() {
-        let prevIndex = (current - 1 + slides.length) % slides.length;
-        showSlide(prevIndex);
-    }
-
-    function updateDots(index) {
-        dots.forEach((dot, i) => {
-            dot.classList.remove('bg-opacity-80');
-            dot.classList.add('bg-opacity-50');
-            if(i === index) {
-                dot.classList.remove('bg-opacity-50');
-                dot.classList.add('bg-opacity-80');
-            }
-        });
-    }
-
-    // Event Listeners
-    nextBtn?.addEventListener('click', nextSlide);
-    prevBtn?.addEventListener('click', prevSlide);
-    dots.forEach(dot => {
-        dot.addEventListener('click', () => showSlide(parseInt(dot.dataset.slide)));
+    // Ensure all carousel links open in the same tab - remove any target attributes
+    const allCarouselLinks = document.querySelectorAll('.carousel-container a[href], .swiper a[href]');
+    allCarouselLinks.forEach(link => {
+        link.removeAttribute('target');
+        link.rel = '';
     });
-
-    // Auto-play every 5 seconds
-    autoPlayInterval = setInterval(nextSlide, 5000);
-
-    // Pause on hover
-    const carouselContainer = document.querySelector('.carousel-container');
-    carouselContainer.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
-    carouselContainer.addEventListener('mouseleave', () => autoPlayInterval = setInterval(nextSlide, 5000));
 });
 </script>
 

@@ -22,15 +22,32 @@ Homestead.yaml
 # OS
 .DS_Store
 Thumbs.db
+*.swp
+*.swo
+*~
+
+# Python
+myenv/
+.venv/
+venv/
 
 # Composer
 composer.lock
 
 # NPM
 package-lock.json
+npm-debug.log
+yarn-error.log
 
 # Logs
 /storage/logs/*.log
+error_log
+
+# Local Configuration
+php.ini
+
+# Build artifacts
+*.out
 
 # Other
 *.log

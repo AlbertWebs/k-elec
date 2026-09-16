@@ -6,16 +6,16 @@
 <div class="space-y-6">
     <div>
         <h1 class="text-2xl font-bold text-gray-900">Homepage Video</h1>
-        <p class="text-gray-600">Edit the video shown above the hero on the home page, or hide the section entirely.</p>
+        <p class="text-gray-600">Edit the ABOUT K-ELEC video on the home page, or hide that whole section.</p>
     </div>
 
     <!-- Visibility toggle -->
     <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
-                <h2 class="text-lg font-semibold text-gray-900">Show video section</h2>
+                <h2 class="text-lg font-semibold text-gray-900">Show ABOUT K-ELEC section</h2>
                 <p class="text-sm text-gray-600 mt-1">
-                    When hidden, visitors will not see this section on the homepage at all.
+                    When hidden, visitors will not see the ABOUT K-ELEC video section on the homepage at all.
                 </p>
             </div>
 
@@ -37,7 +37,7 @@
                 {{ $homepageVideo->is_active ? 'Visible on homepage' : 'Hidden from homepage' }}
             </span>
             @if($homepageVideo->is_active && !$homepageVideo->hasMedia())
-                <span class="ml-2 text-sm text-amber-600">Add a video below to display the section.</span>
+                <span class="ml-2 text-sm text-amber-600">The current default About video will be used until you add a new one.</span>
             @endif
         </div>
     </div>
@@ -100,12 +100,12 @@
             </div>
 
             <div>
-                <label for="video_url" class="block text-sm font-medium text-gray-700 mb-1">YouTube or Vimeo URL</label>
+                <label for="video_url" class="block text-sm font-medium text-gray-700 mb-1">Video URL</label>
                 <input type="text" id="video_url" name="video_url"
                        value="{{ old('video_url', $homepageVideo->video_url) }}"
-                       placeholder="https://www.youtube.com/watch?v=..."
+                       placeholder="Google Drive, YouTube, or Vimeo URL"
                        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                <p class="text-xs text-gray-500 mt-1">Used when no video file is uploaded. Direct MP4 links are also supported.</p>
+                <p class="text-xs text-gray-500 mt-1">Google Drive, YouTube, Vimeo, or a direct MP4 link. Used when no video file is uploaded.</p>
                 @error('video_url')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                 @enderror

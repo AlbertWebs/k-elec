@@ -66,12 +66,9 @@
    
     
     
-    <!-- Homepage Video (above hero) -->
-    @include('components.homepage-video')
-
     <!-- Hero Section -->
     @include('components.hero')
-    <!-- About Us Section -->
+    <!-- About Us / Homepage Video Section -->
     @include('components.about-us')
     <!-- Key Features Section -->
     @include('components.key-features')

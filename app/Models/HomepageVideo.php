@@ -22,10 +22,14 @@ class HomepageVideo extends Model
         'is_active' => 'boolean',
     ];
 
+    public const DEFAULT_VIDEO_URL = 'https://drive.google.com/file/d/1goNHL_j4Rt-IMOn59-_CQLVSPMOUk9hZ/preview';
+
     public static function current(): self
     {
         return static::query()->firstOrCreate([], [
             'is_active' => true,
+            'title' => 'ABOUT K-ELEC',
+            'video_url' => self::DEFAULT_VIDEO_URL,
         ]);
     }
 
@@ -94,6 +98,14 @@ class HomepageVideo extends Model
             return 'https://player.vimeo.com/video/' . $matches[1];
         }
 
-        return null;
+        if (preg_match('/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/', $url, $matches)) {
+            return 'https://drive.google.com/file/d/' . $matches[1] . '/preview';
+        }
+
+        if (preg_match('/drive\.google\.com\/open\?id=([a-zA-Z0-9_-]+)/', $url, $matches)) {
+            return 'https://drive.google.com/file/d/' . $matches[1] . '/preview';
+        }
+
+        return $url;
     }
 }

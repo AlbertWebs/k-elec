@@ -203,13 +203,11 @@
                         <span class="ml-3">Users</span>
                     </a>
                     
-                    @if (Route::has('admin.homepage-video.edit'))
-                    <a href="{{ route('admin.homepage-video.edit') }}"
-                       class="flex items-center px-4 py-3 text-white rounded-lg hover:bg-white/10 transition-colors {{ request()->routeIs('admin.homepage-video.*') ? 'bg-white/20' : '' }}">
+                    <a href="{{ url('/admin/homepage-video') }}"
+                       class="flex items-center px-4 py-3 text-white rounded-lg hover:bg-white/10 transition-colors {{ request()->is('admin/homepage-video') ? 'bg-white/20' : '' }}">
                         <i class="fas fa-video w-5"></i>
                         <span class="ml-3">Homepage Video</span>
                     </a>
-                    @endif
 
                     <a href="{{ route('admin.settings') }}" 
                        class="flex items-center px-4 py-3 text-white rounded-lg hover:bg-white/10 transition-colors {{ request()->routeIs('admin.settings') ? 'bg-white/20' : '' }}">

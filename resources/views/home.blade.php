@@ -66,6 +66,9 @@
    
     
     
+    <!-- Homepage Video (above hero) -->
+    @include('components.homepage-video')
+
     <!-- Hero Section -->
     @include('components.hero')
 

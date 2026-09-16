@@ -572,6 +572,7 @@ class ComposerStaticInitd6c73ea5dadcd971050eeb806511e47d
     );
 
     public static $classMap = array (
+        'App\\Exports\\ProductsExport' => __DIR__ . '/../..' . '/app/Exports/ProductsExport.php',
         'App\\Helpers\\SocialMediaHelper' => __DIR__ . '/../..' . '/app/Helpers/SocialMediaHelper.php',
         'App\\Http\\Controllers\\Admin\\BannerController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/BannerController.php',
         'App\\Http\\Controllers\\Admin\\CarouselSlideController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CarouselSlideController.php',
@@ -580,6 +581,7 @@ class ComposerStaticInitd6c73ea5dadcd971050eeb806511e47d
         'App\\Http\\Controllers\\Admin\\ContactMessageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ContactMessageController.php',
         'App\\Http\\Controllers\\Admin\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DashboardController.php',
         'App\\Http\\Controllers\\Admin\\FaqController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/FaqController.php',
+        'App\\Http\\Controllers\\Admin\\HomepageVideoController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/HomepageVideoController.php',
         'App\\Http\\Controllers\\Admin\\OrderController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/OrderController.php',
         'App\\Http\\Controllers\\Admin\\ProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ProductController.php',
         'App\\Http\\Controllers\\Admin\\SettingController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/SettingController.php',
@@ -616,6 +618,7 @@ class ComposerStaticInitd6c73ea5dadcd971050eeb806511e47d
         'App\\Models\\ContactDetail' => __DIR__ . '/../..' . '/app/Models/ContactDetail.php',
         'App\\Models\\ContactMessage' => __DIR__ . '/../..' . '/app/Models/ContactMessage.php',
         'App\\Models\\Faq' => __DIR__ . '/../..' . '/app/Models/Faq.php',
+        'App\\Models\\HomepageVideo' => __DIR__ . '/../..' . '/app/Models/HomepageVideo.php',
         'App\\Models\\Order' => __DIR__ . '/../..' . '/app/Models/Order.php',
         'App\\Models\\OrderItem' => __DIR__ . '/../..' . '/app/Models/OrderItem.php',
         'App\\Models\\Product' => __DIR__ . '/../..' . '/app/Models/Product.php',
@@ -7689,6 +7692,7 @@ class ComposerStaticInitd6c73ea5dadcd971050eeb806511e47d
         'Tests\\Feature\\Auth\\PasswordUpdateTest' => __DIR__ . '/../..' . '/tests/Feature/Auth/PasswordUpdateTest.php',
         'Tests\\Feature\\Auth\\RegistrationTest' => __DIR__ . '/../..' . '/tests/Feature/Auth/RegistrationTest.php',
         'Tests\\Feature\\ExampleTest' => __DIR__ . '/../..' . '/tests/Feature/ExampleTest.php',
+        'Tests\\Feature\\HomepageVideoTest' => __DIR__ . '/../..' . '/tests/Feature/HomepageVideoTest.php',
         'Tests\\Feature\\ProfileTest' => __DIR__ . '/../..' . '/tests/Feature/ProfileTest.php',
         'Tests\\TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Tests\\Unit\\ExampleTest' => __DIR__ . '/../..' . '/tests/Unit/ExampleTest.php',

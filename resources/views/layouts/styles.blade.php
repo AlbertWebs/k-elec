@@ -206,5 +206,30 @@
   }
 }
 
+.homepage-video-frame {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #000;
+  aspect-ratio: 16 / 9;
+}
+
+.homepage-video-player {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  object-fit: cover;
+}
+
+@media (max-width: 767px) {
+  .homepage-video-section {
+    padding-top: 1rem;
+  }
+}
+
 
 </style>

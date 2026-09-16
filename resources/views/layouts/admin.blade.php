@@ -37,17 +37,17 @@
 <body class="bg-gray-100">
     <div x-data="{ sidebarOpen: true }" class="flex h-screen">
         <!-- Sidebar -->
-        <div class="fixed inset-y-0 left-0 z-50 w-64 bg-black transform transition-transform duration-300 ease-in-out lg:translate-x-0"
+        <div class="fixed inset-y-0 left-0 z-50 w-64 bg-black transform transition-transform duration-300 ease-in-out lg:translate-x-0 flex flex-col"
              :class="{'translate-x-0': sidebarOpen, '-translate-x-full': !sidebarOpen}"
              x-show="true">
-            <div class="flex items-center justify-between h-16 px-6 bg-gray-900">
+            <div class="flex items-center justify-between h-16 px-6 bg-gray-900 flex-shrink-0">
                 <h1 class="text-white font-bold text-lg">Admin Panel</h1>
                 <button @click="sidebarOpen = false" class="text-white lg:hidden">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
             
-            <nav class="mt-6">
+            <nav class="mt-6 pb-6 overflow-y-auto flex-1">
                 <div class="px-4 space-y-2">
                     <!-- Dashboard -->
                     <a href="{{ route('admin.dashboard') }}" 
@@ -126,6 +126,12 @@
                         <span class="ml-3">Users</span>
                     </a>
                     
+                    <a href="{{ route('admin.homepage-video.edit') }}"
+                       class="flex items-center px-4 py-3 text-white rounded-lg hover:bg-white/10 transition-colors {{ request()->routeIs('admin.homepage-video.*') ? 'bg-white/20' : '' }}">
+                        <i class="fas fa-video w-5"></i>
+                        <span class="ml-3">Homepage Video</span>
+                    </a>
+
                     <a href="{{ route('admin.settings') }}" 
                        class="flex items-center px-4 py-3 text-white rounded-lg hover:bg-white/10 transition-colors {{ request()->routeIs('admin.settings') ? 'bg-white/20' : '' }}">
                         <i class="fas fa-cog w-5"></i>
@@ -263,6 +269,13 @@
                                 <div class="flex items-center">
                                     <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
                                     <span class="text-sm font-medium text-gray-500">Settings</span>
+                                </div>
+                            </li>
+                        @elseif(request()->routeIs('admin.homepage-video.*'))
+                            <li>
+                                <div class="flex items-center">
+                                    <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
+                                    <span class="text-sm font-medium text-gray-500">Homepage Video</span>
                                 </div>
                             </li>
                         @endif

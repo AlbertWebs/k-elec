@@ -8,6 +8,7 @@ use App\Models\CarouselSlide;
 use Illuminate\Http\Request;
 use App\Models\Banner;
 use App\Models\Showroom;
+use App\Models\HomepageVideo;
 
 class HomeController extends Controller
 {
@@ -30,6 +31,8 @@ class HomeController extends Controller
         //get banner position 1
         $bannerPosition1 = Banner::where('position', 1)->first();
         $bannerPosition2 = Banner::where('position', 2)->first();
+
+        $homepageVideo = HomepageVideo::query()->first();
 
         $featuredProducts = Product::with('category')
             ->active()
@@ -61,7 +64,8 @@ class HomeController extends Controller
             'recentProducts',
             'bannerPosition1',
             'bannerPosition2',
-            'showrooms'
+            'showrooms',
+            'homepageVideo'
         ));
     }
 }

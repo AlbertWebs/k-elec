@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\CarouselSlideController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\ShowroomController;
+use App\Http\Controllers\Admin\HomepageVideoController;
 
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
@@ -58,6 +59,11 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('banners', BannerController::class);
     Route::patch('banners/{banner}/toggle-status', [BannerController::class, 'toggleStatus'])->name('banners.toggle-status');
     Route::post('banners/reorder', [BannerController::class, 'updateOrder'])->name('banners.reorder');
+
+    // Homepage Video
+    Route::get('homepage-video', [HomepageVideoController::class, 'edit'])->name('homepage-video.edit');
+    Route::put('homepage-video', [HomepageVideoController::class, 'update'])->name('homepage-video.update');
+    Route::patch('homepage-video/toggle', [HomepageVideoController::class, 'toggle'])->name('homepage-video.toggle');
 
      // Showrooms
     Route::resource('showrooms', ShowroomController::class);

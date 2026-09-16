@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Exports\\ProductsExport' => $baseDir . '/app/Exports/ProductsExport.php',
     'App\\Helpers\\SocialMediaHelper' => $baseDir . '/app/Helpers/SocialMediaHelper.php',
     'App\\Http\\Controllers\\Admin\\BannerController' => $baseDir . '/app/Http/Controllers/Admin/BannerController.php',
     'App\\Http\\Controllers\\Admin\\CarouselSlideController' => $baseDir . '/app/Http/Controllers/Admin/CarouselSlideController.php',
@@ -14,6 +15,7 @@ return array(
     'App\\Http\\Controllers\\Admin\\ContactMessageController' => $baseDir . '/app/Http/Controllers/Admin/ContactMessageController.php',
     'App\\Http\\Controllers\\Admin\\DashboardController' => $baseDir . '/app/Http/Controllers/Admin/DashboardController.php',
     'App\\Http\\Controllers\\Admin\\FaqController' => $baseDir . '/app/Http/Controllers/Admin/FaqController.php',
+    'App\\Http\\Controllers\\Admin\\HomepageVideoController' => $baseDir . '/app/Http/Controllers/Admin/HomepageVideoController.php',
     'App\\Http\\Controllers\\Admin\\OrderController' => $baseDir . '/app/Http/Controllers/Admin/OrderController.php',
     'App\\Http\\Controllers\\Admin\\ProductController' => $baseDir . '/app/Http/Controllers/Admin/ProductController.php',
     'App\\Http\\Controllers\\Admin\\SettingController' => $baseDir . '/app/Http/Controllers/Admin/SettingController.php',
@@ -50,6 +52,7 @@ return array(
     'App\\Models\\ContactDetail' => $baseDir . '/app/Models/ContactDetail.php',
     'App\\Models\\ContactMessage' => $baseDir . '/app/Models/ContactMessage.php',
     'App\\Models\\Faq' => $baseDir . '/app/Models/Faq.php',
+    'App\\Models\\HomepageVideo' => $baseDir . '/app/Models/HomepageVideo.php',
     'App\\Models\\Order' => $baseDir . '/app/Models/Order.php',
     'App\\Models\\OrderItem' => $baseDir . '/app/Models/OrderItem.php',
     'App\\Models\\Product' => $baseDir . '/app/Models/Product.php',
@@ -7123,6 +7126,7 @@ return array(
     'Tests\\Feature\\Auth\\PasswordUpdateTest' => $baseDir . '/tests/Feature/Auth/PasswordUpdateTest.php',
     'Tests\\Feature\\Auth\\RegistrationTest' => $baseDir . '/tests/Feature/Auth/RegistrationTest.php',
     'Tests\\Feature\\ExampleTest' => $baseDir . '/tests/Feature/ExampleTest.php',
+    'Tests\\Feature\\HomepageVideoTest' => $baseDir . '/tests/Feature/HomepageVideoTest.php',
     'Tests\\Feature\\ProfileTest' => $baseDir . '/tests/Feature/ProfileTest.php',
     'Tests\\TestCase' => $baseDir . '/tests/TestCase.php',
     'Tests\\Unit\\ExampleTest' => $baseDir . '/tests/Unit/ExampleTest.php',

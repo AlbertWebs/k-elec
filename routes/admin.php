@@ -62,9 +62,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::post('subscriptions/mark-all-read', [SubscriptionController::class, 'markAllRead'])->name('subscriptions.mark-all-read');
     
     // Vendors
+    Route::get('vendors/filter/approved', [VendorController::class, 'approved'])->name('vendors.approved');
     Route::resource('vendors', VendorController::class)->only(['index', 'show', 'destroy']);
     Route::patch('vendors/{vendor}/status', [VendorController::class, 'update'])->name('vendors.update-status');
-    Route::get('vendors/filter/approved', [VendorController::class, 'approved'])->name('vendors.approved');
     
     // Brand Shops
     Route::resource('brand-shops', BrandShopController::class);

@@ -93,11 +93,13 @@
                 <span class="ml-3">Messages</span>
             </a>
 
+                    @if (Route::has('admin.subscriptions.index'))
                     <a href="{{ route('admin.subscriptions.index') }}"
                class="flex items-center px-4 py-3 text-white rounded-lg hover:bg-white/10 transition-colors {{ request()->routeIs('admin.subscriptions.*') ? 'bg-white/20' : '' }}">
                 <i class="fas fa-bell w-5"></i>
                 <span class="ml-3">Subscriptions</span>
             </a>
+                    @endif
 
             <a href="{{ route('admin.carousel-slides.index') }}"
                class="flex items-center px-4 py-3 text-white rounded-lg hover:bg-white/10 transition-colors {{ request()->routeIs('admin.carousel-slides.*') ? 'bg-white/20' : '' }}">
@@ -119,13 +121,16 @@
             </a>
 
             {{-- Brand Shops --}}
+            @if (Route::has('admin.brand-shops.index'))
             <a href="{{ route('admin.brand-shops.index') }}"
                class="flex items-center px-4 py-3 text-white rounded-lg hover:bg-white/10 transition-colors {{ request()->routeIs('admin.brand-shops.*') ? 'bg-white/20' : '' }}">
                 <i class="fas fa-store w-5"></i>
                 <span class="ml-3">Brand Shops</span>
             </a>
+            @endif
 
             {{-- Vendors Menu --}}
+            @if (Route::has('admin.vendors.index'))
             <div x-data="{ vendorsOpen: {{ request()->routeIs('admin.vendors.*') ? 'true' : 'false' }} }">
                 <button @click="vendorsOpen = !vendorsOpen"
                    class="w-full flex items-center px-4 py-3 text-white rounded-lg hover:bg-white/10 transition-colors {{ request()->routeIs('admin.vendors.*') ? 'bg-white/20' : '' }}">
@@ -143,15 +148,19 @@
                     </a>
 
                     {{-- Approved Vendors --}}
+                    @if (Route::has('admin.vendors.approved'))
                     <a href="{{ route('admin.vendors.approved') }}"
                        class="flex items-center px-4 py-3 text-white rounded-lg hover:bg-white/10 transition-colors {{ request()->routeIs('admin.vendors.approved') ? 'bg-white/20' : '' }}">
                         <i class="fas fa-check-circle w-5"></i>
                         <span class="ml-3">Approved</span>
                     </a>
+                    @endif
                 </div>
             </div>
+            @endif
 
             {{-- Blog Menu --}}
+            @if (Route::has('admin.blog-posts.index'))
             <div x-data="{ blogOpen: {{ request()->routeIs('admin.blog-posts.*', 'admin.blog-settings.*') ? 'true' : 'false' }} }">
                 <button @click="blogOpen = !blogOpen"
                    class="w-full flex items-center px-4 py-3 text-white rounded-lg hover:bg-white/10 transition-colors {{ request()->routeIs('admin.blog-posts.*', 'admin.blog-settings.*') ? 'bg-white/20' : '' }}">
@@ -169,13 +178,16 @@
                     </a>
 
                     {{-- Blog Settings --}}
+                    @if (Route::has('admin.blog-settings.edit'))
                     <a href="{{ route('admin.blog-settings.edit') }}"
                        class="flex items-center px-4 py-3 text-white rounded-lg hover:bg-white/10 transition-colors {{ request()->routeIs('admin.blog-settings.*') ? 'bg-white/20' : '' }}">
                         <i class="fas fa-sliders-h w-5"></i>
                         <span class="ml-3">Settings</span>
                     </a>
+                    @endif
                 </div>
             </div>
+            @endif
 
                     
                     <div class="border-t border-white/20 my-4"></div>
@@ -191,11 +203,13 @@
                         <span class="ml-3">Users</span>
                     </a>
                     
+                    @if (Route::has('admin.homepage-video.edit'))
                     <a href="{{ route('admin.homepage-video.edit') }}"
                        class="flex items-center px-4 py-3 text-white rounded-lg hover:bg-white/10 transition-colors {{ request()->routeIs('admin.homepage-video.*') ? 'bg-white/20' : '' }}">
                         <i class="fas fa-video w-5"></i>
                         <span class="ml-3">Homepage Video</span>
                     </a>
+                    @endif
 
                     <a href="{{ route('admin.settings') }}" 
                        class="flex items-center px-4 py-3 text-white rounded-lg hover:bg-white/10 transition-colors {{ request()->routeIs('admin.settings') ? 'bg-white/20' : '' }}">

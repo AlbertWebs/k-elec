@@ -36,7 +36,9 @@ class HomeController extends Controller
         $bannerPosition1 = Banner::where('position', 1)->first();
         $bannerPosition2 = Banner::where('position', 2)->first();
 
-        $homepageVideo = HomepageVideo::query()->first();
+        $homepageVideo = \Illuminate\Support\Facades\Schema::hasTable('homepage_videos')
+            ? HomepageVideo::query()->first()
+            : null;
 
         $featuredProducts = Product::with('category')
             ->active()

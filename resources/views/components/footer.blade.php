@@ -88,6 +88,7 @@ use App\Helpers\SocialMediaHelper;
                     <li><a href="{{ route('blog.index') }}" class="text-gray-400 hover:text-white">Blog</a></li>
                     <li><a href="{{ route('pages.vendors') }}" class="text-gray-400 hover:text-white">Be A Vendor</a></li>
                     <li><a href="{{ route('pages.contact') }}" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                    <li><a href="{{ route('warranty') }}" class="text-gray-400 hover:text-white">Register Warranty</a></li>
                     <li><a href="{{ route('pages.subscribe') }}" class="text-gray-400 hover:text-white">VIP Offers</a></li>
                     {{-- <li><a href="{{ route('showrooms.index') }}" class="text-gray-400 hover:text-white">Our Showrooms</a></li> --}}
                     <li><a href="{{ route('products.index') }}" class="text-gray-400 hover:text-white">Our Products</a></li>

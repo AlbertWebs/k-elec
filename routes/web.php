@@ -42,6 +42,7 @@ Route::get('/shipping-returns', [PageController::class, 'shippingReturns'])->nam
 Route::get('/faq', [PageController::class, 'faq'])->name('pages.faq');
 Route::get('/privacy', [PageController::class, 'privacy'])->name('pages.privacy');
 Route::get('/showrooms', [PageController::class, 'showrooms'])->name('showrooms.index');
+Route::redirect('/warranty', 'https://warranties.k-elec.co.ke/', 301)->name('warranty');
 
 // Contact Messages
 Route::post('/contact-messages', [App\Http\Controllers\ContactMessageController::class, 'store'])->name('contact-messages.store');

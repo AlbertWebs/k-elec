@@ -58,8 +58,8 @@ use App\Models\Setting;
                     <p class="text-gray-600 mb-4 text-sm leading-relaxed">
                         Need to file a warranty claim? We'll help you through the process and ensure quick resolution.
                     </p>
-                    <a href="#contact" class="text-blue-600 hover:text-blue-700 font-medium text-sm">
-                        Get Help →
+                    <a href="{{ route('warranty') }}" class="text-blue-600 hover:text-blue-700 font-medium text-sm">
+                        Register or Claim Warranty →
                     </a>
                 </div>
 

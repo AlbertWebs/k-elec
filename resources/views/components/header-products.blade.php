@@ -130,6 +130,14 @@ use App\Models\Setting;
                         
                         <span class="text-gray-400">|</span>
                         
+                        <!-- WARRANTY -->
+                        <a href="{{ route('warranty') }}" 
+                           class="font-semibold px-4 py-2 hover:text-gray-700 text-black">
+                            WARRANTY
+                        </a>
+                        
+                        <span class="text-gray-400">|</span>
+                        
                         <!-- BLOG -->
                         <a href="{{ route('blog.index') }}" 
                            class="font-semibold px-4 py-2 hover:text-gray-700 text-black">
@@ -404,6 +412,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         <a href="{{ route('pages.about') }}" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 text-gray-700">
                             <i class="fas fa-info-circle text-lg"></i>
                             <span>About</span>
+                        </a>
+                        <a href="{{ route('warranty') }}" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 text-gray-700">
+                            <i class="fas fa-shield-alt text-lg"></i>
+                            <span>Warranty</span>
                         </a>
                         <a href="{{ route('pages.contact') }}" class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 text-gray-700">
                             <i class="fas fa-envelope text-lg"></i>

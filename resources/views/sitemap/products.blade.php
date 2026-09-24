@@ -49,6 +49,12 @@
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
+    <url>
+        <loc>{{ url('/warranty') }}</loc>
+        <lastmod>{{ now()->format('Y-m-d') }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
     
     <!-- Category Pages -->
     @foreach($categories as $category)

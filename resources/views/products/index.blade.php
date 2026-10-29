@@ -76,20 +76,22 @@
 
 @section('content')
     <!-- Page Header -->
-<section class="w-full bg-gray-50 py-8 bg-cover bg-center" 
-         style="background-image: url('{{ asset('storage/' . $category->featured) }}'); background-repeat: no-repeat; background-size: cover;">
+<section class="w-full bg-gray-50 py-8 bg-cover bg-center"
+         @if($category?->featured) style="background-image: url('{{ asset('storage/' . $category->featured) }}'); background-repeat: no-repeat; background-size: cover;" @endif>
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-6">
+    <div class="grid grid-cols-1 {{ $category?->image ? 'md:grid-cols-2' : '' }} items-center gap-6">
       
       <!-- Left column: Image category -->
-      <div class="flex justify-center">
-        <img src="{{ asset('storage/' . $category->image) }}" 
-             alt="Banner Image" 
-             class="w-full h-auto object-cover rounded-md shadow-lg" style="max-height:584px; object-fit: contain;">
-      </div>
+      @if($category?->image)
+        <div class="flex justify-center">
+          <img src="{{ asset('storage/' . $category->image) }}"
+               alt="Banner Image"
+               class="w-full h-auto object-cover rounded-md shadow-lg" style="max-height:584px; object-fit: contain;">
+        </div>
+      @endif
       
       <!-- Right column: Title -->
-      <div class="text-center md:text-right">
+      <div class="text-center {{ $category?->image ? 'md:text-right' : '' }}">
         <h1 class="text-white font-extrabold leading-tight 
                    text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl max-w-full md:max-w-md title-stylins">
           {{ $pageTitle ?? 'All Products' }}
@@ -514,5 +516,3 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 @endpush
-
- 
